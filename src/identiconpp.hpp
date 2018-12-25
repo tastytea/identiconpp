@@ -19,6 +19,7 @@
 #include <vector>
 
 using std::uint8_t;
+using std::uint32_t;
 using std::string;
 using std::vector;
 
@@ -43,12 +44,12 @@ public:
      *  @param  foreground  vector of foreground colors
      */
     explicit Identiconpp(const uint8_t rows, const uint8_t columns,
-                         const string &background = "ffffffff",
-                         const vector<string> &foreground = { "000000ff" } );
+                         const uint32_t background = 0xffffffff,
+                         const vector<uint32_t> &foreground = { 0x000000ff } );
 
 private:
     const uint8_t _rows;
     const uint8_t _columns;
-    const string _background;
-    const vector<string> _foreground;
+    const uint32_t _background;
+    const vector<uint32_t> _foreground;
 };

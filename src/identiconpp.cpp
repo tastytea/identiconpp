@@ -20,26 +20,12 @@
 #include "debug.hpp"
 
 Identiconpp::Identiconpp(const uint8_t rows, const uint8_t columns,
-                         const string &background,
-                         const vector<string> &foreground)
+                         const uint32_t background,
+                         const vector<uint32_t> &foreground)
 : _rows(rows)
 , _columns(columns)
 , _background(background)
 , _foreground(foreground)
 {
-    // TODO: Check rows and columns
-    if (_background.size() != 8)
-    {
-        throw std::invalid_argument("Background color has the wrong format: " +
-                                    _background);
-    }
-    for (const string &color : _foreground)
-    {
-        if (color.size() != 8)
-        {
-            throw std::invalid_argument("Foreground color has the wrong format: " +
-                                        color);
-        }
-    }
 }
 

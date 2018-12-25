@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    Identiconpp identicon(5, 5, "ffffffff", {"000000ff", "000000"});
+    Identiconpp identicon(5, 5, 0xffffffff, { 0x000000ff, 0x000000 });
 
     return 0;
 }
