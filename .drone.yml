@@ -39,22 +39,12 @@ pipeline:
       - apt-get install -qy g++-6 cmake pkg-config
       - apt-get install -qy libcrypto++-dev libmagick++-dev
       - apt-get install -qy dpkg-dev d-shlibs rpm file wget
-      - gpg --no-tty --import /var/autosign_gpg.key
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
       - make VERBOSE=1
       - make install DESTDIR=install
-      - make package
-      - cmake -DWITH_DEB=ON ..
-      - make package
-      - cmake -DWITH_DEB=OFF -DWITH_RPM=ON ..
-      - make package
-      - gpg --verbose --detach-sign *.tar.gz
-      - gpg --verbose --detach-sign *.deb
-      - gpg --verbose --detach-sign *.rpm
     volumes:
       - /var/cache/debian-package-cache:/var/cache/apt/archives
-      - /home/tastytea/misc/autosign_gpg.key:/var/autosign_gpg.key
 
   gcc7:
     image: debian:stretch-slim
