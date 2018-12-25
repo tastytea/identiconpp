@@ -7,6 +7,7 @@
 #include "identiconpp.hpp"
 
 using std::cout;
+using std::endl;
 using std::string;
 
 int main(int argc, char *argv[])
@@ -28,6 +29,6 @@ int main(int argc, char *argv[])
     }
 
     Identiconpp identicon(5, 5, 0xffffffff, { 0x000000ff, 0x000000 });
-
+    identicon.generate("testtest", Identiconpp::identicon_type::simple);
     return 0;
 }

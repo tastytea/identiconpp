@@ -29,3 +29,43 @@ Identiconpp::Identiconpp(const uint8_t rows, const uint8_t columns,
 {
 }
 
+Identiconpp::Image Identiconpp::generate(const string &digest,
+                                         identicon_type type)
+{
+    switch (type)
+    {
+        case identicon_type::simple:
+        {
+            return generate_simple(digest);
+        }
+        case identicon_type::libravatar:
+        case identicon_type::sigil:
+        {
+            return generate_libravatar(digest);
+        }
+    }
+}
+
+Identiconpp::Image Identiconpp::generate_simple(const string &digest)
+{
+    return { 1, Magick::Image() };
+}
+
+Identiconpp::Image Identiconpp::generate_libravatar(const string &digest)
+{
+    uint8_t entropy_provided = digest.length() / 2 * 8;
+    uint8_t entropy_required = (_columns / 2 + _columns % 2) * _rows + 8;
+    ttdebug << "entropy_provided=" << std::to_string(entropy_provided)
+        << ", entropy_required=" << std::to_string(entropy_required) << '\n';
+
+    if (entropy_provided < entropy_required)
+    {
+        throw std::invalid_argument(
+            "Passed digest \"" + digest + "\" is not capable of providing " +
+            std::to_string(entropy_required) + " bits of entropy.");
+    }
+
+    // TODO: implement
+
+    return { 1, Magick::Image() };
+}

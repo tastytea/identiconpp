@@ -17,6 +17,8 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include <tuple>
+#include <Magick++/Image.h>
 
 using std::uint8_t;
 using std::uint32_t;
@@ -32,11 +34,31 @@ class Identiconpp
 {
 public:
     /*!
+     * @brief  Return type for images.
+     */
+    struct Image
+    {
+        uint8_t error;
+        Magick::Image data;
+    };
+
+    /*!
+     *  @brief  List of identicon types
+     *
+     *          libravatar and sigil are synonymous.
+     */
+    enum class identicon_type
+    {
+        simple,
+        libravatar,
+        sigil
+    };
+
+    /*!
      *  @brief  Initialises an instance of Identiconpp.
      *
      *          The instance can be used for creating identicons with differing
-     *          image formats and sizes. Will throw `std::invalid_argument` if
-     *          an argument is invalid.
+     *          image formats and sizes.
      *
      *  @param  rows        Number of rows
      *  @param  columns     Number of columns
@@ -47,9 +69,36 @@ public:
                          const uint32_t background = 0xffffffff,
                          const vector<uint32_t> &foreground = { 0x000000ff } );
 
+    /*!
+     *  @brief  Generates identicon from digest.
+     *
+     *  @param  digest  The pre-computed digest
+     *
+     *  @return 0 and an image on success, 1 and an empty image on error.
+     */
+    Image generate(const string &digest, identicon_type type);
+
 private:
     const uint8_t _rows;
     const uint8_t _columns;
     const uint32_t _background;
     const vector<uint32_t> _foreground;
+
+    /*!
+     *  @brief  Generate simple identicon.
+     *
+     *  @param  digest  The pre-computed digest
+     *
+     *  @return 0 and an image on success, 1 and an empty image on error.
+     */
+    Image generate_simple(const string &digest);
+
+    /*!
+     *  @brief  Generate libravatar-style identicon.
+     *
+     *  @param  digest  The pre-computed digest
+     *
+     *  @return 0 and an image on success, 1 and an empty image on error.
+     */
+    Image generate_libravatar(const string &digest);
 };
