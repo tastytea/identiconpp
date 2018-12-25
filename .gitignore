@@ -1,3 +1,5 @@
-/build/
-/doc/
-/update_doc.sh
+*
+!.gitignore
+!index.html
+!/docs
+!/docs/**
