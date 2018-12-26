@@ -69,10 +69,11 @@ bool Identiconpp::get_bit(const uint16_t bit, const string &digest)
     ss >> buf;
     std::bitset<4> nibble(buf);
     
-    if (nibble[bit % 4])
+    if (nibble[3 - bit % 4])
     {
-        ttdebug << "Bit " << std::to_string(bit) << " is set in "
+        ttdebug << "Bit " << std::to_string(bit + 1) << " is set in "
                 << digest << ".\n";
+        ttdebug << nibble << " (" << bit % 4 << ")\n";
         return true;
     }
 
