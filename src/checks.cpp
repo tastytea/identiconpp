@@ -22,6 +22,14 @@
 
 void Identiconpp::check_entropy(const string &digest, algorithm type)
 {
+    if (std::any_of(digest.begin(), digest.end(), not_hex))
+    {
+        throw std::invalid_argument
+        (
+            "Colors must consist of hexadecimal digits (" + digest + ")."
+        );
+    }
+
     uint16_t entropy_provided;
     uint16_t entropy_required;
     switch (type)
