@@ -95,6 +95,7 @@ Magick::Image Identiconpp::generate_libravatar(const string &digest,
                                                const uint16_t width,
                                                const uint16_t height)
 {
+    throw "Not implemented.";
     Magick::Image img(Magick::Geometry(_columns, _rows),
                       Magick::Color("#" + _background));
     return img;

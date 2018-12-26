@@ -34,20 +34,20 @@ int main(int argc, char *argv[])
         img.write("identicon_example_simple.png");
     }
 
-    {
-        Identiconpp identicon(10, 10, Identiconpp::identicon_type::libravatar,
-            "ffffffff",
-            {
-                "000000ff",
-                "ff0000ff",
-                "ffff00ff",
-                "00ff00ff",
-                "00ffffff",
-                "0000ffff"
-            });
-        img = identicon.generate(digest, 500);
-        img.write("identicon_example_libravatar.png");
-    }
+    // {
+    //     Identiconpp identicon(10, 10, Identiconpp::identicon_type::libravatar,
+    //         "ffffffff",
+    //         {
+    //             "000000ff",
+    //             "ff0000ff",
+    //             "ffff00ff",
+    //             "00ff00ff",
+    //             "00ffffff",
+    //             "0000ffff"
+    //         });
+    //     img = identicon.generate(digest, 500);
+    //     img.write("identicon_example_libravatar.png");
+    // }
 
     return 0;
 }
