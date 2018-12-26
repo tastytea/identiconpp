@@ -19,7 +19,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">identiconpp
-   &#160;<span id="projectnumber">0.0.0</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
   </td>
  </tr>
@@ -40,6 +40,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classIdenticonpp-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -52,18 +53,56 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="identiconpp_8hpp_source.html">identiconpp.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae05d01125190ffec88f1653ffa352bed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">identicon_type</a> { <b>simple</b>, 
+<b>libravatar</b>, 
+<b>sigil</b>
+ }</td></tr>
+<tr class="memdesc:ae05d01125190ffec88f1653ffa352bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of identicon types.  <a href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">More...</a><br /></td></tr>
+<tr class="separator:ae05d01125190ffec88f1653ffa352bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8a3d515d391ffbfdd4880bf215feb592"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a8a3d515d391ffbfdd4880bf215feb592">Identiconpp</a> (const uint8_t rows, const uint8_t columns, const string &amp;background=&quot;ffffffff&quot;, const vector&lt; string &gt; &amp;foreground={ &quot;000000ff&quot; })</td></tr>
-<tr class="memdesc:a8a3d515d391ffbfdd4880bf215feb592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises an instance of <a class="el" href="classIdenticonpp.html" title="Base class for identiconpp. ">Identiconpp</a>.  <a href="#a8a3d515d391ffbfdd4880bf215feb592">More...</a><br /></td></tr>
-<tr class="separator:a8a3d515d391ffbfdd4880bf215feb592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8473c23bf7869c6ec97688fad5b2ce65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a8473c23bf7869c6ec97688fad5b2ce65">Identiconpp</a> (const uint8_t rows, const uint8_t columns, <a class="el" href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">identicon_type</a> type, const string background=&quot;ffffffff&quot;, const vector&lt; string &gt; &amp;foreground={ &quot;000000ff&quot; })</td></tr>
+<tr class="memdesc:a8473c23bf7869c6ec97688fad5b2ce65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises an instance of <a class="el" href="classIdenticonpp.html" title="Base class for identiconpp. ">Identiconpp</a>.  <a href="#a8473c23bf7869c6ec97688fad5b2ce65">More...</a><br /></td></tr>
+<tr class="separator:a8473c23bf7869c6ec97688fad5b2ce65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82f624d713e2d32d5fdb26b9112b821a"><td class="memItemLeft" align="right" valign="top">Magick::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a82f624d713e2d32d5fdb26b9112b821a">generate</a> (const string &amp;digest, const uint16_t width=100)</td></tr>
+<tr class="memdesc:a82f624d713e2d32d5fdb26b9112b821a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates identicon from digest.  <a href="#a82f624d713e2d32d5fdb26b9112b821a">More...</a><br /></td></tr>
+<tr class="separator:a82f624d713e2d32d5fdb26b9112b821a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for identiconpp. </p>
-<p>Use this class for all your identicons. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8a3d515d391ffbfdd4880bf215feb592"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a3d515d391ffbfdd4880bf215feb592">&#9670;&nbsp;</a></span>Identiconpp()</h2>
+<p>Use this class for all your identicons. Exceptions will be thrown on error. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ae05d01125190ffec88f1653ffa352bed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae05d01125190ffec88f1653ffa352bed">&#9670;&nbsp;</a></span>identicon_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">Identiconpp::identicon_type</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of identicon types. </p>
+<p>libravatar and sigil are synonymous. </p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        simple,</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        libravatar,</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        sigil</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    };</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8473c23bf7869c6ec97688fad5b2ce65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8473c23bf7869c6ec97688fad5b2ce65">&#9670;&nbsp;</a></span>Identiconpp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -86,7 +125,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">identicon_type</a>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string&#160;</td>
           <td class="paramname"><em>background</em> = <code>&quot;ffffffff&quot;</code>, </td>
         </tr>
         <tr>
@@ -109,17 +154,57 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initialises an instance of <a class="el" href="classIdenticonpp.html" title="Base class for identiconpp. ">Identiconpp</a>. </p>
-<p>The instance can be used for creating identicons with differing image formats and sizes. Will throw <code>std::invalid_argument</code> if an argument is invalid.</p>
+<p>The instance can be used for creating identicons with differing image formats and sizes. The colors must consist of exactly 8 digits.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rows</td><td>Number of rows </td></tr>
     <tr><td class="paramname">columns</td><td>Number of columns </td></tr>
+    <tr><td class="paramname">type</td><td>The type of identicon </td></tr>
     <tr><td class="paramname">background</td><td>Background color, hexadecimal, rrggbbaa </td></tr>
     <tr><td class="paramname">foreground</td><td>vector of foreground colors </td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;: _rows(rows)</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;, _columns(columns)</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;, _background(background)</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;, _foreground(foreground)</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// TODO: Check rows and columns</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span> (_background.size() != 8)</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Background color has the wrong format: &quot;</span> +</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                    _background);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;color : _foreground)</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> (color.size() != 8)</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Foreground color has the wrong format: &quot;</span> +</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                                        color);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;: _rows(rows)</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;, _columns(columns)</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;, _type(type)</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;, _background(background)</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;, _foreground(foreground)</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> (background.length() != 8)</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        (</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="stringliteral">&quot;The background color must consist of exactly 8 digits.&quot;</span></div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        );</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;color : foreground)</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">if</span> (color.length() != 8)</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        (</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="stringliteral">&quot;The foreground colors must consist of exactly 8 digits.&quot;</span></div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        );</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a82f624d713e2d32d5fdb26b9112b821a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82f624d713e2d32d5fdb26b9112b821a">&#9670;&nbsp;</a></span>generate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Magick::Image Identiconpp::generate </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>digest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint16_t&#160;</td>
+          <td class="paramname"><em>width</em> = <code>100</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates identicon from digest. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">digest</td><td>The pre-computed digest </td></tr>
+    <tr><td class="paramname">width</td><td>The width of the image</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The image </dd></dl>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    check_entropy(digest, _type);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> uint16_t height = width / _columns * _rows;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ttdebug &lt;&lt; <span class="stringliteral">&quot;width: &quot;</span> &lt;&lt; std::to_string(width)</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;, height: &quot;</span> &lt;&lt; std::to_string(height) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">switch</span> (_type)</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">case</span> identicon_type::simple:</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> generate_simple(digest, width, height);</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">case</span> identicon_type::libravatar:</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">case</span> identicon_type::sigil:</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">return</span> generate_libravatar(digest, width, height);</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
