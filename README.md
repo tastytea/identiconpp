@@ -105,3 +105,52 @@ License GPLv3: GNU GPL version 3 <https://www.gnu.org/licenses/gpl-3.0.html>.
 This program comes with ABSOLUTELY NO WARRANTY. This is free software,
 and you are welcome to redistribute it under certain conditions.
 ```
+
+## Algorithms
+
+### ltr_symmetric
+
+* Create image with width=columns, height=rows.
+* Set background color.
+* Select half of the columns, or half of the columns + 1 if uneven.
+  * `columns / 2 + columns % 2`
+* Pixels are drawn from left to right, top to bottom.
+* Use bits from digest to determine if a pixel is painted(1) or not(0).
+* Mirror the pixels vertically.
+* Use the following bits to pick the foreground color.
+* Scale image proportionally to requested width.
+
+```PLAIN
+ 0111 0011 1101 1100 […] 1111 0111 0101 0111
+^                            ^
++----------------------------+-------------->
+             |                      |
+        pixel matrix        foreground color
+```
+
+Implemented in [ltr_symmetric.cpp]
+(https://schlomp.space/tastytea/identiconpp/src/branch/master/src/ltr_symmetric.cpp)
+
+### sigil
+
+* Create image with width=columns, height=rows.
+* Set background color.
+* Select half of the columns, or half of the columns + 1 if uneven.
+  * `columns / 2 + columns % 2`
+* Pixels are drawn from top to bottom, left to right.
+* Use the first 8 bits to pick the foreground color.
+* Use the following bits to determine if a pixel is painted(1) or not(0).
+* Mirror the pixels vertically.
+* Scale image proportionally to requested width.
+
+```PLAIN
+ 0111 0011 1101 1100
+^         ^
++---------+--------->
+     |            |
+foreground color  |
+             pixel matrix
+```
+
+Implemented in [sigil.cpp]
+(https://schlomp.space/tastytea/identiconpp/src/branch/master/src/sigil.cpp)

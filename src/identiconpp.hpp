@@ -80,7 +80,7 @@ private:
     /*!
      *  @brief  Generate simple identicon.
      *
-     *          Use bits 0 to (columns / 2 + columns % 2) * _rows, use the
+     *          Use bits 0 to (_columns / 2 + _columns % 2) * _rows, use the
      *          following bits to determine foreground color. Squares are drawn
      *          from left to right, top to bottom.
      *
@@ -97,7 +97,7 @@ private:
     /*!
      *  @brief  Generate sigil identicon.
      *
-     *          Use bits 9 to (columns / 2 + columns % 2) * _rows, use the first
+     *          Use bits 9 to (_columns / 2 + _columns % 2) * _rows, use the first
      *          8 bits to determine foreground color. Squares are drawn from top
      *          to bottom, left to right.
      *
