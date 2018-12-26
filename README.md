@@ -5,14 +5,20 @@ modifications.
 
 ## Features
 
-* [x] Simple identicons
-* [ ] libravatar/sigil identicons
+* [x] Symmetric identicons
+* [x] sigil identicons
+* [ ] Asymmetric identicons
 
 ## Usage
 
 The HTML reference can be generated with build_doc.sh, if doxygen is installed.
 It is also available at [doc.schlomp.space/identiconpp/]
 (https://doc.schlomp.space/identiconpp/classIdenticonpp.html).
+
+You need to generate hashes yourself, any hexadecimal string will do. Make sure
+to use a safe hashing algorithm for sensitive data (**not MD5**). You can select
+as many columns and rows as you like, but make sure you have enough entropy.
+If something seems to be wrong, exceptions will be thrown.
 
 ### Example
 
@@ -23,7 +29,7 @@ It is also available at [doc.schlomp.space/identiconpp/]
 
 int main()
 {
-    Identiconpp identicon(5, 5, Identiconpp::identicon_type::simple,
+    Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_symmetric,
                           "ffffff88", { "800000ff" });
     Magick::Image img;
     img = identicon.generate("55502f40dc8b7c769880b10874abc9d0", 200);
