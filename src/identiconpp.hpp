@@ -84,7 +84,8 @@ private:
      *  @brief  Generate simple identicon.
      *
      *          Use bits 0 to (columns / 2 + columns % 2) * _rows, use the
-     *          following bits to determine foreground color.
+     *          following bits to determine foreground color. Squares are drawn
+     *          from left to right, top to bottom.
      *
      *  @param  digest  The pre-computed digest
      *  @param  width   The width of the image
@@ -100,7 +101,8 @@ private:
      *  @brief  Generate libravatar-style / sigil identicon.
      *
      *          Use bits 9 to (columns / 2 + columns % 2) * _rows, use the first
-     *          8 bits to determine foreground color.
+     *          8 bits to determine foreground color. Squares are drawn from top
+     *          to bottom, left to right.
      *
      *  @param  digest  The pre-computed digest
      *  @param  width   The width of the image
