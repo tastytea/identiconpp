@@ -21,8 +21,27 @@ Magick::Image Identiconpp::generate_libravatar(const string &digest,
                                                const uint16_t width,
                                                const uint16_t height)
 {
-    throw "Not implemented.";
+    // throw "Not implemented.";
     Magick::Image img(Magick::Geometry(_columns, _rows),
                       Magick::Color("#" + _background));
+    Magick::Color dotcolor = get_color(0, digest);
+
+    uint8_t used_columns = _columns / 2 + _columns % 2;
+    uint8_t cells = _rows * used_columns;
+    for (uint8_t cur_cell = 0; cur_cell < cells; ++cur_cell)
+    {
+        if (get_bit(8 + cur_cell, digest))
+        {
+            const uint8_t column = cur_cell / _columns;
+            const uint8_t row = cur_cell % _rows;
+            ttdebug << "col=" << std::to_string(column)
+                    << ", row=" << std::to_string(row) << '\n';
+            img.pixelColor(column, row, dotcolor);
+            img.pixelColor(_columns - column - 1, row, dotcolor);
+        }
+    }
+
+    img.scale(Magick::Geometry(width, height));
+    img.magick("png");
     return img;
 }

@@ -101,12 +101,12 @@ Magick::Color Identiconpp::get_color(const uint16_t firstbit,
     // Get rid of excess bits
     bits = bits & (1 << colorbits) - 1;
 
-    if (bits > _foreground.size())
+    if (bits > (_foreground.size() - 1))
     {
-        bits -= _foreground.size();
+        bits -= (_foreground.size() - 1);
     }
 
     // Lookup und set color
-    ttdebug << "Color: #" << _foreground[bits - 1] << '\n';
-    return Magick::Color("#" + _foreground[bits - 1]);
+    ttdebug << "Color: #" << _foreground[bits] << '\n';
+    return Magick::Color("#" + _foreground[bits]);
 }

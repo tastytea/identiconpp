@@ -34,8 +34,6 @@ Magick::Image Identiconpp::generate_simple(const string &digest,
             {
                 ttdebug << "col=" << std::to_string(column)
                         << ", row=" << std::to_string(row) << '\n';
-                ttdebug << "col=" << std::to_string(used_columns - 1 + column)
-                        << ", row=" << std::to_string(_rows - 1 - row) << '\n';
                 img.pixelColor(column, row, dotcolor);
                 img.pixelColor(_columns - 1 - column, row, dotcolor);
             }
