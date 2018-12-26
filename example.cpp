@@ -28,7 +28,18 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    Identiconpp identicon(5, 5, 0xffffffff, { 0x000000ff, 0x000000 });
-    identicon.generate("testtest", Identiconpp::identicon_type::simple);
+    Identiconpp identicon(5, 5, 0xffffffff,
+                        {
+                            0x000000ff,
+                            0xff0000ff,
+                            0xffff00ff,
+                            0x00ff00ff,
+                            0x00ffffff,
+                            0x0000ffff
+                        });
+    Identiconpp::Image image;
+    image = identicon.generate("2b7dd5def082abfca556d9e8feb1fc29", Identiconpp::identicon_type::simple);
+    cout.flush();   // We need to flush before we use /dev/stdout directly.
+    image.data.write("/dev/stdout");
     return 0;
 }

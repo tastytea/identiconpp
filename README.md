@@ -1,5 +1,8 @@
 **identiconpp** is a library to generate identicons. Written in C++.
 
+There are currently 2 types of identicons supported. libravatar/sigil and
+simple.
+
 ## Features
 
 ## Usage

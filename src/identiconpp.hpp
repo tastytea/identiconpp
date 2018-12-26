@@ -21,6 +21,7 @@
 #include <Magick++/Image.h>
 
 using std::uint8_t;
+using std::uint16_t;
 using std::uint32_t;
 using std::string;
 using std::vector;
@@ -73,10 +74,14 @@ public:
      *  @brief  Generates identicon from digest.
      *
      *  @param  digest  The pre-computed digest
+     *  @param  type    The type of identicon
+     *  @param  width   The width of the image
+     *  @param  height  The height of the image
      *
      *  @return 0 and an image on success, 1 and an empty image on error.
      */
-    Image generate(const string &digest, identicon_type type);
+    Image generate(const string &digest, identicon_type type,
+                   const uint16_t width = 100, const uint16_t height = 100);
 
 private:
     const uint8_t _rows;
@@ -88,17 +93,55 @@ private:
      *  @brief  Generate simple identicon.
      *
      *  @param  digest  The pre-computed digest
+     *  @param  width   The width of the image
+     *  @param  height  The height of the image
      *
      *  @return 0 and an image on success, 1 and an empty image on error.
      */
-    Image generate_simple(const string &digest);
+    Image generate_simple(const string &digest,
+                          const uint16_t width, const uint16_t height);
 
     /*!
-     *  @brief  Generate libravatar-style identicon.
+     *  @brief  Generate libravatar-style / sigil identicon.
      *
      *  @param  digest  The pre-computed digest
+     *  @param  width   The width of the image
+     *  @param  height  The height of the image
      *
      *  @return 0 and an image on success, 1 and an empty image on error.
      */
-    Image generate_libravatar(const string &digest);
+    Image generate_libravatar(const string &digest,
+                              const uint16_t width, const uint16_t height);
+
+    /*!
+     *  @brief  Check if the digest contains enough entropy.
+     *
+     *          Throws `std::invalid_argument` if not.
+     *
+     *  @param  digest  The pre-computed digest
+     *  @param  type    The type of identicon
+     */
+    void check_entropy(const string &digest, identicon_type type);
+
+    /*!
+     *  @brief  Determines if the n-th bit of passed digest is 1 or 0.
+     *
+     *  @param  bit     Bit to get
+     *  @param  digest  The digest
+     *
+     *  @return The bit.
+     */
+    bool get_bit(const uint16_t bit, const string &digest);
+
+    /*!
+     *  @brief  Chooses a foreground color.
+     *
+     *          Extracts the right bits from the digest and returns a color.
+     *
+     *  @param  firstbit  The first bit of the digest to choose a color
+     *  @param  digest    The digest
+     *
+     *  @return A foreground color.
+     */
+    Magick::Color get_color(const uint16_t firstbit, const string &digest);
 };
