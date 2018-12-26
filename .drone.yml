@@ -19,7 +19,7 @@ pipeline:
       - apt-get update -q
       - apt-get install -qy -t xenial g++-5
       - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libcrypto++-dev libmagick++-dev
+      - apt-get install -qy libmagick++-dev
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
       - make VERBOSE=1
@@ -37,14 +37,24 @@ pipeline:
       - rm /etc/apt/apt.conf.d/docker-clean
       - apt-get update -q
       - apt-get install -qy g++-6 cmake pkg-config
-      - apt-get install -qy libcrypto++-dev libmagick++-dev
+      - apt-get install -qy libmagick++-dev
       - apt-get install -qy dpkg-dev d-shlibs rpm file wget
+      - gpg --no-tty --import /var/autosign_gpg.key
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
       - make VERBOSE=1
       - make install DESTDIR=install
+      - make package
+      - cmake -DWITH_DEB=ON ..
+      - make package
+      - cmake -DWITH_DEB=OFF -DWITH_RPM=ON ..
+      - make package
+      - gpg --verbose --detach-sign *.tar.gz
+      - gpg --verbose --detach-sign *.deb
+      - gpg --verbose --detach-sign *.rpm
     volumes:
       - /var/cache/debian-package-cache:/var/cache/apt/archives
+      - /home/tastytea/misc/autosign_gpg.key:/var/autosign_gpg.key
 
   gcc7:
     image: debian:stretch-slim
@@ -66,7 +76,7 @@ pipeline:
       - apt-get update -q
       - apt-get install -qy -t xenial g++-7
       - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libcrypto++-dev libmagick++-dev
+      - apt-get install -qy libmagick++-dev
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
       - make VERBOSE=1
@@ -93,7 +103,7 @@ pipeline:
       - apt-get update -q
       - apt-get install -qy -t xenial g++-8
       - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libcrypto++-dev libmagick++-dev
+      - apt-get install -qy libmagick++-dev
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
       - make VERBOSE=1
@@ -116,7 +126,7 @@ pipeline:
       - apt-get update -q
       - apt-get install -qy -t stretch-backports clang-5.0
       - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libcrypto++-dev libmagick++-dev
+      - apt-get install -qy libmagick++-dev
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
       - make VERBOSE=1
@@ -139,12 +149,25 @@ pipeline:
       - apt-get update -q
       - apt-get install -qy -t stretch-backports clang-6.0
       - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libcrypto++-dev libmagick++-dev
+      - apt-get install -qy libmagick++-dev
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
       - make VERBOSE=1
     volumes:
       - /var/cache/debian-package-cache:/var/cache/apt/archives
+
+  prepare_release:
+    image: debian:stretch-slim
+    pull: true
+    when:
+      event: tag
+    commands:
+      - cp -v build/identiconpp-${DRONE_TAG}_x86_64.tar.gz .
+      - cp -v build/identiconpp-${DRONE_TAG}_x86_64.tar.gz.sig .
+      - cp -v build/identiconpp_${DRONE_TAG}-0_amd64.deb .
+      - cp -v build/identiconpp_${DRONE_TAG}-0_amd64.deb.sig .
+      - cp -v build/identiconpp-${DRONE_TAG}-0.x86_64.rpm .
+      - cp -v build/identiconpp-${DRONE_TAG}-0.x86_64.rpm.sig .
 
   gitea_release:
     image: plugins/gitea-release
@@ -155,6 +178,15 @@ pipeline:
     secrets: [ gitea_token ]
     title: ${DRONE_TAG}
     prerelease: true
+    files:
+      - libravatarserv-${DRONE_TAG}_x86_64.tar.gz
+      - libravatarserv-${DRONE_TAG}_x86_64.tar.gz.sig
+      - libravatarserv_${DRONE_TAG}-0_amd64.deb
+      - libravatarserv_${DRONE_TAG}-0_amd64.deb.sig
+      - libravatarserv-${DRONE_TAG}-0.x86_64.rpm
+      - libravatarserv-${DRONE_TAG}-0.x86_64.rpm.sig
+    checksum:
+      - sha512
 
   notify:
     image: drillster/drone-email

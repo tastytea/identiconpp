@@ -1,0 +1,45 @@
+# Packages
+set(CPACK_PACKAGE_NAME ${CMAKE_PROJECT_NAME})
+set(CPACK_PACKAGE_VERSION_MAJOR ${${CMAKE_PROJECT_NAME}_VERSION_MAJOR})
+set(CPACK_PACKAGE_VERSION_MINOR ${${CMAKE_PROJECT_NAME}_VERSION_MINOR})
+set(CPACK_PACKAGE_VERSION_PATCH ${${CMAKE_PROJECT_NAME}_VERSION_PATCH})
+set(CPACK_PACKAGE_VERSION ${${CMAKE_PROJECT_NAME}_VERSION})
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Library to generate identicons. Written in C++.")
+set(CPACK_PACKAGE_CONTACT "tastytea <tastytea@tastytea.de>")
+set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE")
+set(CPACK_RESOURCE_FILE_README "${PROJECT_SOURCE_DIR}/README.md")
+list(APPEND CPACK_SOURCE_IGNORE_FILES "/\\\\.git"
+                                      "/.gitignore"
+                                      "/build/"
+                                      "/doc/"
+                                      "\\\\.sublime-"
+                                      "/.drone.yml")
+execute_process(COMMAND uname -m
+                OUTPUT_VARIABLE CPACK_PACKAGE_ARCHITECTURE
+                OUTPUT_STRIP_TRAILING_WHITESPACE)
+set(CPACK_PACKAGE_FILE_NAME
+    "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}_${CPACK_PACKAGE_ARCHITECTURE}")
+set(CPACK_GENERATOR "TGZ")
+set(CPACK_SOURCE_GENERATOR "TGZ")
+
+if (WITH_DEB)
+    set(CPACK_GENERATOR "DEB")
+    set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://schlomp.space/tastytea/${CMAKE_PROJECT_NAME}")
+    set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+    execute_process(COMMAND dpkg --print-architecture
+                    OUTPUT_VARIABLE CPACK_DEBIAN_PACKAGE_ARCHITECTURE
+                    OUTPUT_STRIP_TRAILING_WHITESPACE)
+    set(CPACK_PACKAGE_FILE_NAME
+        "${CPACK_PACKAGE_NAME}_${CPACK_PACKAGE_VERSION}-0_${CPACK_DEBIAN_PACKAGE_ARCHITECTURE}")
+endif()
+
+if (WITH_RPM)
+    set(CPACK_GENERATOR "RPM")
+    set(CPACK_RPM_PACKAGE_LICENSE "GPL-3")
+    set(CPACK_RPM_PACKAGE_URL "https://schlomp.space/tastytea/${CMAKE_PROJECT_NAME}")
+    set(CPACK_RPM_PACKAGE_REQUIRES "libMagick++, libxdg-basedir >= 1.2.0")
+    set(CPACK_PACKAGE_FILE_NAME
+         "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-0.${CPACK_PACKAGE_ARCHITECTURE}")
+endif()
+
+include(CPack)
