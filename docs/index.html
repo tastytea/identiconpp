@@ -19,7 +19,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">identiconpp
-   &#160;<span id="projectnumber">0.1.1</span>
+   &#160;<span id="projectnumber">0.1.2</span>
    </div>
   </td>
  </tr>
@@ -44,25 +44,45 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><b>identiconpp</b> is a library to generate identicons. Written in C++.</p>
-<p>There are currently 2 types of identicons supported. libravatar/sigil and simple.</p>
+<p>You get the images as <code>Magick::Image</code>. This allows you to make all kinds of modifications.</p>
 <h2>Features</h2>
+<ul>
+<li>[x] Simple identicons</li>
+<li>[ ] libravatar/sigil identicons</li>
+</ul>
 <h2>Usage</h2>
 <p>The HTML reference can be generated with build_doc.sh, if doxygen is installed. It is also available at <a href="https://doc.schlomp.space/identiconpp/classIdenticonpp.html">doc.schlomp.space/identiconpp/</a>.</p>
-<h2>Install</h2>
+<h3>Example</h3>
+<div class="fragment"><div class="line">{C++}</div><div class="line">// Compile with g++ $(Magick++-config --cppflags --ldflags) -lidenticonpp</div><div class="line">#include &lt;identiconpp.hpp&gt;</div><div class="line">#include &lt;Magick++/Image.h&gt;</div><div class="line"></div><div class="line">int main()</div><div class="line">{</div><div class="line">    Identiconpp identicon(5, 5, Identiconpp::identicon_type::simple,</div><div class="line">                          &quot;ffffff88&quot;, { &quot;800000ff&quot; });</div><div class="line">    Magick::Image img;</div><div class="line">    img = identicon.generate(&quot;55502f40dc8b7c769880b10874abc9d0&quot;, 200);</div><div class="line">    img.write(&quot;identicon.png&quot;);</div><div class="line">}</div></div><!-- fragment --><h2>Install</h2>
+<h3>Gentoo</h3>
+<p>Gentoo ebuilds are available via my <a href="https://schlomp.space/tastytea/overlay">repository</a>.</p>
+<h3>Automatically generated packages</h3>
+<p>Binary packages are generated automatically for each <a href="https://schlomp.space/tastytea/identiconpp/releases">release</a> in the formats:</p>
+<ul>
+<li>deb</li>
+<li>rpm</li>
+<li>tar.gz</li>
+</ul>
+<p>They are generated on Debian Stretch 64 bit and signed with my <a href="https://tastytea.de/tastytea_autosign.asc">automatic signing key</a>.</p>
 <h3>From source</h3>
 <h4>Dependencies</h4>
 <ul>
 <li>C++ compiler (tested: <a href="https://gcc.gnu.org/">gcc</a> 5/6/7/8, <a href="https://llvm.org/">clang</a> 5/6)</li>
 <li><a href="https://cmake.org/">cmake</a> (at least 3.2)</li>
-<li><a href="https://cryptopp.com">crypto++</a> (tested: 7.0 / 5.6)</li>
 <li><a href="https://www.imagemagick.org/">imagemagick</a> (tested: 7.0 / 6.7)</li>
 </ul>
-<p>On a Debian system, install the packages: <code>build-essential cmake libcrypto++-dev libmagick++-dev</code>.</p>
+<p>On a Debian system, install the packages: <code>build-essential cmake libmagick++-dev</code>.</p>
 <h4>Compile</h4>
 <div class="fragment"><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">cmake ..</div><div class="line">make</div><div class="line">make install</div></div><!-- fragment --><h5>cmake options</h5>
 <ul>
 <li><code>-DCMAKE_BUILD_TYPE=Debug</code> for a debug build</li>
+<li>One of:<ul>
+<li><code>-DWITH_DEB=YES</code> to generate a deb-package</li>
+<li><code>-DWITH_RPM=YES</code> to generate an rpm-package</li>
 </ul>
+</li>
+</ul>
+<p>To generate a binary package, execute <code>make package</code></p>
 <h2>Contributing</h2>
 <p>Contributions are always welcome. You can submit them as pull requests or via email to <code>tastytea</code>&lt;tt&gt;tastytea.de.</p>
 <h2>Contact</h2>
