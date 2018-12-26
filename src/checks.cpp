@@ -20,13 +20,13 @@
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
-void Identiconpp::check_entropy(const string &digest, identicon_type type)
+void Identiconpp::check_entropy(const string &digest, algorithm type)
 {
     uint16_t entropy_provided;
     uint16_t entropy_required;
     switch (type)
     {
-        case identicon_type::simple:
+        case algorithm::ltr_symmetric:
         {
             // Every char is 4 bit
             entropy_provided = digest.length() * 4;
@@ -36,8 +36,7 @@ void Identiconpp::check_entropy(const string &digest, identicon_type type)
                 + (_foreground.size() / 2 + _foreground.size() % 2);
             break;
         }
-        case identicon_type::libravatar:
-        case identicon_type::sigil:
+        case algorithm::sigil:
         {
             entropy_provided = digest.length() / 2 * 8;
             entropy_required = (_columns / 2 + _columns % 2) * _rows + 8;

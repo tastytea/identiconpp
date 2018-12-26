@@ -17,27 +17,26 @@
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
-Magick::Image Identiconpp::generate_libravatar(const string &digest,
-                                               const uint16_t width,
-                                               const uint16_t height)
+Magick::Image Identiconpp::generate_ltr_symmetric(const string &digest,
+                                                  const uint16_t width,
+                                                  const uint16_t height)
 {
-    // throw "Not implemented.";
     Magick::Image img(Magick::Geometry(_columns, _rows),
                       Magick::Color("#" + _background));
-    Magick::Color dotcolor = get_color(0, digest);
-
     uint8_t used_columns = _columns / 2 + _columns % 2;
-    uint8_t cells = _rows * used_columns;
-    for (uint8_t cur_cell = 0; cur_cell < cells; ++cur_cell)
+    Magick::Color dotcolor = get_color(used_columns * _rows + 1, digest);
+
+    for (uint8_t row = 0; row < _rows; ++row)
     {
-        if (get_bit(8 + cur_cell, digest))
+        for (uint8_t column = 0; column < used_columns; ++column)
         {
-            const uint8_t column = cur_cell / _columns;
-            const uint8_t row = cur_cell % _rows;
-            ttdebug << "col=" << std::to_string(column)
-                    << ", row=" << std::to_string(row) << '\n';
-            img.pixelColor(column, row, dotcolor);
-            img.pixelColor(_columns - column - 1, row, dotcolor);
+            if (get_bit(row * used_columns + column, digest))
+            {
+                ttdebug << "col=" << std::to_string(column)
+                        << ", row=" << std::to_string(row) << '\n';
+                img.pixelColor(column, row, dotcolor);
+                img.pixelColor(_columns - 1 - column, row, dotcolor);
+            }
         }
     }
 

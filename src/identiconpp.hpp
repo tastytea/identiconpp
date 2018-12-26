@@ -34,14 +34,11 @@ class Identiconpp
 {
 public:
     /*!
-     *  @brief  List of identicon types
-     *
-     *          libravatar and sigil are synonymous.
+     * @brief  List of identicon algorithms
      */
-    enum class identicon_type
+    enum class algorithm
     {
-        simple,
-        libravatar,
+        ltr_symmetric,
         sigil
     };
 
@@ -59,7 +56,7 @@ public:
      *  @param  foreground  vector of foreground colors
      */
     explicit Identiconpp(const uint8_t rows, const uint8_t columns,
-                         identicon_type type = identicon_type::simple,
+                         algorithm type = algorithm::ltr_symmetric,
                          const string &background = "ffffffff",
                          const vector<string> &foreground = { "000000ff" } );
 
@@ -76,7 +73,7 @@ public:
 private:
     const uint8_t _rows;
     const uint8_t _columns;
-    const identicon_type _type;
+    const algorithm _type;
     const string _background;
     const vector<string> _foreground;
 
@@ -93,12 +90,12 @@ private:
      *
      *  @return The image
      */
-    Magick::Image generate_simple(const string &digest,
-                                  const uint16_t width,
-                                  const uint16_t height);
+    Magick::Image generate_ltr_symmetric(const string &digest,
+                                         const uint16_t width,
+                                         const uint16_t height);
 
     /*!
-     *  @brief  Generate libravatar-style / sigil identicon.
+     *  @brief  Generate sigil identicon.
      *
      *          Use bits 9 to (columns / 2 + columns % 2) * _rows, use the first
      *          8 bits to determine foreground color. Squares are drawn from top
@@ -110,9 +107,9 @@ private:
      *
      *  @return The image
      */
-    Magick::Image generate_libravatar(const string &digest,
-                                      const uint16_t width,
-                                      const uint16_t height);
+    Magick::Image generate_sigil(const string &digest,
+                                 const uint16_t width,
+                                 const uint16_t height);
 
     /*!
      *  @brief  Check if the digest contains enough entropy.
@@ -122,7 +119,7 @@ private:
      *  @param  digest  The pre-computed digest
      *  @param  type    The type of identicon
      */
-    void check_entropy(const string &digest, identicon_type type);
+    void check_entropy(const string &digest, algorithm type);
 
     /*!
      *  @brief  Determines if the n-th bit of passed digest is 1 or 0.

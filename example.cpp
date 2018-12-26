@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     }
 
     {
-        Identiconpp identicon(13, 10, Identiconpp::identicon_type::simple,
+        Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_symmetric,
             "ffffff88",
             { 
                 "000000ff",
@@ -31,11 +31,11 @@ int main(int argc, char *argv[])
                 "0000ffff"
             });
         img = identicon.generate(digest, 500);
-        img.write("identicon_example_simple.png");
+        img.write("identicon_example_ltr_symmetric.png");
     }
 
     {
-        Identiconpp identicon(5, 5, Identiconpp::identicon_type::libravatar,
+        Identiconpp identicon(5, 5, Identiconpp::algorithm::sigil,
             "ffffffff",
             {
                 "000000ff",
@@ -45,8 +45,8 @@ int main(int argc, char *argv[])
                 "00ffffff",
                 "0000ffff"
             });
-        img = identicon.generate("5a105e8b9d40e1329780d62ea2265d8a", 500);
-        img.write("identicon_example_libravatar.png");
+        img = identicon.generate(digest, 500);
+        img.write("identicon_example_sigil.png");
     }
 
     return 0;

@@ -22,7 +22,7 @@
 #include "debug.hpp"
 
 Identiconpp::Identiconpp(const uint8_t rows, const uint8_t columns,
-                         identicon_type type,
+                         algorithm type,
                          const string &background,
                          const vector<string> &foreground)
 : _rows(rows)
@@ -48,14 +48,13 @@ Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
 
     switch (_type)
     {
-        case identicon_type::simple:
+        case algorithm::ltr_symmetric:
         {
-            return generate_simple(digest, width, height);
+            return generate_ltr_symmetric(digest, width, height);
         }
-        case identicon_type::libravatar:
-        case identicon_type::sigil:
+        case algorithm::sigil:
         {
-            return generate_libravatar(digest, width, height);
+            return generate_sigil(digest, width, height);
         }
     }
 }
