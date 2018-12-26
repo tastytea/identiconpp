@@ -23,22 +23,41 @@
 #include "debug.hpp"
 
 Identiconpp::Identiconpp(const uint8_t rows, const uint8_t columns,
-                         const uint32_t background,
-                         const vector<uint32_t> &foreground)
+                         identicon_type type,
+                         const string background,
+                         const vector<string> &foreground)
 : _rows(rows)
 , _columns(columns)
+, _type(type)
 , _background(background)
 , _foreground(foreground)
 {
+    if (background.length() != 8)
+    {
+        throw std::invalid_argument
+        (
+            "The background color must consist of exactly 8 digits."
+        );
+    }
+
+    for (const string &color : foreground)
+    if (color.length() != 8)
+    {
+        throw std::invalid_argument
+        (
+            "The foreground colors must consist of exactly 8 digits."
+        );
+    }
 }
 
-Identiconpp::Image Identiconpp::generate(const string &digest,
-                                         identicon_type type,
-                                         const uint16_t width,
-                                         const uint16_t height)
+Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
 {
-    check_entropy(digest, type);
-    switch (type)
+    check_entropy(digest, _type);
+    const uint16_t height = width / _columns * _rows;
+    ttdebug << "width: " << std::to_string(width)
+            << ", height: " << std::to_string(height) << "\n";
+
+    switch (_type)
     {
         case identicon_type::simple:
         {
@@ -52,15 +71,12 @@ Identiconpp::Image Identiconpp::generate(const string &digest,
     }
 }
 
-Identiconpp::Image Identiconpp::generate_simple(const string &digest,
-                                                const uint16_t width,
-                                                const uint16_t height)
+Magick::Image Identiconpp::generate_simple(const string &digest,
+                                           const uint16_t width,
+                                           const uint16_t height)
 {
-    std::stringstream ss;
-    ss << std::hex << _background;
-    const string bgcolor = "#" + ss.str();
     Magick::Image img(Magick::Geometry(_columns, _rows),
-                      Magick::Color(bgcolor));
+                      Magick::Color("#" + _background));
     uint8_t used_columns = _columns / 2 + _columns % 2;
     Magick::Color dotcolor = get_color(used_columns * _rows + 1, digest);
 
@@ -70,10 +86,10 @@ Identiconpp::Image Identiconpp::generate_simple(const string &digest,
         {
             if (get_bit(row * used_columns + column, digest))
             {
-                ttdebug << "col=" << std::to_string(column)
-                        << ", row=" << std::to_string(row) << '\n';
-                ttdebug << "col=" << std::to_string(used_columns - 1 + column)
-                        << ", row=" << std::to_string(_rows - 1 - row) << '\n';
+                // ttdebug << "col=" << std::to_string(column)
+                //         << ", row=" << std::to_string(row) << '\n';
+                // ttdebug << "col=" << std::to_string(used_columns - 1 + column)
+                //         << ", row=" << std::to_string(_rows - 1 - row) << '\n';
                 img.pixelColor(column, row, dotcolor);
                 img.pixelColor(_columns - 1 - column, row, dotcolor);
             }
@@ -82,20 +98,22 @@ Identiconpp::Image Identiconpp::generate_simple(const string &digest,
 
     img.scale(Magick::Geometry(width, height));
     img.magick("png");
-    return { 0, img };
+    return img;
 }
 
-Identiconpp::Image Identiconpp::generate_libravatar(const string &digest,
-                                                    const uint16_t width,
-                                                    const uint16_t height)
+Magick::Image Identiconpp::generate_libravatar(const string &digest,
+                                               const uint16_t width,
+                                               const uint16_t height)
 {
-    return { 1, Magick::Image() };
+    Magick::Image img(Magick::Geometry(_columns, _rows),
+                      Magick::Color("#" + _background));
+    return img;
 }
 
 void Identiconpp::check_entropy(const string &digest, identicon_type type)
 {
-    uint8_t entropy_provided;
-    uint8_t entropy_required;
+    uint16_t entropy_provided;
+    uint16_t entropy_required;
     switch (type)
     {
         case identicon_type::simple:
@@ -167,10 +185,12 @@ Magick::Color Identiconpp::get_color(const uint16_t firstbit,
     // Get rid of excess bits
     bits = bits & (1 << colorbits) - 1;
 
+    if (bits > _foreground.size())
+    {
+        bits -= _foreground.size();
+    }
+
     // Lookup und set color
-    ss.str(string());
-    ss.clear();
-    ss << std::hex << std::setw(8) << std::setfill('0') << _foreground[bits - 1];
-    ttdebug << "Color: #" << ss.str() << '\n';
-    return Magick::Color("#" + ss.str());
+    ttdebug << "Color: #" << _foreground[bits - 1] << '\n';
+    return Magick::Color("#" + _foreground[bits - 1]);
 }

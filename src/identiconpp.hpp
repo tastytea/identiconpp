@@ -29,20 +29,12 @@ using std::vector;
 /*!
  *  @brief  Base class for identiconpp.
  *
- *          Use this class for all your identicons.
+ *          Use this class for all your identicons. Exceptions will be thrown on
+ *          error.
  */
 class Identiconpp
 {
 public:
-    /*!
-     * @brief  Return type for images.
-     */
-    struct Image
-    {
-        uint8_t error;
-        Magick::Image data;
-    };
-
     /*!
      *  @brief  List of identicon types
      *
@@ -59,35 +51,36 @@ public:
      *  @brief  Initialises an instance of Identiconpp.
      *
      *          The instance can be used for creating identicons with differing
-     *          image formats and sizes.
+     *          image formats and sizes. The colors must consist of exactly 8
+     *          digits.
      *
      *  @param  rows        Number of rows
      *  @param  columns     Number of columns
+     *  @param  type        The type of identicon
      *  @param  background  Background color, hexadecimal, rrggbbaa
      *  @param  foreground  vector of foreground colors
      */
     explicit Identiconpp(const uint8_t rows, const uint8_t columns,
-                         const uint32_t background = 0xffffffff,
-                         const vector<uint32_t> &foreground = { 0x000000ff } );
+                         identicon_type type,
+                         const string background = "ffffffff",
+                         const vector<string> &foreground = { "000000ff" } );
 
     /*!
      *  @brief  Generates identicon from digest.
      *
      *  @param  digest  The pre-computed digest
-     *  @param  type    The type of identicon
      *  @param  width   The width of the image
-     *  @param  height  The height of the image
      *
-     *  @return 0 and an image on success, 1 and an empty image on error.
+     *  @return The image
      */
-    Image generate(const string &digest, identicon_type type,
-                   const uint16_t width = 100, const uint16_t height = 100);
+    Magick::Image generate(const string &digest, const uint16_t width = 100);
 
 private:
     const uint8_t _rows;
     const uint8_t _columns;
-    const uint32_t _background;
-    const vector<uint32_t> _foreground;
+    const identicon_type _type;
+    const string _background;
+    const vector<string> _foreground;
 
     /*!
      *  @brief  Generate simple identicon.
@@ -96,10 +89,11 @@ private:
      *  @param  width   The width of the image
      *  @param  height  The height of the image
      *
-     *  @return 0 and an image on success, 1 and an empty image on error.
+     *  @return The image
      */
-    Image generate_simple(const string &digest,
-                          const uint16_t width, const uint16_t height);
+    Magick::Image generate_simple(const string &digest,
+                                  const uint16_t width,
+                                  const uint16_t height);
 
     /*!
      *  @brief  Generate libravatar-style / sigil identicon.
@@ -108,10 +102,11 @@ private:
      *  @param  width   The width of the image
      *  @param  height  The height of the image
      *
-     *  @return 0 and an image on success, 1 and an empty image on error.
+     *  @return The image
      */
-    Image generate_libravatar(const string &digest,
-                              const uint16_t width, const uint16_t height);
+    Magick::Image generate_libravatar(const string &digest,
+                                      const uint16_t width,
+                                      const uint16_t height);
 
     /*!
      *  @brief  Check if the digest contains enough entropy.
