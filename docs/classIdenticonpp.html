@@ -19,7 +19,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">identiconpp
-   &#160;<span id="projectnumber">0.1.2</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
   </td>
  </tr>
@@ -55,18 +55,17 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae05d01125190ffec88f1653ffa352bed"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">identicon_type</a> { <b>simple</b>, 
-<b>libravatar</b>, 
+<tr class="memitem:a229201bc23b0fabbcca60f2fe0188fa9"><td class="memItemLeft" align="right" valign="top"><a id="a229201bc23b0fabbcca60f2fe0188fa9"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9">algorithm</a> { <b>ltr_symmetric</b>, 
 <b>sigil</b>
  }</td></tr>
-<tr class="memdesc:ae05d01125190ffec88f1653ffa352bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of identicon types.  <a href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">More...</a><br /></td></tr>
-<tr class="separator:ae05d01125190ffec88f1653ffa352bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a229201bc23b0fabbcca60f2fe0188fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of identicon algorithms. <br /></td></tr>
+<tr class="separator:a229201bc23b0fabbcca60f2fe0188fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9d8c071c7c02b5550c23061ecf0fa3ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a9d8c071c7c02b5550c23061ecf0fa3ce">Identiconpp</a> (const uint8_t rows, const uint8_t columns, <a class="el" href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">identicon_type</a> type=identicon_type::simple, const string &amp;background=&quot;ffffffff&quot;, const vector&lt; string &gt; &amp;foreground={ &quot;000000ff&quot; })</td></tr>
-<tr class="memdesc:a9d8c071c7c02b5550c23061ecf0fa3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises an instance of <a class="el" href="classIdenticonpp.html" title="Base class for identiconpp. ">Identiconpp</a>.  <a href="#a9d8c071c7c02b5550c23061ecf0fa3ce">More...</a><br /></td></tr>
-<tr class="separator:a9d8c071c7c02b5550c23061ecf0fa3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4692a51c4771370f97c66e83460a29b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#ae4692a51c4771370f97c66e83460a29b">Identiconpp</a> (const uint8_t rows, const uint8_t columns, <a class="el" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9">algorithm</a> type=algorithm::ltr_symmetric, const string &amp;background=&quot;ffffffff&quot;, const vector&lt; string &gt; &amp;foreground={ &quot;000000ff&quot; })</td></tr>
+<tr class="memdesc:ae4692a51c4771370f97c66e83460a29b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises an instance of <a class="el" href="classIdenticonpp.html" title="Base class for identiconpp. ">Identiconpp</a>.  <a href="#ae4692a51c4771370f97c66e83460a29b">More...</a><br /></td></tr>
+<tr class="separator:ae4692a51c4771370f97c66e83460a29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82f624d713e2d32d5fdb26b9112b821a"><td class="memItemLeft" align="right" valign="top">Magick::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a82f624d713e2d32d5fdb26b9112b821a">generate</a> (const string &amp;digest, const uint16_t width=100)</td></tr>
 <tr class="memdesc:a82f624d713e2d32d5fdb26b9112b821a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates identicon from digest.  <a href="#a82f624d713e2d32d5fdb26b9112b821a">More...</a><br /></td></tr>
 <tr class="separator:a82f624d713e2d32d5fdb26b9112b821a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -74,35 +73,9 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for identiconpp. </p>
 <p>Use this class for all your identicons. Exceptions will be thrown on error. </p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="ae05d01125190ffec88f1653ffa352bed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae05d01125190ffec88f1653ffa352bed">&#9670;&nbsp;</a></span>identicon_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">Identiconpp::identicon_type</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>List of identicon types. </p>
-<p>libravatar and sigil are synonymous. </p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        simple,</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        libravatar,</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        sigil</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    };</div></div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9d8c071c7c02b5550c23061ecf0fa3ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d8c071c7c02b5550c23061ecf0fa3ce">&#9670;&nbsp;</a></span>Identiconpp()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae4692a51c4771370f97c66e83460a29b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4692a51c4771370f97c66e83460a29b">&#9670;&nbsp;</a></span>Identiconpp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,8 +98,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classIdenticonpp.html#ae05d01125190ffec88f1653ffa352bed">identicon_type</a>&#160;</td>
-          <td class="paramname"><em>type</em> = <code>identicon_type::simple</code>, </td>
+          <td class="paramtype"><a class="el" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9">algorithm</a>&#160;</td>
+          <td class="paramname"><em>type</em> = <code>algorithm::ltr_symmetric</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -204,15 +177,15 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The image </dd></dl>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    check_entropy(digest, _type);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> uint16_t height = width / _columns * _rows;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ttdebug &lt;&lt; <span class="stringliteral">&quot;width: &quot;</span> &lt;&lt; std::to_string(width)</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;, height: &quot;</span> &lt;&lt; std::to_string(height) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">switch</span> (_type)</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">case</span> identicon_type::simple:</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> generate_simple(digest, width, height);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">case</span> identicon_type::libravatar:</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">case</span> identicon_type::sigil:</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> generate_libravatar(digest, width, height);</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    check_entropy(digest, _type);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> uint16_t height = width / _columns * _rows;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ttdebug &lt;&lt; <span class="stringliteral">&quot;width: &quot;</span> &lt;&lt; std::to_string(width)</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;, height: &quot;</span> &lt;&lt; std::to_string(height) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">switch</span> (_type)</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">case</span> algorithm::ltr_symmetric:</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> generate_ltr_symmetric(digest, width, height);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">case</span> algorithm::sigil:</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> generate_sigil(digest, width, height);</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="identiconpp_8hpp_source.html">identiconpp.hpp</a></li>
 <li>src/checks.cpp</li>
 <li>src/identiconpp.cpp</li>
-<li>src/libravatar.cpp</li>
-<li>src/simple.cpp</li>
+<li>src/ltr_symmetric.cpp</li>
+<li>src/sigil.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
