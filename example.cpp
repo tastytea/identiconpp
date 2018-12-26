@@ -1,15 +1,12 @@
 /*  This file is part of identiconpp.
  *  Public Domain / CC-0
+ *
+ *   Compile with g++ $(Magick++-config --cppflags --ldflags) -lidenticonpp
  */
 
-#include <iostream>
 #include <string>
-#include "identiconpp.hpp"
 #include <Magick++/Image.h>
-
-using std::cout;
-using std::endl;
-using std::string;
+#include "identiconpp.hpp"
 
 int main(int argc, char *argv[])
 {
