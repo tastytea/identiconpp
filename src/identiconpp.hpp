@@ -17,12 +17,10 @@
 #include <cstdint>
 #include <string>
 #include <vector>
-#include <tuple>
 #include <Magick++/Image.h>
 
 using std::uint8_t;
 using std::uint16_t;
-using std::uint32_t;
 using std::string;
 using std::vector;
 
@@ -62,7 +60,7 @@ public:
      */
     explicit Identiconpp(const uint8_t rows, const uint8_t columns,
                          identicon_type type = identicon_type::simple,
-                         const string background = "ffffffff",
+                         const string &background = "ffffffff",
                          const vector<string> &foreground = { "000000ff" } );
 
     /*!

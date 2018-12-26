@@ -24,7 +24,7 @@
 
 Identiconpp::Identiconpp(const uint8_t rows, const uint8_t columns,
                          identicon_type type,
-                         const string background,
+                         const string &background,
                          const vector<string> &foreground)
 : _rows(rows)
 , _columns(columns)
