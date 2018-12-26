@@ -18,7 +18,6 @@
 #include <stdexcept>
 #include <sstream>
 #include <bitset>
-#include <algorithm>
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
@@ -61,81 +60,6 @@ Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
     }
 }
 
-Magick::Image Identiconpp::generate_simple(const string &digest,
-                                           const uint16_t width,
-                                           const uint16_t height)
-{
-    Magick::Image img(Magick::Geometry(_columns, _rows),
-                      Magick::Color("#" + _background));
-    uint8_t used_columns = _columns / 2 + _columns % 2;
-    Magick::Color dotcolor = get_color(used_columns * _rows + 1, digest);
-
-    for (uint8_t row = 0; row < _rows; ++row)
-    {
-        for (uint8_t column = 0; column < used_columns; ++column)
-        {
-            if (get_bit(row * used_columns + column, digest))
-            {
-                // ttdebug << "col=" << std::to_string(column)
-                //         << ", row=" << std::to_string(row) << '\n';
-                // ttdebug << "col=" << std::to_string(used_columns - 1 + column)
-                //         << ", row=" << std::to_string(_rows - 1 - row) << '\n';
-                img.pixelColor(column, row, dotcolor);
-                img.pixelColor(_columns - 1 - column, row, dotcolor);
-            }
-        }
-    }
-
-    img.scale(Magick::Geometry(width, height));
-    img.magick("png");
-    return img;
-}
-
-Magick::Image Identiconpp::generate_libravatar(const string &digest,
-                                               const uint16_t width,
-                                               const uint16_t height)
-{
-    throw "Not implemented.";
-    Magick::Image img(Magick::Geometry(_columns, _rows),
-                      Magick::Color("#" + _background));
-    return img;
-}
-
-void Identiconpp::check_entropy(const string &digest, identicon_type type)
-{
-    uint16_t entropy_provided;
-    uint16_t entropy_required;
-    switch (type)
-    {
-        case identicon_type::simple:
-        {
-            // Every char is 4 bit
-            entropy_provided = digest.length() * 4;
-            // We need bits for each field in half of the columns, +1 column if
-            // they are uneven. Then we need enough bits to pick a color.
-            entropy_required = (_columns / 2 + _columns % 2) * _rows
-                + (_foreground.size() / 2 + _foreground.size() % 2);
-            break;
-        }
-        case identicon_type::libravatar:
-        case identicon_type::sigil:
-        {
-            entropy_provided = digest.length() / 2 * 8;
-            entropy_required = (_columns / 2 + _columns % 2) * _rows + 8;
-            break;
-        }
-    }
-    ttdebug << "entropy_provided=" << std::to_string(entropy_provided)
-        << ", entropy_required=" << std::to_string(entropy_required) << '\n';
-
-    if (entropy_provided < entropy_required)
-    {
-        throw std::invalid_argument(
-            "Passed digest \"" + digest + "\" is not capable of providing " +
-            std::to_string(entropy_required) + " bits of entropy.");
-    }
-}
-
 bool Identiconpp::get_bit(const uint16_t bit, const string &digest)
 {
     std::stringstream ss;
@@ -147,7 +71,8 @@ bool Identiconpp::get_bit(const uint16_t bit, const string &digest)
     
     if (nibble[bit % 4])
     {
-        // ttdebug << "Bit " << std::to_string(bit) << " is set in " << digest << ".\n";
+        ttdebug << "Bit " << std::to_string(bit) << " is set in "
+                << digest << ".\n";
         return true;
     }
 
@@ -184,36 +109,4 @@ Magick::Color Identiconpp::get_color(const uint16_t firstbit,
     // Lookup und set color
     ttdebug << "Color: #" << _foreground[bits - 1] << '\n';
     return Magick::Color("#" + _foreground[bits - 1]);
-}
-
-bool Identiconpp::not_hex(const char c)
-{
-    if (c >= 0x61 && c <= 0x66)
-    {   // a-f
-        return false;
-    }
-    if (c >= 0x30 && c <= 0x39)
-    {   // 0-9
-        return false;
-    }
-
-    return true;
-}
-
-void Identiconpp::check_color(const string &color)
-{
-    if (color.length() != 8)
-    {
-        throw std::invalid_argument
-        (
-            "Colors must consist of exactly 8 digits(" + color + ")."
-        );
-    }
-    if (std::any_of(color.begin(), color.end(), not_hex))
-    {
-        throw std::invalid_argument
-        (
-            "Colors must consist of hexadecimal digits (" + color + ")."
-        );
-    }
 }

@@ -41,7 +41,7 @@ Gentoo ebuilds are available via my
 ### Automatically generated packages
 
 Binary packages are generated automatically for each
-[release](https://schlomp.space/tastytea/libravatarserv/releases) in the
+[release](https://schlomp.space/tastytea/identiconpp/releases) in the
 formats:
 
 * deb
