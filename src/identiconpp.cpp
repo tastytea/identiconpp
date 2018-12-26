@@ -18,7 +18,7 @@
 #include <stdexcept>
 #include <sstream>
 #include <bitset>
-#include <iomanip>
+#include <algorithm>
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
@@ -32,21 +32,11 @@ Identiconpp::Identiconpp(const uint8_t rows, const uint8_t columns,
 , _background(background)
 , _foreground(foreground)
 {
-    if (background.length() != 8)
-    {
-        throw std::invalid_argument
-        (
-            "The background color must consist of exactly 8 digits."
-        );
-    }
+    check_color(background);
 
     for (const string &color : foreground)
-    if (color.length() != 8)
     {
-        throw std::invalid_argument
-        (
-            "The foreground colors must consist of exactly 8 digits."
-        );
+        check_color(color);
     }
 }
 
@@ -193,4 +183,36 @@ Magick::Color Identiconpp::get_color(const uint16_t firstbit,
     // Lookup und set color
     ttdebug << "Color: #" << _foreground[bits - 1] << '\n';
     return Magick::Color("#" + _foreground[bits - 1]);
+}
+
+bool Identiconpp::not_hex(const char c)
+{
+    if (c >= 0x61 && c <= 0x66)
+    {   // a-f
+        return false;
+    }
+    if (c >= 0x30 && c <= 0x39)
+    {   // 0-9
+        return false;
+    }
+
+    return true;
+}
+
+void Identiconpp::check_color(const string &color)
+{
+    if (color.length() != 8)
+    {
+        throw std::invalid_argument
+        (
+            "Colors must consist of exactly 8 digits(" + color + ")."
+        );
+    }
+    if (std::any_of(color.begin(), color.end(), not_hex))
+    {
+        throw std::invalid_argument
+        (
+            "Colors must consist of hexadecimal digits (" + color + ")."
+        );
+    }
 }

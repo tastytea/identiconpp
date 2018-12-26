@@ -61,7 +61,7 @@ public:
      *  @param  foreground  vector of foreground colors
      */
     explicit Identiconpp(const uint8_t rows, const uint8_t columns,
-                         identicon_type type,
+                         identicon_type type = identicon_type::simple,
                          const string background = "ffffffff",
                          const vector<string> &foreground = { "000000ff" } );
 
@@ -139,4 +139,20 @@ private:
      *  @return A foreground color.
      */
     Magick::Color get_color(const uint16_t firstbit, const string &digest);
+
+    /*!
+     *  @brief  Checks if character is not hexadecimal.
+     *
+     *  @param  c       Character to check
+     *
+     *  @return true if not hex.
+     */
+    static bool not_hex(const char c);
+
+    /*!
+     *  @brief  Performs checks on a color definition in a string.
+     *
+     *  @param  color   The color as string
+     */
+    void check_color(const string &color);
 };
