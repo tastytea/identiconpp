@@ -179,12 +179,12 @@ pipeline:
     title: ${DRONE_TAG}
     prerelease: true
     files:
-      - libravatarserv-${DRONE_TAG}_x86_64.tar.gz
-      - libravatarserv-${DRONE_TAG}_x86_64.tar.gz.sig
-      - libravatarserv_${DRONE_TAG}-0_amd64.deb
-      - libravatarserv_${DRONE_TAG}-0_amd64.deb.sig
-      - libravatarserv-${DRONE_TAG}-0.x86_64.rpm
-      - libravatarserv-${DRONE_TAG}-0.x86_64.rpm.sig
+      - identiconpp-${DRONE_TAG}_x86_64.tar.gz
+      - identiconpp-${DRONE_TAG}_x86_64.tar.gz.sig
+      - identiconpp_${DRONE_TAG}-0_amd64.deb
+      - identiconpp_${DRONE_TAG}-0_amd64.deb.sig
+      - identiconpp-${DRONE_TAG}-0.x86_64.rpm
+      - identiconpp-${DRONE_TAG}-0.x86_64.rpm.sig
     checksum:
       - sha512
 
