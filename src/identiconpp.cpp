@@ -17,7 +17,6 @@
 #include <exception>
 #include <stdexcept>
 #include <sstream>
-#include <bitset>
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
@@ -41,6 +40,7 @@ Identiconpp::Identiconpp(const uint8_t rows, const uint8_t columns,
 
 Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
 {
+    ttdebug << "Using digest: " << digest << '\n';
     check_entropy(digest, _type);
     const uint16_t height = width / _columns * _rows;
     ttdebug << "width: " << std::to_string(width)
@@ -64,15 +64,14 @@ bool Identiconpp::get_bit(const uint16_t bit, const string &digest)
     std::stringstream ss;
     ss << std::hex << digest[bit / 4];
     // std::stringstream does not support writing into uint8_t
-    unsigned short buf;
-    ss >> buf;
-    std::bitset<4> nibble(buf);
-    
-    if (nibble[3 - bit % 4])
+    unsigned short nibble;
+    ss >> nibble;
+
+    // Shift nibble to the right until the bit we want is on the right border.
+    // Then check if it is set.
+    if (nibble >> (3 - bit % 4) & 1)
     {
-        ttdebug << "Bit " << std::to_string(bit + 1) << " is set in "
-                << digest << ".\n";
-        ttdebug << nibble << " (" << bit % 4 << ")\n";
+        ttdebug << "Bit " << std::to_string(bit + 1) << " is set.\n";
         return true;
     }
 
@@ -95,12 +94,17 @@ Magick::Color Identiconpp::get_color(const uint16_t firstbit,
     {
         ss << std::hex << digest.substr(firstbit / 4, colorbits / 4 + 1);
     }
+    // std::stringstream does not support writing into uint16_t
     unsigned short bits;
     ss >> bits;
     
-    // Get rid of excess bits
-    bits = bits & (1 << colorbits) - 1;
+    // Shift an one $colorbits times to the left, substract 1. This leaves us
+    //  with $colorbits ones. Then AND bits and our ones to keep only as many
+    //  bits as we need.
+    bits = bits & ((1 << colorbits) - 1);
 
+    // We may get a number that is slightly too big if _foreground.size() is not
+    // a power of 2.
     if (bits > (_foreground.size() - 1))
     {
         bits -= (_foreground.size() - 1);
