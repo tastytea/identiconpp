@@ -119,7 +119,7 @@ and you are welcome to redistribute it under certain conditions.
 * Use bits from digest to determine if a pixel is painted(1) or not(0).
 * Mirror the pixels vertically.
 * Use the following bits to pick the foreground color.
-  * You need `log2(n_colors) + 1` bits.
+  * You need `floor(log2(n_colors)) + 1` bits.
 * Scale image proportionally to requested width.
 
 ```PLAIN
@@ -140,7 +140,7 @@ Implemented in [ltr_symmetric.cpp]
 * Pixels are drawn from left to right, top to bottom.
 * Use bits from digest to determine if a pixel is painted(1) or not(0).
 * Use the following bits to pick the foreground color.
-  * * You need `log2(n_colors) + 1` bits.
+  * * You need `floor(log2(n_colors)) + 1` bits.
 * Scale image proportionally to requested width.
 
 ```PLAIN
