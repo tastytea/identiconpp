@@ -17,6 +17,7 @@
 #include <exception>
 #include <stdexcept>
 #include <sstream>
+#include <cmath>
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
@@ -100,7 +101,7 @@ Magick::Color Identiconpp::get_color(const uint16_t firstbit,
                                      const string &digest)
 {
     // Number of bits to use
-    const uint16_t colorbits = _foreground.size() / 2 + _foreground.size() % 2;
+    const uint16_t colorbits = std::log2(_foreground.size()) + 1;
 
     // Extract approximation
     std::stringstream ss;
