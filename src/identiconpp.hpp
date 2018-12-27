@@ -52,12 +52,12 @@ public:
      *          image formats and sizes. The colors must consist of exactly 8
      *          digits.
      *
-     *  @param  rows        Number of rows
      *  @param  columns     Number of columns
-     *  @param  type        The type of identicon
+     *  @param  rows        Number of rows
+     *  @param  type        The algorithm to use
      *  @param  background  Background color, hexadecimal, rrggbbaa
      *  @param  foreground  vector of foreground colors
-     *  @param  padding     Padding { left & right, top & down }
+     *  @param  padding     Padding in pixels { left & right, top & down }
      */
     explicit Identiconpp(const uint8_t columns, const uint8_t rows,
                          algorithm type = algorithm::ltr_symmetric,
@@ -69,7 +69,7 @@ public:
      *  @brief  Generates identicon from digest.
      *
      *  @param  digest  The pre-computed digest
-     *  @param  width   The width of the image
+     *  @param  width   The width of the image in pixels
      *
      *  @return The image
      */

@@ -31,7 +31,7 @@ If something seems to be wrong, exceptions will be thrown.
 int main()
 {
     Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_symmetric,
-                          "ffffff88", { "800000ff" });
+                          "ffffff80", { "800000ff" }, { 10, 10 });
     Magick::Image img;
     img = identicon.generate("55502f40dc8b7c769880b10874abc9d0", 200);
     img.write("identicon.png");
