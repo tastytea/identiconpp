@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     {
         Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_symmetric,
-            "ffffff88",
+            "ffffff80",
             { 
                 "000000ff",
                 "ff0000ff",
@@ -32,6 +32,21 @@ int main(int argc, char *argv[])
             });
         img = identicon.generate(digest, 500);
         img.write("identicon_example_ltr_symmetric.png");
+    }
+
+    {
+        Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_asymmetric,
+            "00000080",
+            { 
+                "ffffffc0",
+                "ff0000c0",
+                "ffff00c0",
+                "00ff00c0",
+                "00ffffc0",
+                "0000ffc0"
+            });
+        img = identicon.generate(digest, 500);
+        img.write("identicon_example_ltr_asymmetric.png");
     }
 
     {

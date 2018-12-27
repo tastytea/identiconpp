@@ -44,6 +44,13 @@ void Identiconpp::check_entropy(const string &digest, algorithm type)
                 + (_foreground.size() / 2 + _foreground.size() % 2);
             break;
         }
+        case algorithm::ltr_asymmetric:
+        {
+            entropy_provided = digest.length() * 4;
+            entropy_required = _columns * _rows
+                + (_foreground.size() / 2 + _foreground.size() % 2);
+            break;
+        }
         case algorithm::sigil:
         {
             entropy_provided = digest.length() / 2 * 8;

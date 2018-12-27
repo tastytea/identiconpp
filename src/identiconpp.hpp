@@ -39,6 +39,7 @@ public:
     enum class algorithm
     {
         ltr_symmetric,
+        ltr_asymmetric,
         sigil
     };
 
@@ -78,7 +79,7 @@ private:
     const vector<string> _foreground;
 
     /*!
-     *  @brief  Generate simple identicon.
+     *  @brief  Generate ltr_symmetric identicon.
      *
      *          Use bits 0 to (_columns / 2 + _columns % 2) * _rows, use the
      *          following bits to determine foreground color. Squares are drawn
@@ -93,6 +94,23 @@ private:
     Magick::Image generate_ltr_symmetric(const string &digest,
                                          const uint16_t width,
                                          const uint16_t height);
+
+    /*!
+     *  @brief  Generate ltr_asymmetric identicon.
+     *
+     *          Use bits 0 to _columns * _rows, use the
+     *          following bits to determine foreground color. Squares are drawn
+     *          from left to right, top to bottom.
+     *
+     *  @param  digest  The pre-computed digest
+     *  @param  width   The width of the image
+     *  @param  height  The height of the image
+     *
+     *  @return The image
+     */
+    Magick::Image generate_ltr_asymmetric(const string &digest,
+                                          const uint16_t width,
+                                          const uint16_t height);
 
     /*!
      *  @brief  Generate sigil identicon.

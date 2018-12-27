@@ -7,7 +7,7 @@ modifications.
 
 * [x] Symmetric identicons
 * [x] sigil identicons
-* [ ] Asymmetric identicons
+* [x] Asymmetric identicons
 * [ ] Padding
 
 ## Usage
@@ -131,6 +131,26 @@ and you are welcome to redistribute it under certain conditions.
 
 Implemented in [ltr_symmetric.cpp]
 (https://schlomp.space/tastytea/identiconpp/src/branch/master/src/ltr_symmetric.cpp)
+
+### ltr_asymmetric
+
+* Create image with width=columns, height=rows.
+* Set background color.
+* Pixels are drawn from left to right, top to bottom.
+* Use bits from digest to determine if a pixel is painted(1) or not(0).
+* Use the following bits to pick the foreground color.
+* Scale image proportionally to requested width.
+
+```PLAIN
+ 0111 0011 1101 1100 […] 1111 0111 0101 0111
+^                            ^
++----------------------------+-------------->
+             |                      |
+        pixel matrix        foreground color
+```
+
+Implemented in [ltr_asymmetric.cpp]
+(https://schlomp.space/tastytea/identiconpp/src/branch/master/src/ltr_asymmetric.cpp)
 
 ### sigil
 
