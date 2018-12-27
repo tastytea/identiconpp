@@ -45,12 +45,18 @@ Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
 {
     ttdebug << "Using digest: " << digest << '\n';
     check_entropy(digest, _type);
-    const uint16_t imgwidth = width - _padding[0] * 2;
-    const uint16_t imgheight =
+    const std::int16_t imgwidth = width - _padding[0] * 2;
+    const std::int16_t imgheight =
         std::round(static_cast<float>(imgwidth) / _columns * _rows);
-    ttdebug << "width: " << std::to_string(imgwidth + _padding[0] * 2)
-            << ", height: " << std::to_string(imgheight + _padding[1] * 2)
+    ttdebug << "width: " << std::to_string(imgwidth)
+            <<  "+" <<  std::to_string(_padding[0] * 2)
+            << ", height: " << std::to_string(imgheight)
+            <<  "+" <<  std::to_string(_padding[1] * 2)
             << "\n";
+    if (imgwidth <= 0 || imgheight <= 0)
+    {
+        throw std::invalid_argument("Width or height is zero or less.");
+    }
     Magick::Image img;
 
     switch (_type)
