@@ -46,7 +46,8 @@ Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
     ttdebug << "Using digest: " << digest << '\n';
     check_entropy(digest, _type);
     const uint16_t imgwidth = width - _padding[0] * 2;
-    const uint16_t imgheight = imgwidth / _columns * _rows;
+    const uint16_t imgheight =
+        std::round(static_cast<float>(imgwidth) / _columns * _rows);
     ttdebug << "width: " << std::to_string(imgwidth + _padding[0] * 2)
             << ", height: " << std::to_string(imgheight + _padding[1] * 2)
             << "\n";
@@ -101,7 +102,7 @@ Magick::Color Identiconpp::get_color(const uint16_t firstbit,
                                      const string &digest)
 {
     // Number of bits to use
-    const uint16_t colorbits = std::log2(_foreground.size()) + 1;
+    const uint16_t colorbits = std::floor(std::log2(_foreground.size())) + 1;
 
     // Extract approximation
     std::stringstream ss;

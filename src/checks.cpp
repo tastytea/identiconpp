@@ -42,14 +42,14 @@ void Identiconpp::check_entropy(const string &digest, algorithm type)
             // We need bits for each field in half of the columns, +1 column if
             // they are uneven. Then we need enough bits to pick a color.
             entropy_required = (_columns / 2 + _columns % 2) * _rows
-                + std::log2(_foreground.size()) + 1;
+                + std::floor(std::log2(_foreground.size())) + 1;
             break;
         }
         case algorithm::ltr_asymmetric:
         {
             entropy_provided = digest.length() * 4;
             entropy_required = _columns * _rows
-                + std::log2(_foreground.size()) + 1;
+                + std::floor(std::log2(_foreground.size())) + 1;
             break;
         }
         case algorithm::sigil:
