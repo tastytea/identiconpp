@@ -17,12 +17,10 @@
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
-Magick::Image Identiconpp::generate_ltr_asymmetric(const string &digest,
-                                                   const uint16_t width,
-                                                   const uint16_t height)
+Magick::Image Identiconpp::generate_ltr_asymmetric(const string &digest)
 {
     Magick::Image img(Magick::Geometry(_columns, _rows),
-                      Magick::Color("#" + _background));
+                      Magick::Color("#00000000"));
     Magick::Color dotcolor = get_color(_columns * _rows + 1, digest);
 
     for (uint8_t row = 0; row < _rows; ++row)
@@ -38,7 +36,5 @@ Magick::Image Identiconpp::generate_ltr_asymmetric(const string &digest,
         }
     }
 
-    img.scale(Magick::Geometry(width, height));
-    img.magick("png");
     return img;
 }

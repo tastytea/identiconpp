@@ -20,15 +20,17 @@
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
-Identiconpp::Identiconpp(const uint8_t rows, const uint8_t columns,
+Identiconpp::Identiconpp(const uint8_t columns, const uint8_t rows,
                          algorithm type,
                          const string &background,
-                         const vector<string> &foreground)
+                         const vector<string> &foreground,
+                         const array<const uint8_t, 2> &padding)
 : _rows(rows)
 , _columns(columns)
 , _type(type)
 , _background(background)
 , _foreground(foreground)
+, _padding(padding)
 {
     check_color(background);
 
@@ -42,25 +44,35 @@ Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
 {
     ttdebug << "Using digest: " << digest << '\n';
     check_entropy(digest, _type);
-    const uint16_t height = width / _columns * _rows;
-    ttdebug << "width: " << std::to_string(width)
-            << ", height: " << std::to_string(height) << "\n";
+    const uint16_t imgwidth = width - _padding[0] * 2;
+    const uint16_t imgheight = imgwidth / _columns * _rows;
+    ttdebug << "width: " << std::to_string(imgwidth + _padding[0] * 2)
+            << ", height: " << std::to_string(imgheight + _padding[1] * 2)
+            << "\n";
+    Magick::Image img;
 
     switch (_type)
     {
         case algorithm::ltr_symmetric:
         {
-            return generate_ltr_symmetric(digest, width, height);
+            img = generate_ltr_symmetric(digest);
         }
         case algorithm::ltr_asymmetric:
         {
-            return generate_ltr_asymmetric(digest, width, height);
+            img = generate_ltr_asymmetric(digest);
         }
         case algorithm::sigil:
         {
-            return generate_sigil(digest, width, height);
+            img = generate_sigil(digest);
         }
     }
+
+    img.backgroundColor(Magick::Color('#' + _background));
+    img.scale(Magick::Geometry(imgwidth, imgheight));
+    img.borderColor(Magick::Color('#' + _background));
+    img.border(Magick::Geometry(_padding[0], _padding[1]));
+    img.magick("png");
+    return img;
 }
 
 bool Identiconpp::get_bit(const uint16_t bit, const string &digest)

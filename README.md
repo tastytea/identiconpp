@@ -8,7 +8,7 @@ modifications.
 * [x] Symmetric identicons
 * [x] sigil identicons
 * [x] Asymmetric identicons
-* [ ] Padding
+* [x] Padding
 
 ## Usage
 

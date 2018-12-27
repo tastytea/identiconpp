@@ -17,12 +17,14 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include <array>
 #include <Magick++/Image.h>
 
 using std::uint8_t;
 using std::uint16_t;
 using std::string;
 using std::vector;
+using std::array;
 
 /*!
  *  @brief  Base class for identiconpp.
@@ -55,11 +57,13 @@ public:
      *  @param  type        The type of identicon
      *  @param  background  Background color, hexadecimal, rrggbbaa
      *  @param  foreground  vector of foreground colors
+     *  @param  padding     Padding { left & right, top & down }
      */
-    explicit Identiconpp(const uint8_t rows, const uint8_t columns,
+    explicit Identiconpp(const uint8_t columns, const uint8_t rows,
                          algorithm type = algorithm::ltr_symmetric,
                          const string &background = "ffffffff",
-                         const vector<string> &foreground = { "000000ff" } );
+                         const vector<string> &foreground = { "000000ff" },
+                         const array<const uint8_t, 2> &padding = { 0, 0 });
 
     /*!
      *  @brief  Generates identicon from digest.
@@ -77,6 +81,7 @@ private:
     const algorithm _type;
     const string _background;
     const vector<string> _foreground;
+    const array<const uint8_t, 2> _padding;
 
     /*!
      *  @brief  Generate ltr_symmetric identicon.
@@ -86,48 +91,36 @@ private:
      *          from left to right, top to bottom.
      *
      *  @param  digest  The pre-computed digest
-     *  @param  width   The width of the image
-     *  @param  height  The height of the image
      *
      *  @return The image
      */
-    Magick::Image generate_ltr_symmetric(const string &digest,
-                                         const uint16_t width,
-                                         const uint16_t height);
+    Magick::Image generate_ltr_symmetric(const string &digest);
 
     /*!
      *  @brief  Generate ltr_asymmetric identicon.
      *
-     *          Use bits 0 to _columns * _rows, use the
-     *          following bits to determine foreground color. Squares are drawn
-     *          from left to right, top to bottom.
+     *          Use bits 0 to _columns * _rows, use the following bits to
+     *          determine foreground color. Squares are drawn from left to
+     *          right, top to bottom.
      *
      *  @param  digest  The pre-computed digest
-     *  @param  width   The width of the image
-     *  @param  height  The height of the image
      *
      *  @return The image
      */
-    Magick::Image generate_ltr_asymmetric(const string &digest,
-                                          const uint16_t width,
-                                          const uint16_t height);
+    Magick::Image generate_ltr_asymmetric(const string &digest);
 
     /*!
      *  @brief  Generate sigil identicon.
      *
-     *          Use bits 9 to (_columns / 2 + _columns % 2) * _rows, use the first
-     *          8 bits to determine foreground color. Squares are drawn from top
-     *          to bottom, left to right.
+     *          Use bits 9 to (_columns / 2 + _columns % 2) * _rows, use the
+     *          first 8 bits to determine foreground color. Squares are drawn
+     *          from top to bottom, left to right.
      *
      *  @param  digest  The pre-computed digest
-     *  @param  width   The width of the image
-     *  @param  height  The height of the image
      *
      *  @return The image
      */
-    Magick::Image generate_sigil(const string &digest,
-                                 const uint16_t width,
-                                 const uint16_t height);
+    Magick::Image generate_sigil(const string &digest);
 
     /*!
      *  @brief  Check if the digest contains enough entropy.

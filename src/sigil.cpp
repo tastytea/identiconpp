@@ -17,13 +17,10 @@
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
-Magick::Image Identiconpp::generate_sigil(const string &digest,
-                                          const uint16_t width,
-                                          const uint16_t height)
+Magick::Image Identiconpp::generate_sigil(const string &digest)
 {
-    // throw "Not implemented.";
     Magick::Image img(Magick::Geometry(_columns, _rows),
-                      Magick::Color("#" + _background));
+                      Magick::Color("#00000000"));
     Magick::Color dotcolor = get_color(0, digest);
 
     uint8_t used_columns = _columns / 2 + _columns % 2;
@@ -41,7 +38,5 @@ Magick::Image Identiconpp::generate_sigil(const string &digest,
         }
     }
 
-    img.scale(Magick::Geometry(width, height));
-    img.magick("png");
     return img;
 }

@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
                 "00ff00ff",
                 "00ffffff",
                 "0000ffff"
-            });
+            }, { 10, 10 });
         img = identicon.generate(digest, 500);
         img.write("identicon_example_ltr_symmetric.png");
     }
