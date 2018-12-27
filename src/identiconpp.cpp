@@ -56,14 +56,17 @@ Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
         case algorithm::ltr_symmetric:
         {
             img = generate_ltr_symmetric(digest);
+            break;
         }
         case algorithm::ltr_asymmetric:
         {
             img = generate_ltr_asymmetric(digest);
+            break;
         }
         case algorithm::sigil:
         {
             img = generate_sigil(digest);
+            break;
         }
     }
 
