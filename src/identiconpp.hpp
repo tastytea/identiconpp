@@ -71,7 +71,7 @@ public:
      *  @param  digest  The pre-computed digest
      *  @param  width   The width of the image in pixels
      *
-     *  @return The image
+     *  @return The image as Magick::Image
      */
     Magick::Image generate(const string &digest, const uint16_t width = 100);
 

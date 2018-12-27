@@ -74,7 +74,6 @@ Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
     img.scale(Magick::Geometry(imgwidth, imgheight));
     img.borderColor(Magick::Color('#' + _background));
     img.border(Magick::Geometry(_padding[0], _padding[1]));
-    img.magick("png");
     return img;
 }
 

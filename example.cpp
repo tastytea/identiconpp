@@ -47,6 +47,8 @@ int main(int argc, char *argv[])
             });
         img = identicon.generate(digest, 500);
         img.write("identicon_example_ltr_asymmetric.png");
+        img.magick("GIF");
+        img.write("identicon_example_ltr_asymmetric.gif");
     }
 
     {
@@ -62,6 +64,7 @@ int main(int argc, char *argv[])
             });
         img = identicon.generate(digest, 500);
         img.write("identicon_example_sigil.png");
+        img.write("identicon_example_sigil.jpg");
     }
 
     return 0;
