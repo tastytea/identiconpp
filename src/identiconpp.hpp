@@ -27,6 +27,10 @@ using std::vector;
 using std::array;
 
 /*!
+ *  @example example.cpp
+ */
+
+/*!
  *  @brief  Base class for identiconpp.
  *
  *          Use this class for all your identicons. Exceptions will be thrown on
