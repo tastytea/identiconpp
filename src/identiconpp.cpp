@@ -133,7 +133,7 @@ Magick::Color Identiconpp::get_color(const uint16_t firstbit,
     // a power of 2.
     if (bits > (_foreground.size() - 1))
     {
-        bits -= (_foreground.size() - 1);
+        bits -= _foreground.size();
     }
 
     // Lookup und set color

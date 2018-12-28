@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.2)
 project(identiconpp
-        VERSION 0.3.3
+        VERSION 0.3.4
         LANGUAGES CXX
 )
 
