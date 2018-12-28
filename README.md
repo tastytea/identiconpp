@@ -3,6 +3,15 @@
 You get the images as `Magick::Image`. This allows you to make all kinds of
 modifications.
 
+![](https://doc.schlomp.space/identiconpp/identicon1.png
+"4x4 identicon, ltr_symmetric, 20px padding")
+![](https://doc.schlomp.space/identiconpp/identicon2.png
+"5x5 identicon, sigil")
+![](https://doc.schlomp.space/identiconpp/identicon3.png
+"5x5 identicon, ltr_asymmetric")
+![](https://doc.schlomp.space/identiconpp/identicon4.png
+"6x4 identicon, ltr_symmetric, 10px padding")
+
 ## Features
 
 * [x] Symmetric identicons
@@ -20,6 +29,10 @@ You need to generate hashes yourself, any hexadecimal string will do. Make sure
 to use a safe hashing algorithm for sensitive data (**not MD5**). You can select
 as many columns and rows as you like, but make sure you have enough entropy.
 If something seems to be wrong, exceptions will be thrown.
+
+The "sigil" algorithm generates the same results as
+[sigil](https://github.com/cupcake/sigil/) and
+[pydenticon](https://github.com/azaghal/pydenticon/).
 
 ### Example
 

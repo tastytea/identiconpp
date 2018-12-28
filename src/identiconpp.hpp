@@ -40,8 +40,15 @@ public:
      */
     enum class algorithm
     {
+        //! Generates symmetric (vertically mirrored) identicons.
         ltr_symmetric,
+        //! Generates asymmetric identicons.
         ltr_asymmetric,
+        /*!
+         * Generates the same results as
+         * [sigil](https://github.com/cupcake/sigil/) and
+         * [pydenticon](https://github.com/azaghal/pydenticon/).
+         */
         sigil
     };
 
