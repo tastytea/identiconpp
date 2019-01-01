@@ -43,7 +43,9 @@ pipeline:
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_TESTS=1 ..
       - make VERBOSE=1
-      - ctest ..
+      - ./test_ltr_symmetric
+      - ./test_ltr_asymmetric
+      - ./test_sigil
       - make install DESTDIR=install
       - make package
       - cmake -DWITH_DEB=ON ..
