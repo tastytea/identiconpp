@@ -54,7 +54,7 @@ void Identiconpp::check_entropy(const string &digest, algorithm type)
         }
         case algorithm::sigil:
         {
-            entropy_provided = digest.length() / 2 * 8;
+            entropy_provided = digest.length() * 4;
             entropy_required = (_columns / 2 + _columns % 2) * _rows + 8;
             break;
         }
