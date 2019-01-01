@@ -19,11 +19,10 @@ pipeline:
       - apt-get update -q
       - apt-get install -qy -t xenial g++-5
       - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libmagick++-dev catch
+      - apt-get install -qy libmagick++-dev
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
       - make VERBOSE=1
-      - ctest ..
     volumes:
       - /var/cache/debian-package-cache:/var/cache/apt/archives
 
@@ -38,12 +37,13 @@ pipeline:
       - rm /etc/apt/apt.conf.d/docker-clean
       - apt-get update -q
       - apt-get install -qy g++-6 cmake pkg-config
-      - apt-get install -qy libmagick++-dev
+      - apt-get install -qy libmagick++-dev catch
       - apt-get install -qy dpkg-dev d-shlibs rpm file wget
       - gpg --no-tty --import /var/autosign_gpg.key
       - rm -rf build && mkdir -p build && cd build
-      - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+      - cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_TESTS=1 ..
       - make VERBOSE=1
+      - ctest ..
       - make install DESTDIR=install
       - make package
       - cmake -DWITH_DEB=ON ..
