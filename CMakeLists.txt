@@ -41,3 +41,4 @@ install(FILES src/${CMAKE_PROJECT_NAME}.hpp DESTINATION ${CMAKE_INSTALL_INCLUDED
 install(FILES README.md DESTINATION ${CMAKE_INSTALL_DOCDIR})
 
 include(packages.CMakeLists.txt)
+include(tests.CMakeLists.txt)

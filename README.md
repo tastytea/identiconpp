@@ -79,6 +79,8 @@ They are generated on Debian Stretch 64 bit and signed with my
   [clang](https://llvm.org/) 5/6)
 * [cmake](https://cmake.org/) (at least 3.2)
 * [imagemagick](https://www.imagemagick.org/) (tested: 7.0 / 6.7)
+* Optional:
+  * [Catch](https://github.com/catchorg/Catch2) (tested: 2.3.0)
 
 On a Debian system, install the packages:
 `build-essential cmake libmagick++-dev`.
@@ -96,6 +98,7 @@ make install
 ##### cmake options
 
 * `-DCMAKE_BUILD_TYPE=Debug` for a debug build
+* `-DWITH_TESTS=Debug` to build tests
 * One of:
     * `-DWITH_DEB=YES` to generate a deb-package
     * `-DWITH_RPM=YES` to generate an rpm-package

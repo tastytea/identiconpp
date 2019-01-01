@@ -19,10 +19,11 @@ pipeline:
       - apt-get update -q
       - apt-get install -qy -t xenial g++-5
       - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libmagick++-dev
+      - apt-get install -qy libmagick++-dev catch
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
       - make VERBOSE=1
+      - ctest ..
     volumes:
       - /var/cache/debian-package-cache:/var/cache/apt/archives
 
