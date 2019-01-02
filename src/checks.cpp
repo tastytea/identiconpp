@@ -54,6 +54,11 @@ void Identiconpp::check_entropy(const string &digest, algorithm type)
         }
         case algorithm::sigil:
         {
+            if (_foreground.size() > 256)
+            {
+                throw std::invalid_argument(
+                    "sigil algorithm does not support more than 256 colors.");
+            }
             entropy_provided = digest.length() * 4;
             entropy_required = (_columns / 2 + _columns % 2) * _rows + 8;
             break;
