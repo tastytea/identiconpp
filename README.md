@@ -98,7 +98,7 @@ make install
 ##### cmake options
 
 * `-DCMAKE_BUILD_TYPE=Debug` for a debug build
-* `-DWITH_TESTS=Debug` to build tests
+* `-DWITH_TESTS=YES` to build tests
 * One of:
     * `-DWITH_DEB=YES` to generate a deb-package
     * `-DWITH_RPM=YES` to generate an rpm-package
