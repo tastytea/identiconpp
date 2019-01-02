@@ -81,6 +81,10 @@ bool Identiconpp::not_hex(const char c)
     {   // a-f
         return false;
     }
+    if (c >= 0x41 && c <= 0x46)
+    {   // A-F
+        return false;
+    }
     if (c >= 0x30 && c <= 0x39)
     {   // 0-9
         return false;
