@@ -5,9 +5,9 @@
 
 using std::string;
 
-SCENARIO("ltr_symmetric: Correct placement")
+SCENARIO("ltr_symmetric: Correct placement", "[ltr_symmetric]")
 {
-    GIVEN("An identicon instance with 2x2 dots")
+    GIVEN("An identiconpp instance with 2x2 dots")
     {
         Identiconpp identicon(2, 2, Identiconpp::algorithm::ltr_symmetric);
         Magick::Image img;
@@ -86,9 +86,9 @@ SCENARIO("ltr_symmetric: Correct placement")
     }
 }
 
-SCENARIO("ltr_symmetric: Correct color")
+SCENARIO("ltr_symmetric: Correct color", "[ltr_symmetric]")
 {
-    GIVEN("An identicon instance with 5 foreground colors")
+    GIVEN("An identiconpp instance with 5 foreground colors")
     {
         Identiconpp identicon(1, 1, Identiconpp::algorithm::ltr_symmetric,
                               "ffffffff",

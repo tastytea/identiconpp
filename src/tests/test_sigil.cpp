@@ -5,9 +5,9 @@
 
 using std::string;
 
-SCENARIO("sigil: Correct placement")
+SCENARIO("sigil: Correct placement", "[sigil]")
 {
-    GIVEN("An identicon instance with 2x2 dots")
+    GIVEN("An identiconpp instance with 2x2 dots")
     {
         Identiconpp identicon(2, 2, Identiconpp::algorithm::sigil);
         Magick::Image img;
@@ -86,9 +86,9 @@ SCENARIO("sigil: Correct placement")
     }
 }
 
-SCENARIO("sigil: Correct color")
+SCENARIO("sigil: Correct color", "[sigil]")
 {
-    GIVEN("An identicon instance with 5 foreground colors")
+    GIVEN("An identiconpp instance with 5 foreground colors")
     {
         Identiconpp identicon(1, 1, Identiconpp::algorithm::sigil,
                               "ffffffff",
