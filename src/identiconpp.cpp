@@ -33,11 +33,19 @@ Identiconpp::Identiconpp(const uint8_t columns, const uint8_t rows,
 , _foreground(foreground)
 , _padding(padding)
 {
-    check_color(background);
+    check_color(_background);
 
-    for (const string &color : foreground)
+    for (const string &color : _foreground)
     {
         check_color(color);
+    }
+
+    if (_foreground.size() == 0)
+    {
+        throw std::invalid_argument
+        (
+            "You must specify at least 1 foreground color."
+         );
     }
 }
 
