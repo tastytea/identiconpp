@@ -6,7 +6,7 @@
 using std::string;
 #include <iostream>
 
-SCENARIO("ltr_symmetric")
+SCENARIO("ltr_symmetric: Correct placement")
 {
     GIVEN("An identicon instance with 2x2 dots")
     {
@@ -82,6 +82,83 @@ SCENARIO("ltr_symmetric")
             THEN("Produces white pixel at 1x1")
             {
                 REQUIRE(img.pixelColor(1, 1) == white);
+            }
+        }
+    }
+}
+
+SCENARIO("ltr_symmetric: Correct color")
+{
+    GIVEN("An identicon instance with 5 foreground colors")
+    {
+        Identiconpp identicon(1, 1, Identiconpp::algorithm::ltr_symmetric,
+                              "ffffffff",
+                              {
+                                "ff0000ff",
+                                "ffff00ff",
+                                "00ff00ff",
+                                "00ffffff",
+                                "0000ffff"
+                              });
+        Magick::Image img;
+        Magick::Color white("#ffffffff");
+        Magick::Color red("#ff0000ff");
+        Magick::Color yellow("#ffff00ff");
+        Magick::Color green("#00ff00ff");
+        Magick::Color cyan("#00ffffff");
+        Magick::Color blue("#0000ffff");
+
+        WHEN("Digest is \"0\"")
+        {   // 0000
+            img = identicon.generate("0", 1);
+            THEN("Is white")
+            {
+                REQUIRE(img.pixelColor(0, 0) == white);
+            }
+        }
+
+        WHEN("Digest is \"8\"")
+        {   // 1000
+            img = identicon.generate("8", 1);
+            THEN("Is red")
+            {
+                REQUIRE(img.pixelColor(0, 0) == red);
+            }
+        }
+
+        WHEN("Digest is \"9\"")
+        {   // 1001
+            img = identicon.generate("9", 1);
+            THEN("Is yellow")
+            {
+                REQUIRE(img.pixelColor(0, 0) == yellow);
+            }
+        }
+
+        WHEN("Digest is \"a\"")
+        {   // 1010
+            img = identicon.generate("a", 1);
+            THEN("Is green")
+            {
+                REQUIRE(img.pixelColor(0, 0) == green);
+            }
+        }
+
+        WHEN("Digest is \"b\"")
+        {   // 1011
+            img = identicon.generate("b", 1);
+            THEN("Is cyan")
+            {
+                REQUIRE(img.pixelColor(0, 0) == cyan);
+            }
+        }
+
+        WHEN("Digest is \"c\"")
+        {   // 1100
+            img = identicon.generate("c", 1);
+            THEN("Is blue")
+            {
+                REQUIRE(img.pixelColor(0, 0) == blue);
             }
         }
     }
