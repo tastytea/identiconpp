@@ -19,7 +19,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">identiconpp
-   &#160;<span id="projectnumber">0.3.4</span>
+   &#160;<span id="projectnumber">0.3.6</span>
    </div>
   </td>
  </tr>
@@ -86,12 +86,17 @@ $(function() {
 <li>C++ compiler (tested: <a href="https://gcc.gnu.org/">gcc</a> 5/6/7/8, <a href="https://llvm.org/">clang</a> 5/6)</li>
 <li><a href="https://cmake.org/">cmake</a> (at least 3.2)</li>
 <li><a href="https://www.imagemagick.org/">imagemagick</a> (tested: 7.0 / 6.7)</li>
+<li>Optional:<ul>
+<li>Tests: <a href="https://github.com/catchorg/Catch2">Catch</a> (tested: 2.3 / 1.2)</li>
+</ul>
+</li>
 </ul>
 <p>On a Debian system, install the packages: <code>build-essential cmake libmagick++-dev</code>.</p>
 <h4>Compile</h4>
 <div class="fragment"><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">cmake ..</div><div class="line">make</div><div class="line">make install</div></div><!-- fragment --><h5>cmake options</h5>
 <ul>
 <li><code>-DCMAKE_BUILD_TYPE=Debug</code> for a debug build</li>
+<li><code>-DWITH_TESTS=Debug</code> to build tests</li>
 <li>One of:<ul>
 <li><code>-DWITH_DEB=YES</code> to generate a deb-package</li>
 <li><code>-DWITH_RPM=YES</code> to generate an rpm-package</li>
