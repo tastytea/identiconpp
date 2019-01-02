@@ -4,7 +4,6 @@
 #include "identiconpp.hpp"
 
 using std::string;
-#include <iostream>
 
 SCENARIO("sigil: Correct placement")
 {
