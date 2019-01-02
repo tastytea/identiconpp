@@ -20,7 +20,7 @@
 Magick::Image Identiconpp::generate_ltr_symmetric(const string &digest)
 {
     Magick::Image img(Magick::Geometry(_columns, _rows),
-                      Magick::Color("#00000000"));
+                      Magick::Color('#' + _background));
     uint8_t used_columns = _columns / 2 + _columns % 2;
     Magick::Color dotcolor = get_color(used_columns * _rows + 1, digest);
 

@@ -20,7 +20,7 @@
 Magick::Image Identiconpp::generate_sigil(const string &digest)
 {
     Magick::Image img(Magick::Geometry(_columns, _rows),
-                      Magick::Color("#00000000"));
+                      Magick::Color('#' + _background));
     Magick::Color dotcolor = get_color(0, digest);
 
     uint8_t used_columns = _columns / 2 + _columns % 2;

@@ -78,10 +78,12 @@ Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
         }
     }
 
-    img.backgroundColor(Magick::Color('#' + _background));
     img.scale(Magick::Geometry(imgwidth, imgheight));
-    img.borderColor(Magick::Color('#' + _background));
-    img.border(Magick::Geometry(_padding[0], _padding[1]));
+    // The CompositeOperator prevents the background color to be affected by the
+    // frame color. See https://github.com/ImageMagick/ImageMagick/issues/647
+    img.compose(Magick::CompositeOperator::CopyCompositeOp);
+    img.matteColor(Magick::Color('#' + _background));
+    img.frame(Magick::Geometry(_padding[0], _padding[1]));
     return img;
 }
 

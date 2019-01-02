@@ -20,7 +20,7 @@
 Magick::Image Identiconpp::generate_ltr_asymmetric(const string &digest)
 {
     Magick::Image img(Magick::Geometry(_columns, _rows),
-                      Magick::Color("#00000000"));
+                      Magick::Color('#' + _background));
     Magick::Color dotcolor = get_color(_columns * _rows + 1, digest);
 
     for (uint8_t row = 0; row < _rows; ++row)
