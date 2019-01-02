@@ -43,7 +43,7 @@ pipeline:
       - rm -rf build && mkdir -p build && cd build
       - cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_TESTS=1 ..
       - make VERBOSE=1
-      - for test in test_*; do ${test}; done
+      - ctest ..
       - make install DESTDIR=install
       - make package
       - cmake -DWITH_DEB=ON ..
