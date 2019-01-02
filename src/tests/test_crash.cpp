@@ -60,6 +60,24 @@ SCENARIO("Please do not crash")
                 REQUIRE(exception == false);
             }
         }
+
+        WHEN("colors with uppercase hex digits")
+        {
+            try
+            {
+                Identiconpp identicon(1, 1, Identiconpp::algorithm::sigil,
+                                      "FF00FFFF");
+                identicon.generate(digest);
+            }
+            catch (const std::exception &e)
+            {
+                exception = true;
+            }
+            THEN("Does not crash")
+            {
+                REQUIRE(exception == false);
+            }
+        }
     }
 }
 
@@ -181,7 +199,64 @@ SCENARIO("Please crash")
             {
                 Identiconpp identicon(1, 1,
                                       Identiconpp::algorithm::ltr_symmetric,
-                                      "ffffffff", { "000000f"});
+                                      "ffffffff", { "000000f" });
+                identicon.generate(digest);
+            }
+            catch (const std::exception &e)
+            {
+                exception = true;
+            }
+            THEN("Crashes")
+            {
+                REQUIRE(exception == true);
+            }
+        }
+
+        WHEN("No foreground color")
+        {
+            try
+            {
+                Identiconpp identicon(1, 1,
+                                      Identiconpp::algorithm::ltr_symmetric,
+                                      "ffffffff", {});
+                identicon.generate(digest);
+            }
+            catch (const std::exception &e)
+            {
+                exception = true;
+            }
+            THEN("Crashes")
+            {
+                REQUIRE(exception == true);
+            }
+        }
+
+        WHEN("Non-hex digits in background color")
+        {
+            try
+            {
+                Identiconpp identicon(1, 1,
+                                      Identiconpp::algorithm::ltr_symmetric,
+                                      "ffffffgf");
+                identicon.generate(digest);
+            }
+            catch (const std::exception &e)
+            {
+                exception = true;
+            }
+            THEN("Crashes")
+            {
+                REQUIRE(exception == true);
+            }
+        }
+
+        WHEN("Non-hex digits in foreground color")
+        {
+            try
+            {
+                Identiconpp identicon(1, 1,
+                                      Identiconpp::algorithm::ltr_symmetric,
+                                      "ffffffff", { "g00000ff" });
                 identicon.generate(digest);
             }
             catch (const std::exception &e)
