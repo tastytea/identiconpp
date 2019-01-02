@@ -86,7 +86,7 @@ public:
      */
     Magick::Image generate(const string &digest, const uint16_t width = 100);
 
-private:
+protected:
     const uint8_t _rows;
     const uint8_t _columns;
     const algorithm _type;
