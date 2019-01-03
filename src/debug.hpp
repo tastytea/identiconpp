@@ -18,9 +18,6 @@
 #define DEBUG_HPP
 
 #include <iostream>
-#include <exception>
-#include <stdexcept>
-#include <sstream>
 
 #ifdef DEBUG
     #define ttdebug std::cerr << "[" << __FILE__ << ":" << __LINE__ << "] DEBUG: "
