@@ -12,6 +12,9 @@ modifications.
 ![](https://doc.schlomp.space/identiconpp/identicon4.png
 "6x4 identicon, ltr_symmetric, 10px padding")
 
+The example images above are generated using [example.cpp]
+(https://schlomp.space/tastytea/identiconpp/src/branch/master/example.cpp).
+
 ## Features
 
 * [x] Symmetric identicons

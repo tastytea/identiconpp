@@ -5,13 +5,24 @@
  */
 
 #include <string>
+#include <vector>
+#include <identiconpp.hpp>
 #include <Magick++/Image.h>
-#include "identiconpp.hpp"
 
 int main(int argc, char *argv[])
 {
-    string digest =
-        "973dfe463ec85785f5f95af5ba3906eedb2d931c24e69824a89ea65dba4e813b";
+    // sha256(test@example.com)
+    std::string digest = "973dfe463ec85785f5f95af5ba3906ee"
+                         "db2d931c24e69824a89ea65dba4e813b";
+    const std::vector<std::string> colors = 
+    {
+        "800000ff",
+        "008000ff",
+        "000080ff",
+        "808000ff",
+        "008080ff",
+        "800080ff"
+    };
     Magick::Image img;
 
     if (argc > 1)
@@ -20,51 +31,31 @@ int main(int argc, char *argv[])
     }
 
     {
-        Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_symmetric,
-            "ffffff80",
-            { 
-                "000000ff",
-                "ff0000ff",
-                "ffff00ff",
-                "00ff00ff",
-                "00ffffff",
-                "0000ffff"
-            }, { 10, 10 });
-        img = identicon.generate(digest, 500);
-        img.write("identicon_example_ltr_symmetric.png");
-    }
-
-    {
-        Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_asymmetric,
-            "00000080",
-            { 
-                "ffffffc0",
-                "ff0000c0",
-                "ffff00c0",
-                "00ff00c0",
-                "00ffffc0",
-                "0000ffc0"
-            });
-        img = identicon.generate(digest, 500);
-        img.write("identicon_example_ltr_asymmetric.png");
-        img.magick("GIF");
-        img.write("identicon_example_ltr_asymmetric.gif");
+        Identiconpp identicon(4, 4, Identiconpp::algorithm::ltr_symmetric,
+                              "ffffffff", colors, { 20, 20 });
+        img = identicon.generate(digest , 200);
+        img.write("identicon1.png");
     }
 
     {
         Identiconpp identicon(5, 5, Identiconpp::algorithm::sigil,
-            "ffffffff",
-            {
-                "000000ff",
-                "ff0000ff",
-                "ffff00ff",
-                "00ff00ff",
-                "00ffffff",
-                "0000ffff"
-            });
-        img = identicon.generate(digest, 500);
-        img.write("identicon_example_sigil.png");
-        img.write("identicon_example_sigil.jpg");
+                              "00000080", colors);
+        img = identicon.generate(digest , 200);
+        img.write("identicon2.png");
+    }
+
+    {
+        Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_asymmetric,
+                              "000000ff", colors);
+        img = identicon.generate(digest , 200);
+        img.write("identicon3.png");
+    }
+
+    {
+        Identiconpp identicon(6, 4, Identiconpp::algorithm::ltr_symmetric,
+                              "000000c0", colors, { 10, 10 });
+        img = identicon.generate(digest , 200);
+        img.write("identicon4.png");
     }
 
     return 0;
