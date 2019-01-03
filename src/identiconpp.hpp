@@ -1,5 +1,5 @@
 /*  This file is part of identiconpp.
- *  Copyright © 2018 tastytea <tastytea@tastytea.de>
+ *  Copyright © 2018, 2019 tastytea <tastytea@tastytea.de>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -13,6 +13,9 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+#ifndef IDENTICONPP_HPP
+#define IDENTICONPP_HPP
 
 #include <cstdint>
 #include <string>
@@ -181,3 +184,5 @@ protected:
      */
     void check_color(const string &color);
 };
+
+#endif  // IDENTICONPP_HPP
