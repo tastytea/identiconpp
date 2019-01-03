@@ -6,7 +6,7 @@
 
 #include <string>
 #include <vector>
-#include <identiconpp.hpp>
+#include "identiconpp.hpp"
 #include <Magick++/Image.h>
 
 int main(int argc, char *argv[])
