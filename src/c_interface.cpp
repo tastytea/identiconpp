@@ -17,11 +17,15 @@
 #include <vector>
 #include <memory>
 #include <exception>
+#include <iostream>
 #include <Magick++/Image.h>
 #include <Magick++/Blob.h>
 #include "identiconpp.hpp"
 #include "debug.hpp"
 #include "identiconpp_c.h"
+
+using std::cerr;
+using std::endl;
 
 static std::unique_ptr<Identiconpp> identicon;
 static string base64;
@@ -67,6 +71,7 @@ bool identiconpp_setup(const uint8_t columns, const uint8_t rows,
     }
     catch (const std::exception &e)
     {
+        cerr << e.what() << endl;
         return false;
     }
 
@@ -87,6 +92,7 @@ uint64_t identiconpp_generate(const char magick[],
     }
     catch (const std::exception &e)
     {
+        cerr << e.what() << endl;
         return 0;
     }
 }
