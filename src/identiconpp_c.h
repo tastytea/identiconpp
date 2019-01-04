@@ -27,11 +27,9 @@ extern "C"
     #include <stddef.h>
 
     /*!
+     * @brief   C interface for identiconpp.
+     * @file identiconpp_c.h
      * @example example.c
-     */
-
-    /*!
-     *  @brief  C interface for identiconpp.
      */
 
     /*!
@@ -39,8 +37,15 @@ extern "C"
      */
     typedef enum
     {
+        //! Generates symmetric (vertically mirrored) identicons.
         identiconpp_ltr_symmetric,
+        //! Generates asymmetric identicons.
         identiconpp_ltr_asymmetric,
+        /*!
+         * Generates the same results as
+         * [sigil](https://github.com/cupcake/sigil/) and
+         * [pydenticon](https://github.com/azaghal/pydenticon/).
+         */
         identiconpp_sigil
     } identiconpp_algorithm;
 
@@ -55,7 +60,7 @@ extern "C"
      *  @param  foreground_len  Length of the array of foreground colors
      *  @param  padding         Padding in pixels { left & right, top & down }
      *
-     *  @return false on error.
+     *  @return false on error, true otherwise.
      */
     bool identiconpp_setup(const uint8_t columns, const uint8_t rows,
                            identiconpp_algorithm type,
