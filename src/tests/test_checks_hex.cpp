@@ -6,7 +6,7 @@
 
 using std::string;
 
-class Testiconpp : protected Identiconpp
+class Testiconpp : private Identiconpp
 {
 public:
     explicit Testiconpp()

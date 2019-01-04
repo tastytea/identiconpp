@@ -6,7 +6,7 @@
 
 using std::string;
 
-class Testiconpp : protected Identiconpp
+class Testiconpp : private Identiconpp
 {
 public:
     explicit Testiconpp(const uint8_t columns, const uint8_t rows,
