@@ -42,9 +42,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classIdenticonpp-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Identiconpp Class Reference</div>  </div>
@@ -74,56 +72,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a82f624d713e2d32d5fdb26b9112b821a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates identicon from digest.  <a href="#a82f624d713e2d32d5fdb26b9112b821a">More...</a><br /></td></tr>
 <tr class="separator:a82f624d713e2d32d5fdb26b9112b821a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8c77322549e12449bc1bc597fb48e45f"><td class="memItemLeft" align="right" valign="top">Magick::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a8c77322549e12449bc1bc597fb48e45f">generate_ltr_symmetric</a> (const string &amp;digest)</td></tr>
-<tr class="memdesc:a8c77322549e12449bc1bc597fb48e45f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate ltr_symmetric identicon.  <a href="#a8c77322549e12449bc1bc597fb48e45f">More...</a><br /></td></tr>
-<tr class="separator:a8c77322549e12449bc1bc597fb48e45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7caaa537b9b891acf41efdf7711dfe9c"><td class="memItemLeft" align="right" valign="top">Magick::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a7caaa537b9b891acf41efdf7711dfe9c">generate_ltr_asymmetric</a> (const string &amp;digest)</td></tr>
-<tr class="memdesc:a7caaa537b9b891acf41efdf7711dfe9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate ltr_asymmetric identicon.  <a href="#a7caaa537b9b891acf41efdf7711dfe9c">More...</a><br /></td></tr>
-<tr class="separator:a7caaa537b9b891acf41efdf7711dfe9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65f6cd50e5dd35dd4bd369f4ab5a6cc5"><td class="memItemLeft" align="right" valign="top">Magick::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a65f6cd50e5dd35dd4bd369f4ab5a6cc5">generate_sigil</a> (const string &amp;digest)</td></tr>
-<tr class="memdesc:a65f6cd50e5dd35dd4bd369f4ab5a6cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate sigil identicon.  <a href="#a65f6cd50e5dd35dd4bd369f4ab5a6cc5">More...</a><br /></td></tr>
-<tr class="separator:a65f6cd50e5dd35dd4bd369f4ab5a6cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68715ab267e154c053c285aaef5ec407"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a68715ab267e154c053c285aaef5ec407">check_entropy</a> (const string &amp;digest, <a class="el" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9">algorithm</a> type)</td></tr>
-<tr class="memdesc:a68715ab267e154c053c285aaef5ec407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the digest contains enough entropy.  <a href="#a68715ab267e154c053c285aaef5ec407">More...</a><br /></td></tr>
-<tr class="separator:a68715ab267e154c053c285aaef5ec407"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd42c062f28b45691bef7db53fa65dd7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#afd42c062f28b45691bef7db53fa65dd7">get_bit</a> (const uint16_t bit, const string &amp;digest)</td></tr>
-<tr class="memdesc:afd42c062f28b45691bef7db53fa65dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if the n-th bit of passed digest is 1 or 0.  <a href="#afd42c062f28b45691bef7db53fa65dd7">More...</a><br /></td></tr>
-<tr class="separator:afd42c062f28b45691bef7db53fa65dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fdfffbb99acf81ca88982408dc2ec97"><td class="memItemLeft" align="right" valign="top">Magick::Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a5fdfffbb99acf81ca88982408dc2ec97">get_color</a> (const uint16_t firstbit, const string &amp;digest)</td></tr>
-<tr class="memdesc:a5fdfffbb99acf81ca88982408dc2ec97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chooses a foreground color.  <a href="#a5fdfffbb99acf81ca88982408dc2ec97">More...</a><br /></td></tr>
-<tr class="separator:a5fdfffbb99acf81ca88982408dc2ec97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64c0b6eafd6740570f35097dad9753ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#a64c0b6eafd6740570f35097dad9753ca">check_color</a> (const string &amp;color)</td></tr>
-<tr class="memdesc:a64c0b6eafd6740570f35097dad9753ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs checks on a color definition in a string.  <a href="#a64c0b6eafd6740570f35097dad9753ca">More...</a><br /></td></tr>
-<tr class="separator:a64c0b6eafd6740570f35097dad9753ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac9ddf24a2b264ded298732fd1331ea0a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIdenticonpp.html#ac9ddf24a2b264ded298732fd1331ea0a">not_hex</a> (const char c)</td></tr>
-<tr class="memdesc:ac9ddf24a2b264ded298732fd1331ea0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if character is not hexadecimal.  <a href="#ac9ddf24a2b264ded298732fd1331ea0a">More...</a><br /></td></tr>
-<tr class="separator:ac9ddf24a2b264ded298732fd1331ea0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a173d5a3b53f355d2b05e5855fd275f7f"><td class="memItemLeft" align="right" valign="top"><a id="a173d5a3b53f355d2b05e5855fd275f7f"></a>
-const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_rows</b></td></tr>
-<tr class="separator:a173d5a3b53f355d2b05e5855fd275f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a148e751f531c517e919f2d12af5498cf"><td class="memItemLeft" align="right" valign="top"><a id="a148e751f531c517e919f2d12af5498cf"></a>
-const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>_columns</b></td></tr>
-<tr class="separator:a148e751f531c517e919f2d12af5498cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d2de6c84e4079aea6151309aa0e70f8"><td class="memItemLeft" align="right" valign="top"><a id="a8d2de6c84e4079aea6151309aa0e70f8"></a>
-const <a class="el" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9">algorithm</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_type</b></td></tr>
-<tr class="separator:a8d2de6c84e4079aea6151309aa0e70f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a175da626e225c2515717adc5ef532c05"><td class="memItemLeft" align="right" valign="top"><a id="a175da626e225c2515717adc5ef532c05"></a>
-const string&#160;</td><td class="memItemRight" valign="bottom"><b>_background</b></td></tr>
-<tr class="separator:a175da626e225c2515717adc5ef532c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fb15c03ed3d70a58e6db3917f73ba42"><td class="memItemLeft" align="right" valign="top"><a id="a8fb15c03ed3d70a58e6db3917f73ba42"></a>
-const vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_foreground</b></td></tr>
-<tr class="separator:a8fb15c03ed3d70a58e6db3917f73ba42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3f56c88b457f5a8c9bc48953dfd5ac1"><td class="memItemLeft" align="right" valign="top"><a id="af3f56c88b457f5a8c9bc48953dfd5ac1"></a>
-const array&lt; const uint8_t, 2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_padding</b></td></tr>
-<tr class="separator:af3f56c88b457f5a8c9bc48953dfd5ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a619f7215ffbd44697a64e2858fb9d7fc"><td class="memItemLeft" align="right" valign="top"><a id="a619f7215ffbd44697a64e2858fb9d7fc"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>Testiconpp</b></td></tr>
+<tr class="separator:a619f7215ffbd44697a64e2858fb9d7fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for identiconpp. </p>
@@ -159,7 +112,7 @@ const array&lt; const uint8_t, 2 &gt;&#160;</td><td class="memItemRight" valign=
 <tr><td class="fieldname"><a id="a229201bc23b0fabbcca60f2fe0188fa9a3862d335e66bc7111aadbff6ad079bf5"></a>sigil&#160;</td><td class="fielddoc"><p>Generates the same results as <a href="https://github.com/cupcake/sigil/">sigil</a> and <a href="https://github.com/azaghal/pydenticon/">pydenticon</a>. </p>
 </td></tr>
 </table>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        ltr_symmetric,</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        ltr_asymmetric,</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        sigil</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    };</div></div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        ltr_symmetric,</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        ltr_asymmetric,</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        sigil</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    };</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -234,96 +187,10 @@ const array&lt; const uint8_t, 2 &gt;&#160;</td><td class="memItemRight" valign=
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;: _rows(rows)</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;, _columns(columns)</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;, _type(type)</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;, _background(background)</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;, _foreground(foreground)</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;, _padding(padding)</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classIdenticonpp.html#a64c0b6eafd6740570f35097dad9753ca">check_color</a>(_background);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;color : _foreground)</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classIdenticonpp.html#a64c0b6eafd6740570f35097dad9753ca">check_color</a>(color);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span> (_foreground.size() == 0)</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        (</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="stringliteral">&quot;You must specify at least 1 foreground color.&quot;</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;         );</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div><div class="ttc" id="classIdenticonpp_html_a64c0b6eafd6740570f35097dad9753ca"><div class="ttname"><a href="classIdenticonpp.html#a64c0b6eafd6740570f35097dad9753ca">Identiconpp::check_color</a></div><div class="ttdeci">void check_color(const string &amp;color)</div><div class="ttdoc">Performs checks on a color definition in a string. </div><div class="ttdef"><b>Definition:</b> checks.cpp:96</div></div>
-</div><!-- fragment -->
+<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;: _rows(rows)</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;, _columns(columns)</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;, _type(type)</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;, _background(background)</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;, _foreground(foreground)</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;, _padding(padding)</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    check_color(_background);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;color : _foreground)</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        check_color(color);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span> (_foreground.size() == 0)</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        (</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="stringliteral">&quot;You must specify at least 1 foreground color.&quot;</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;         );</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a64c0b6eafd6740570f35097dad9753ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64c0b6eafd6740570f35097dad9753ca">&#9670;&nbsp;</a></span>check_color()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Identiconpp::check_color </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Performs checks on a color definition in a string. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">color</td><td>The color as string </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span> (color.length() != 8)</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        (</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="stringliteral">&quot;Colors must consist of exactly 8 digits(&quot;</span> + color + <span class="stringliteral">&quot;).&quot;</span></div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        );</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span> (std::any_of(color.begin(), color.end(), <a class="code" href="classIdenticonpp.html#ac9ddf24a2b264ded298732fd1331ea0a">not_hex</a>))</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        (</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="stringliteral">&quot;Colors must consist of hexadecimal digits (&quot;</span> + color + <span class="stringliteral">&quot;).&quot;</span></div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        );</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div><div class="ttc" id="classIdenticonpp_html_ac9ddf24a2b264ded298732fd1331ea0a"><div class="ttname"><a href="classIdenticonpp.html#ac9ddf24a2b264ded298732fd1331ea0a">Identiconpp::not_hex</a></div><div class="ttdeci">static bool not_hex(const char c)</div><div class="ttdoc">Checks if character is not hexadecimal. </div><div class="ttdef"><b>Definition:</b> checks.cpp:78</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a68715ab267e154c053c285aaef5ec407"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68715ab267e154c053c285aaef5ec407">&#9670;&nbsp;</a></span>check_entropy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Identiconpp::check_entropy </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>digest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9">algorithm</a>&#160;</td>
-          <td class="paramname"><em>type</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if the digest contains enough entropy. </p>
-<p>Throws <code>std::invalid_argument</code> if not.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">digest</td><td>The pre-computed digest </td></tr>
-    <tr><td class="paramname">type</td><td>The type of identicon </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> (std::any_of(digest.begin(), digest.end(), <a class="code" href="classIdenticonpp.html#ac9ddf24a2b264ded298732fd1331ea0a">not_hex</a>))</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        (</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="stringliteral">&quot;Digests must consist of hexadecimal digits (&quot;</span> + digest + <span class="stringliteral">&quot;).&quot;</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        );</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    uint16_t entropy_provided;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    uint16_t entropy_required;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">switch</span> (type)</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570">algorithm::ltr_symmetric</a>:</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="comment">// Every char is 4 bit</span></div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            entropy_provided = digest.length() * 4;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="comment">// We need bits for each field in half of the columns, +1 column if</span></div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="comment">// they are uneven. Then we need enough bits to pick a color.</span></div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            entropy_required = (_columns / 2 + _columns % 2) * _rows</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                + std::floor(std::log2(_foreground.size())) + 1;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9acb50e01673547636f601739748b664b0">algorithm::ltr_asymmetric</a>:</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            entropy_provided = digest.length() * 4;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            entropy_required = _columns * _rows</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                + std::floor(std::log2(_foreground.size())) + 1;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3862d335e66bc7111aadbff6ad079bf5">algorithm::sigil</a>:</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span> (_foreground.size() &gt; 256)</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            {</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">throw</span> std::invalid_argument(</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    <span class="stringliteral">&quot;sigil algorithm does not support more than 256 colors.&quot;</span>);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            entropy_provided = digest.length() * 4;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            entropy_required = (_columns / 2 + _columns % 2) * _rows + 8;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    ttdebug &lt;&lt; <span class="stringliteral">&quot;entropy_provided=&quot;</span> &lt;&lt; std::to_string(entropy_provided)</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;, entropy_required=&quot;</span> &lt;&lt; std::to_string(entropy_required) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> (entropy_provided &lt; entropy_required)</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument(</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="stringliteral">&quot;Passed digest \&quot;&quot;</span> + digest + <span class="stringliteral">&quot;\&quot; is not capable of providing &quot;</span> +</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            std::to_string(entropy_required) + <span class="stringliteral">&quot; bits of entropy.&quot;</span>);</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div><div class="ttc" id="classIdenticonpp_html_a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570"><div class="ttname"><a href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570">Identiconpp::algorithm::ltr_symmetric</a></div><div class="ttdoc">Generates symmetric (vertically mirrored) identicons. </div></div>
-<div class="ttc" id="classIdenticonpp_html_a229201bc23b0fabbcca60f2fe0188fa9a3862d335e66bc7111aadbff6ad079bf5"><div class="ttname"><a href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3862d335e66bc7111aadbff6ad079bf5">Identiconpp::algorithm::sigil</a></div></div>
-<div class="ttc" id="classIdenticonpp_html_ac9ddf24a2b264ded298732fd1331ea0a"><div class="ttname"><a href="classIdenticonpp.html#ac9ddf24a2b264ded298732fd1331ea0a">Identiconpp::not_hex</a></div><div class="ttdeci">static bool not_hex(const char c)</div><div class="ttdoc">Checks if character is not hexadecimal. </div><div class="ttdef"><b>Definition:</b> checks.cpp:78</div></div>
-<div class="ttc" id="classIdenticonpp_html_a229201bc23b0fabbcca60f2fe0188fa9acb50e01673547636f601739748b664b0"><div class="ttname"><a href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9acb50e01673547636f601739748b664b0">Identiconpp::algorithm::ltr_asymmetric</a></div><div class="ttdoc">Generates asymmetric identicons. </div></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="a82f624d713e2d32d5fdb26b9112b821a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a82f624d713e2d32d5fdb26b9112b821a">&#9670;&nbsp;</a></span>generate()</h2>
 
@@ -360,256 +227,10 @@ const array&lt; const uint8_t, 2 &gt;&#160;</td><td class="memItemRight" valign=
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The image as Magick::Image </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="example_8cpp-example.html#a2">example.cpp</a>.</dd>
-</dl><div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ttdebug &lt;&lt; <span class="stringliteral">&quot;Using digest: &quot;</span> &lt;&lt; digest &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classIdenticonpp.html#a68715ab267e154c053c285aaef5ec407">check_entropy</a>(digest, _type);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> std::int16_t imgwidth = width - _padding[0] * 2;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> std::int16_t imgheight =</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::round(static_cast&lt;float&gt;(imgwidth) / _columns * _rows);</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ttdebug &lt;&lt; <span class="stringliteral">&quot;width: &quot;</span> &lt;&lt; std::to_string(imgwidth)</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            &lt;&lt;  <span class="stringliteral">&quot;+&quot;</span> &lt;&lt;  std::to_string(_padding[0] * 2)</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;, height: &quot;</span> &lt;&lt; std::to_string(imgheight)</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            &lt;&lt;  <span class="stringliteral">&quot;+&quot;</span> &lt;&lt;  std::to_string(_padding[1] * 2)</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (imgwidth &lt;= 0 || imgheight &lt;= 0)</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Width or height is zero or less.&quot;</span>);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    Magick::Image img;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">switch</span> (_type)</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570">algorithm::ltr_symmetric</a>:</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            img = <a class="code" href="classIdenticonpp.html#a8c77322549e12449bc1bc597fb48e45f">generate_ltr_symmetric</a>(digest);</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9acb50e01673547636f601739748b664b0">algorithm::ltr_asymmetric</a>:</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            img = <a class="code" href="classIdenticonpp.html#a7caaa537b9b891acf41efdf7711dfe9c">generate_ltr_asymmetric</a>(digest);</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3862d335e66bc7111aadbff6ad079bf5">algorithm::sigil</a>:</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            img = <a class="code" href="classIdenticonpp.html#a65f6cd50e5dd35dd4bd369f4ab5a6cc5">generate_sigil</a>(digest);</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    img.scale(Magick::Geometry(imgwidth, imgheight));</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// The CompositeOperator prevents the background color to be affected by the</span></div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">// frame color. See https://github.com/ImageMagick/ImageMagick/issues/647</span></div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    img.compose(Magick::CompositeOperator::CopyCompositeOp);</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    img.matteColor(Magick::Color(<span class="charliteral">&#39;#&#39;</span> + _background));</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    img.frame(Magick::Geometry(_padding[0], _padding[1]));</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> img;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div><div class="ttc" id="classIdenticonpp_html_a68715ab267e154c053c285aaef5ec407"><div class="ttname"><a href="classIdenticonpp.html#a68715ab267e154c053c285aaef5ec407">Identiconpp::check_entropy</a></div><div class="ttdeci">void check_entropy(const string &amp;digest, algorithm type)</div><div class="ttdoc">Check if the digest contains enough entropy. </div><div class="ttdef"><b>Definition:</b> checks.cpp:24</div></div>
-<div class="ttc" id="classIdenticonpp_html_a8c77322549e12449bc1bc597fb48e45f"><div class="ttname"><a href="classIdenticonpp.html#a8c77322549e12449bc1bc597fb48e45f">Identiconpp::generate_ltr_symmetric</a></div><div class="ttdeci">Magick::Image generate_ltr_symmetric(const string &amp;digest)</div><div class="ttdoc">Generate ltr_symmetric identicon. </div><div class="ttdef"><b>Definition:</b> ltr_symmetric.cpp:20</div></div>
-<div class="ttc" id="classIdenticonpp_html_a7caaa537b9b891acf41efdf7711dfe9c"><div class="ttname"><a href="classIdenticonpp.html#a7caaa537b9b891acf41efdf7711dfe9c">Identiconpp::generate_ltr_asymmetric</a></div><div class="ttdeci">Magick::Image generate_ltr_asymmetric(const string &amp;digest)</div><div class="ttdoc">Generate ltr_asymmetric identicon. </div><div class="ttdef"><b>Definition:</b> ltr_asymmetric.cpp:20</div></div>
-<div class="ttc" id="classIdenticonpp_html_a65f6cd50e5dd35dd4bd369f4ab5a6cc5"><div class="ttname"><a href="classIdenticonpp.html#a65f6cd50e5dd35dd4bd369f4ab5a6cc5">Identiconpp::generate_sigil</a></div><div class="ttdeci">Magick::Image generate_sigil(const string &amp;digest)</div><div class="ttdoc">Generate sigil identicon. </div><div class="ttdef"><b>Definition:</b> sigil.cpp:20</div></div>
-<div class="ttc" id="classIdenticonpp_html_a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570"><div class="ttname"><a href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570">Identiconpp::algorithm::ltr_symmetric</a></div><div class="ttdoc">Generates symmetric (vertically mirrored) identicons. </div></div>
+</dl><div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ttdebug &lt;&lt; <span class="stringliteral">&quot;Using digest: &quot;</span> &lt;&lt; digest &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    check_entropy(digest, _type);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> std::int16_t imgwidth = width - _padding[0] * 2;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> std::int16_t imgheight =</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::round(static_cast&lt;float&gt;(imgwidth) / _columns * _rows);</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ttdebug &lt;&lt; <span class="stringliteral">&quot;width: &quot;</span> &lt;&lt; std::to_string(imgwidth)</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            &lt;&lt;  <span class="stringliteral">&quot;+&quot;</span> &lt;&lt;  std::to_string(_padding[0] * 2)</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;, height: &quot;</span> &lt;&lt; std::to_string(imgheight)</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            &lt;&lt;  <span class="stringliteral">&quot;+&quot;</span> &lt;&lt;  std::to_string(_padding[1] * 2)</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> (imgwidth &lt;= 0 || imgheight &lt;= 0)</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Width or height is zero or less.&quot;</span>);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    Magick::Image img;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">switch</span> (_type)</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570">algorithm::ltr_symmetric</a>:</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            img = generate_ltr_symmetric(digest);</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9acb50e01673547636f601739748b664b0">algorithm::ltr_asymmetric</a>:</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            img = generate_ltr_asymmetric(digest);</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3862d335e66bc7111aadbff6ad079bf5">algorithm::sigil</a>:</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            img = generate_sigil(digest);</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    img.scale(Magick::Geometry(imgwidth, imgheight));</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// The CompositeOperator prevents the background color to be affected by the</span></div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">// frame color. See https://github.com/ImageMagick/ImageMagick/issues/647</span></div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    img.compose(Magick::CompositeOperator::CopyCompositeOp);</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    img.matteColor(Magick::Color(<span class="charliteral">&#39;#&#39;</span> + _background));</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    img.frame(Magick::Geometry(_padding[0], _padding[1]));</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> img;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div><div class="ttc" id="classIdenticonpp_html_a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570"><div class="ttname"><a href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570">Identiconpp::algorithm::ltr_symmetric</a></div><div class="ttdoc">Generates symmetric (vertically mirrored) identicons. </div></div>
 <div class="ttc" id="classIdenticonpp_html_a229201bc23b0fabbcca60f2fe0188fa9a3862d335e66bc7111aadbff6ad079bf5"><div class="ttname"><a href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3862d335e66bc7111aadbff6ad079bf5">Identiconpp::algorithm::sigil</a></div></div>
 <div class="ttc" id="classIdenticonpp_html_a229201bc23b0fabbcca60f2fe0188fa9acb50e01673547636f601739748b664b0"><div class="ttname"><a href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9acb50e01673547636f601739748b664b0">Identiconpp::algorithm::ltr_asymmetric</a></div><div class="ttdoc">Generates asymmetric identicons. </div></div>
 </div><!-- fragment -->
-</div>
-</div>
-<a id="a7caaa537b9b891acf41efdf7711dfe9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7caaa537b9b891acf41efdf7711dfe9c">&#9670;&nbsp;</a></span>generate_ltr_asymmetric()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Magick::Image Identiconpp::generate_ltr_asymmetric </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>digest</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate ltr_asymmetric identicon. </p>
-<p>Use bits 0 to _columns * _rows, use the following bits to determine foreground color. Squares are drawn from left to right, top to bottom.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">digest</td><td>The pre-computed digest</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The image </dd></dl>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Magick::Image img(Magick::Geometry(_columns, _rows),</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                      Magick::Color(<span class="charliteral">&#39;#&#39;</span> + _background));</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Magick::Color dotcolor = <a class="code" href="classIdenticonpp.html#a5fdfffbb99acf81ca88982408dc2ec97">get_color</a>(_columns * _rows + 1, digest);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span> (uint8_t row = 0; row &lt; _rows; ++row)</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">for</span> (uint8_t column = 0; column &lt; _columns; ++column)</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classIdenticonpp.html#afd42c062f28b45691bef7db53fa65dd7">get_bit</a>(row * _columns + column, digest))</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            {</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                ttdebug &lt;&lt; <span class="stringliteral">&quot;col=&quot;</span> &lt;&lt; std::to_string(column)</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                        &lt;&lt; <span class="stringliteral">&quot;, row=&quot;</span> &lt;&lt; std::to_string(row) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                img.pixelColor(column, row, dotcolor);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            }</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> img;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div><div class="ttc" id="classIdenticonpp_html_afd42c062f28b45691bef7db53fa65dd7"><div class="ttname"><a href="classIdenticonpp.html#afd42c062f28b45691bef7db53fa65dd7">Identiconpp::get_bit</a></div><div class="ttdeci">bool get_bit(const uint16_t bit, const string &amp;digest)</div><div class="ttdoc">Determines if the n-th bit of passed digest is 1 or 0. </div><div class="ttdef"><b>Definition:</b> identiconpp.cpp:98</div></div>
-<div class="ttc" id="classIdenticonpp_html_a5fdfffbb99acf81ca88982408dc2ec97"><div class="ttname"><a href="classIdenticonpp.html#a5fdfffbb99acf81ca88982408dc2ec97">Identiconpp::get_color</a></div><div class="ttdeci">Magick::Color get_color(const uint16_t firstbit, const string &amp;digest)</div><div class="ttdoc">Chooses a foreground color. </div><div class="ttdef"><b>Definition:</b> identiconpp.cpp:117</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a8c77322549e12449bc1bc597fb48e45f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c77322549e12449bc1bc597fb48e45f">&#9670;&nbsp;</a></span>generate_ltr_symmetric()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Magick::Image Identiconpp::generate_ltr_symmetric </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>digest</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate ltr_symmetric identicon. </p>
-<p>Use bits 0 to (_columns / 2 + _columns % 2) * _rows, use the following bits to determine foreground color. Squares are drawn from left to right, top to bottom.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">digest</td><td>The pre-computed digest</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The image </dd></dl>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Magick::Image img(Magick::Geometry(_columns, _rows),</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                      Magick::Color(<span class="charliteral">&#39;#&#39;</span> + _background));</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    uint8_t used_columns = _columns / 2 + _columns % 2;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    Magick::Color dotcolor = <a class="code" href="classIdenticonpp.html#a5fdfffbb99acf81ca88982408dc2ec97">get_color</a>(used_columns * _rows + 1, digest);</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span> (uint8_t row = 0; row &lt; _rows; ++row)</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">for</span> (uint8_t column = 0; column &lt; used_columns; ++column)</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classIdenticonpp.html#afd42c062f28b45691bef7db53fa65dd7">get_bit</a>(row * used_columns + column, digest))</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            {</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                ttdebug &lt;&lt; <span class="stringliteral">&quot;col=&quot;</span> &lt;&lt; std::to_string(column)</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                        &lt;&lt; <span class="stringliteral">&quot;, row=&quot;</span> &lt;&lt; std::to_string(row) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                img.pixelColor(column, row, dotcolor);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                img.pixelColor(_columns - 1 - column, row, dotcolor);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> img;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div><div class="ttc" id="classIdenticonpp_html_afd42c062f28b45691bef7db53fa65dd7"><div class="ttname"><a href="classIdenticonpp.html#afd42c062f28b45691bef7db53fa65dd7">Identiconpp::get_bit</a></div><div class="ttdeci">bool get_bit(const uint16_t bit, const string &amp;digest)</div><div class="ttdoc">Determines if the n-th bit of passed digest is 1 or 0. </div><div class="ttdef"><b>Definition:</b> identiconpp.cpp:98</div></div>
-<div class="ttc" id="classIdenticonpp_html_a5fdfffbb99acf81ca88982408dc2ec97"><div class="ttname"><a href="classIdenticonpp.html#a5fdfffbb99acf81ca88982408dc2ec97">Identiconpp::get_color</a></div><div class="ttdeci">Magick::Color get_color(const uint16_t firstbit, const string &amp;digest)</div><div class="ttdoc">Chooses a foreground color. </div><div class="ttdef"><b>Definition:</b> identiconpp.cpp:117</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a65f6cd50e5dd35dd4bd369f4ab5a6cc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65f6cd50e5dd35dd4bd369f4ab5a6cc5">&#9670;&nbsp;</a></span>generate_sigil()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Magick::Image Identiconpp::generate_sigil </td>
-          <td>(</td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>digest</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate sigil identicon. </p>
-<p>Use bits 9 to (_columns / 2 + _columns % 2) * _rows, use the first 8 bits to determine foreground color. Squares are drawn from top to bottom, left to right.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">digest</td><td>The pre-computed digest</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The image </dd></dl>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Magick::Image img(Magick::Geometry(_columns, _rows),</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                      Magick::Color(<span class="charliteral">&#39;#&#39;</span> + _background));</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Magick::Color dotcolor = <a class="code" href="classIdenticonpp.html#a5fdfffbb99acf81ca88982408dc2ec97">get_color</a>(0, digest);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    uint8_t used_columns = _columns / 2 + _columns % 2;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    uint8_t cells = _rows * used_columns;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">for</span> (uint8_t cur_cell = 0; cur_cell &lt; cells; ++cur_cell)</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classIdenticonpp.html#afd42c062f28b45691bef7db53fa65dd7">get_bit</a>(8 + cur_cell, digest))</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keyword">const</span> uint8_t column = cur_cell / _columns;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keyword">const</span> uint8_t row = cur_cell % _rows;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            ttdebug &lt;&lt; <span class="stringliteral">&quot;col=&quot;</span> &lt;&lt; std::to_string(column)</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                    &lt;&lt; <span class="stringliteral">&quot;, row=&quot;</span> &lt;&lt; std::to_string(row) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            img.pixelColor(column, row, dotcolor);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            img.pixelColor(_columns - column - 1, row, dotcolor);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> img;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div><div class="ttc" id="classIdenticonpp_html_afd42c062f28b45691bef7db53fa65dd7"><div class="ttname"><a href="classIdenticonpp.html#afd42c062f28b45691bef7db53fa65dd7">Identiconpp::get_bit</a></div><div class="ttdeci">bool get_bit(const uint16_t bit, const string &amp;digest)</div><div class="ttdoc">Determines if the n-th bit of passed digest is 1 or 0. </div><div class="ttdef"><b>Definition:</b> identiconpp.cpp:98</div></div>
-<div class="ttc" id="classIdenticonpp_html_a5fdfffbb99acf81ca88982408dc2ec97"><div class="ttname"><a href="classIdenticonpp.html#a5fdfffbb99acf81ca88982408dc2ec97">Identiconpp::get_color</a></div><div class="ttdeci">Magick::Color get_color(const uint16_t firstbit, const string &amp;digest)</div><div class="ttdoc">Chooses a foreground color. </div><div class="ttdef"><b>Definition:</b> identiconpp.cpp:117</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="afd42c062f28b45691bef7db53fa65dd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd42c062f28b45691bef7db53fa65dd7">&#9670;&nbsp;</a></span>get_bit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Identiconpp::get_bit </td>
-          <td>(</td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>bit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>digest</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Determines if the n-th bit of passed digest is 1 or 0. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bit</td><td>Bit to get </td></tr>
-    <tr><td class="paramname">digest</td><td>The digest</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The bit. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    std::stringstream ss;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    ss &lt;&lt; std::hex &lt;&lt; digest[bit / 4];</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="comment">// std::stringstream does not support writing into uint8_t</span></div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> nibble;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ss &gt;&gt; nibble;</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">// Shift nibble to the right until the bit we want is on the right border.</span></div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">// Then check if it is set.</span></div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span> (nibble &gt;&gt; (3 - bit % 4) &amp; 1)</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        ttdebug &lt;&lt; <span class="stringliteral">&quot;Bit &quot;</span> &lt;&lt; std::to_string(bit + 1) &lt;&lt; <span class="stringliteral">&quot; is set.\n&quot;</span>;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="a5fdfffbb99acf81ca88982408dc2ec97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fdfffbb99acf81ca88982408dc2ec97">&#9670;&nbsp;</a></span>get_color()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Magick::Color Identiconpp::get_color </td>
-          <td>(</td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>firstbit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const string &amp;&#160;</td>
-          <td class="paramname"><em>digest</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Chooses a foreground color. </p>
-<p>Extracts the right bits from the digest and returns a color.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">firstbit</td><td>The first bit of the digest to choose a color </td></tr>
-    <tr><td class="paramname">digest</td><td>The digest</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A foreground color. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="comment">// Number of bits to use</span></div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">const</span> uint16_t colorbits = std::floor(std::log2(_foreground.size())) + 1;</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">// Extract approximation</span></div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    std::stringstream ss;</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span> (colorbits % 4 == 0)</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        ss &lt;&lt; std::hex &lt;&lt; digest.substr(firstbit / 4, colorbits / 4);</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">else</span></div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    {</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        ss &lt;&lt; std::hex &lt;&lt; digest.substr(firstbit / 4, colorbits / 4 + 1);</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="comment">// std::stringstream does not support writing into uint16_t</span></div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> bits;</div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    ss &gt;&gt; bits;</div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    </div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="comment">// Shift an one $colorbits times to the left, substract 1. This leaves us</span></div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment">//  with $colorbits ones. Then AND bits and our ones to keep only as many</span></div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment">//  bits as we need.</span></div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    bits = bits &amp; ((1 &lt;&lt; colorbits) - 1);</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">// We may get a number that is slightly too big if _foreground.size() is not</span></div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="comment">// a power of 2.</span></div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">if</span> (bits &gt; (_foreground.size() - 1))</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    {</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        bits -= _foreground.size();</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">// Lookup und set color</span></div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    ttdebug &lt;&lt; <span class="stringliteral">&quot;Color: #&quot;</span> &lt;&lt; _foreground[bits] &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> Magick::Color(<span class="stringliteral">&quot;#&quot;</span> + _foreground[bits]);</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div></div><!-- fragment -->
-</div>
-</div>
-<a id="ac9ddf24a2b264ded298732fd1331ea0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9ddf24a2b264ded298732fd1331ea0a">&#9670;&nbsp;</a></span>not_hex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Identiconpp::not_hex </td>
-          <td>(</td>
-          <td class="paramtype">const char&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if character is not hexadecimal. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">c</td><td>Character to check</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true if not hex. </dd></dl>
-<div class="fragment"><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (c &gt;= 0x61 &amp;&amp; c &lt;= 0x66)</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {   <span class="comment">// a-f</span></div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span> (c &gt;= 0x41 &amp;&amp; c &lt;= 0x46)</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {   <span class="comment">// A-F</span></div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (c &gt;= 0x30 &amp;&amp; c &lt;= 0x39)</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {   <span class="comment">// 0-9</span></div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
