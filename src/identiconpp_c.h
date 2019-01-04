@@ -55,7 +55,7 @@ extern "C"
      *  @param  foreground_len  Length of the array of foreground colors
      *  @param  padding         Padding in pixels { left & right, top & down }
      *
-     *  @return { description_of_the_return_value }
+     *  @return false on error.
      */
     bool identiconpp_setup(const uint8_t columns, const uint8_t rows,
                            identiconpp_algorithm type,
@@ -71,7 +71,7 @@ extern "C"
      *  @param  digest  The pre-computed digest
      *  @param  width   The width of the identicon
      *
-     *  @return Length of the generated base64-string
+     *  @return Length of the generated base64-string, or 0 on error.
      */
     uint64_t identiconpp_generate(const char magick[],
                                   const char digest[], const uint16_t width);

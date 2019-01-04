@@ -76,13 +76,19 @@ bool identiconpp_setup(const uint8_t columns, const uint8_t rows,
 uint64_t identiconpp_generate(const char magick[],
                               const char digest[], const uint16_t width)
 {
-    Magick::Image img = identicon->generate(digest, width);
-    Magick::Blob blob;
-    img.magick(magick);
-    img.write(&blob);
-    base64 = blob.base64();
-
-    return blob.base64().length();
+    try
+    {
+        Magick::Image img = identicon->generate(digest, width);
+        Magick::Blob blob;
+        img.magick(magick);
+        img.write(&blob);
+        base64 = blob.base64();
+        return blob.base64().length();
+    }
+    catch (const std::exception &e)
+    {
+        return 0;
+    }
 }
 
 const char *identiconpp_base64()
