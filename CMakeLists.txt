@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.2)
 project(identiconpp
-        VERSION 0.3.7
+        VERSION 0.4.0
         LANGUAGES CXX
 )
 
@@ -38,6 +38,7 @@ target_link_libraries(example ${CMAKE_PROJECT_NAME})
 
 install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(FILES src/${CMAKE_PROJECT_NAME}.hpp DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(FILES src/${CMAKE_PROJECT_NAME}_c.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(FILES README.md DESTINATION ${CMAKE_INSTALL_DOCDIR})
 
 include(packages.CMakeLists.txt)
