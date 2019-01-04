@@ -33,7 +33,7 @@ bool identiconpp_setup(const uint8_t columns, const uint8_t rows,
                        const uint8_t foreground_len,
                        const uint8_t padding[2])
 {
-    Identiconpp::algorithm algo;
+    Identiconpp::algorithm algo = Identiconpp::algorithm::ltr_symmetric;
     switch (type)
     {
         case identiconpp_ltr_symmetric:

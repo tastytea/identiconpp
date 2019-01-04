@@ -31,8 +31,8 @@ void Identiconpp::check_entropy(const string &digest, algorithm type)
         );
     }
 
-    uint16_t entropy_provided;
-    uint16_t entropy_required;
+    uint16_t entropy_provided = 0;
+    uint16_t entropy_required = 0;
     switch (type)
     {
         case algorithm::ltr_symmetric:
