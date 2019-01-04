@@ -57,7 +57,8 @@ int main()
 ### C interface
 
 This is somewhat experimental. Have a look at [example.c]
-(https://schlomp.space/tastytea/identiconpp/src/branch/master/example.c).
+(https://schlomp.space/tastytea/identiconpp/src/branch/master/example.c) and
+[identiconpp_c.h](https://doc.schlomp.space/identiconpp/identiconpp__c_8h.html).
 
 It seems to be impossible to use `Magick++` and `MagickWand` in the same
 library, so the images are returned as base64-encoded strings.
