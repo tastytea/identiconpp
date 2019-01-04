@@ -1,4 +1,4 @@
-**identiconpp** is a library to generate identicons for C++.
+**identiconpp** is a library to generate identicons for C++ and C.
 
 You get the images as `Magick::Image`. This allows you to make all kinds of
 modifications.
@@ -53,6 +53,14 @@ int main()
     img.write("identicon.png");
 }
 ```
+
+### C interface
+
+This is somewhat experimental. Have a look at [example.c]
+(https://schlomp.space/tastytea/identiconpp/src/branch/master/example.c).
+
+It seems to be impossible to use `Magick++` and `MagickWand` in the same
+library, so the images are returned as base64-encoded strings.
 
 ## Install
 
