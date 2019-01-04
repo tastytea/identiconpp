@@ -75,6 +75,11 @@ extern "C"
      */
     uint64_t identiconpp_generate(const char magick[],
                                   const char digest[], const uint16_t width);
+
+    /*!
+     *  @brief  Return base64-encoded string of the image generated with
+     *          identiconpp_generate().
+     */
     const char *identiconpp_base64();
 
 #ifdef __cplusplus
