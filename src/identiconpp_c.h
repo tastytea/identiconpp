@@ -25,8 +25,18 @@ extern "C"
     #include <stdbool.h>
     #include <stdint.h>
     #include <stddef.h>
-    #include <MagickWand/MagickWand.h>
 
+    /*!
+     * @example example.c
+     */
+
+    /*!
+     *  @brief  C interface for identiconpp.
+     */
+
+    /*!
+     * @brief  List of identicon algorithms
+     */
     typedef enum
     {
         identiconpp_ltr_symmetric,
@@ -34,14 +44,38 @@ extern "C"
         identiconpp_sigil
     } identiconpp_algorithm;
 
+    /*!
+     *  @brief  Setup identicon parameters.
+     *
+     *  @param  columns         Number of columns
+     *  @param  rows            Number of rows
+     *  @param  type            The algorithm to use
+     *  @param  background      Background color, hexadecimal, rrggbbaa
+     *  @param  foreground      Array of foreground colors
+     *  @param  foreground_len  Length of the array of foreground colors
+     *  @param  padding         Padding in pixels { left & right, top & down }
+     *
+     *  @return { description_of_the_return_value }
+     */
     bool identiconpp_setup(const uint8_t columns, const uint8_t rows,
                            identiconpp_algorithm type,
                            const char background[9],
                            const char foreground[][9],
                            const uint8_t foreground_len,
                            const uint8_t padding[2]);
-    bool identiconpp_generate(MagickWand *wand,
-                              const char digest[], const uint16_t width);
+
+    /*!
+     *  @brief  Generates identicon from digest.
+     *
+     *  @param  magick  See http://imagemagick.org/script/formats.php
+     *  @param  digest  The pre-computed digest
+     *  @param  width   The width of the identicon
+     *
+     *  @return Length of the generated base64-string
+     */
+    uint64_t identiconpp_generate(const char magick[],
+                                  const char digest[], const uint16_t width);
+    const char *identiconpp_base64();
 
 #ifdef __cplusplus
 }

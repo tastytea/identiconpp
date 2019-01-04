@@ -23,7 +23,8 @@
 #include "debug.hpp"
 #include "identiconpp_c.h"
 
-std::unique_ptr<Identiconpp> identicon;
+static std::unique_ptr<Identiconpp> identicon;
+static string base64;
 
 bool identiconpp_setup(const uint8_t columns, const uint8_t rows,
                        identiconpp_algorithm type,
@@ -72,11 +73,19 @@ bool identiconpp_setup(const uint8_t columns, const uint8_t rows,
     return true;
 }
 
-bool identiconpp_generate(MagickWand *wand,
-                          const char digest[], const uint16_t width)
+uint64_t identiconpp_generate(const char magick[],
+                              const char digest[], const uint16_t width)
 {
     Magick::Image img = identicon->generate(digest, width);
     Magick::Blob blob;
+    img.magick(magick);
     img.write(&blob);
-    MagickReadImageBlob(wand, blob.data(), blob.length());
+    base64 = blob.base64();
+
+    return blob.base64().length();
+}
+
+const char *identiconpp_base64()
+{
+    return base64.c_str();
 }
