@@ -27,7 +27,7 @@ void Identiconpp::check_entropy(const string &digest, algorithm type)
     {
         throw std::invalid_argument
         (
-            "Colors must consist of hexadecimal digits (" + digest + ")."
+            "Digests must consist of hexadecimal digits (" + digest + ")."
         );
     }
 
