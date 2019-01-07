@@ -14,8 +14,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef IDENTICONPP_H
-#define IDENTICONPP_H
+#ifndef IDENTICONPP_C_H
+#define IDENTICONPP_C_H
 
 #ifdef __cplusplus
 extern "C"
@@ -90,4 +90,4 @@ extern "C"
 #ifdef __cplusplus
 }
 #endif
-#endif  // IDENTICONPP_H
+#endif  // IDENTICONPP_C_H
