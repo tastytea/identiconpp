@@ -41,6 +41,7 @@ The "sigil" algorithm generates the same results as
 
 ```C++
 // Compile with g++ $(Magick++-config --cppflags --ldflags) -lidenticonpp
+#include <iostream>
 #include <identiconpp.hpp>
 #include <Magick++/Image.h>
 
@@ -51,6 +52,8 @@ int main()
     Magick::Image img;
     img = identicon.generate("55502f40dc8b7c769880b10874abc9d0", 200);
     img.write("identicon.png");
+
+    std::cout << identicon.generate_base64("png", "5550", 200) << std::endl;
 }
 ```
 

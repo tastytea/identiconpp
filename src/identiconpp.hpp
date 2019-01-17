@@ -90,6 +90,18 @@ public:
      */
     Magick::Image generate(const string &digest, const uint16_t width = 100);
 
+    /*!
+     *  @brief  Generates identicon from digest.
+     *
+     *  @param  magick  See http://imagemagick.org/script/formats.php
+     *  @param  digest  The pre-computed digest
+     *  @param  width   The width of the image in pixels
+     *
+     *  @return The image as base64-string
+     */
+    const string generate_base64(const string &magick, const string &digest,
+                                 const uint16_t width = 100);
+
 private:
     const uint8_t _rows;
     const uint8_t _columns;

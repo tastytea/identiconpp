@@ -18,6 +18,7 @@
 #include <stdexcept>
 #include <sstream>
 #include <cmath>
+#include <Magick++/Blob.h>
 #include "identiconpp.hpp"
 #include "debug.hpp"
 
@@ -93,6 +94,17 @@ Magick::Image Identiconpp::generate(const string &digest, const uint16_t width)
     img.matteColor(Magick::Color('#' + _background));
     img.frame(Magick::Geometry(_padding[0], _padding[1]));
     return img;
+}
+
+const string Identiconpp::generate_base64(const string &magick,
+                                          const string &digest,
+                                          const uint16_t width)
+{
+    Magick::Image img = generate(digest, width);
+    Magick::Blob blob;
+    img.magick(magick);
+    img.write(&blob);
+    return blob.base64();
 }
 
 bool Identiconpp::get_bit(const uint16_t bit, const string &digest)
