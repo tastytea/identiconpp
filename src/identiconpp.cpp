@@ -26,7 +26,7 @@ Identiconpp::Identiconpp(const uint8_t columns, const uint8_t rows,
                          algorithm type,
                          const string &background,
                          const vector<string> &foreground,
-                         const array<const uint8_t, 2> &padding)
+                         const array<uint8_t, 2> &padding)
 : _rows(rows)
 , _columns(columns)
 , _type(type)

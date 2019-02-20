@@ -73,12 +73,14 @@ public:
      *  @param  background  Background color, hexadecimal, rrggbbaa
      *  @param  foreground  vector of foreground colors
      *  @param  padding     Padding in pixels { left & right, top & down }
+     *  
+     *  @since  before 0.5.0
      */
     explicit Identiconpp(const uint8_t columns, const uint8_t rows,
                          algorithm type = algorithm::ltr_symmetric,
                          const string &background = "ffffffff",
                          const vector<string> &foreground = { "000000ff" },
-                         const array<const uint8_t, 2> &padding = { 0, 0 });
+                         const array<uint8_t, 2> &padding = { 0, 0 });
 
     /*!
      *  @brief  Generates identicon from digest.
@@ -87,6 +89,8 @@ public:
      *  @param  width   The width of the image in pixels
      *
      *  @return The image as Magick::Image
+     *
+     *  @since  before 0.5.0
      */
     Magick::Image generate(const string &digest, const uint16_t width = 100);
 
@@ -98,6 +102,8 @@ public:
      *  @param  width   The width of the image in pixels
      *
      *  @return The image as base64-string
+     *
+     *  @since  0.5.0
      */
     const string generate_base64(const string &magick, const string &digest,
                                  const uint16_t width = 100);
@@ -108,7 +114,7 @@ private:
     const algorithm _type;
     const string _background;
     const vector<string> _foreground;
-    const array<const uint8_t, 2> _padding;
+    const array<uint8_t, 2> _padding;
 
     /*!
      *  @brief  Generate ltr_symmetric identicon.
@@ -120,6 +126,8 @@ private:
      *  @param  digest  The pre-computed digest
      *
      *  @return The image
+     *  
+     *  @since  before 0.5.0
      */
     Magick::Image generate_ltr_symmetric(const string &digest);
 
@@ -133,6 +141,8 @@ private:
      *  @param  digest  The pre-computed digest
      *
      *  @return The image
+     *  
+     *  @since  before 0.5.0
      */
     Magick::Image generate_ltr_asymmetric(const string &digest);
 
@@ -146,6 +156,8 @@ private:
      *  @param  digest  The pre-computed digest
      *
      *  @return The image
+     *  
+     *  @since  before 0.5.0
      */
     Magick::Image generate_sigil(const string &digest);
 
@@ -156,6 +168,8 @@ private:
      *
      *  @param  digest  The pre-computed digest
      *  @param  type    The type of identicon
+     *  
+     *  @since  before 0.5.0
      */
     void check_entropy(const string &digest, algorithm type);
 
@@ -166,6 +180,8 @@ private:
      *  @param  digest  The digest
      *
      *  @return The bit.
+     *  
+     *  @since  before 0.5.0
      */
     bool get_bit(const uint16_t bit, const string &digest);
 
@@ -178,6 +194,8 @@ private:
      *  @param  digest    The digest
      *
      *  @return A foreground color.
+     *  
+     *  @since  before 0.5.0
      */
     Magick::Color get_color(const uint16_t firstbit, const string &digest);
 
@@ -187,6 +205,8 @@ private:
      *  @param  c       Character to check
      *
      *  @return true if not hex.
+     *  
+     *  @since  before 0.5.0
      */
     static bool not_hex(const char c);
 
@@ -194,6 +214,8 @@ private:
      *  @brief  Performs checks on a color definition in a string.
      *
      *  @param  color   The color as string
+     *  
+     *  @since  before 0.5.0
      */
     void check_color(const string &color);
 };
