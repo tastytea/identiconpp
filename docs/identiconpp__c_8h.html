@@ -19,7 +19,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">identiconpp
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
   </td>
  </tr>
@@ -76,9 +76,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a4462d23411d8910225b030a925f3da1f"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="identiconpp__c_8h.html#a4462d23411d8910225b030a925f3da1f">identiconpp_generate</a> (const char magick[], const char digest[], const uint16_t width)</td></tr>
 <tr class="memdesc:a4462d23411d8910225b030a925f3da1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates identicon from digest.  <a href="#a4462d23411d8910225b030a925f3da1f">More...</a><br /></td></tr>
 <tr class="separator:a4462d23411d8910225b030a925f3da1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3de11147af05193798aae5fa0548594"><td class="memItemLeft" align="right" valign="top"><a id="ab3de11147af05193798aae5fa0548594"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="identiconpp__c_8h.html#ab3de11147af05193798aae5fa0548594">identiconpp_base64</a> ()</td></tr>
-<tr class="memdesc:ab3de11147af05193798aae5fa0548594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return base64-encoded string of the image generated with <a class="el" href="identiconpp__c_8h.html#a4462d23411d8910225b030a925f3da1f" title="Generates identicon from digest. ">identiconpp_generate()</a>. <br /></td></tr>
+<tr class="memitem:ab3de11147af05193798aae5fa0548594"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="identiconpp__c_8h.html#ab3de11147af05193798aae5fa0548594">identiconpp_base64</a> ()</td></tr>
+<tr class="memdesc:ab3de11147af05193798aae5fa0548594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return base64-encoded string of the image generated with <a class="el" href="identiconpp__c_8h.html#a4462d23411d8910225b030a925f3da1f" title="Generates identicon from digest. ">identiconpp_generate()</a>.  <a href="#ab3de11147af05193798aae5fa0548594">More...</a><br /></td></tr>
 <tr class="separator:ab3de11147af05193798aae5fa0548594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -113,6 +112,27 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ab3de11147af05193798aae5fa0548594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3de11147af05193798aae5fa0548594">&#9670;&nbsp;</a></span>identiconpp_base64()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* identiconpp_base64 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return base64-encoded string of the image generated with <a class="el" href="identiconpp__c_8h.html#a4462d23411d8910225b030a925f3da1f" title="Generates identicon from digest. ">identiconpp_generate()</a>. </p>
+<dl class="section since"><dt>Since</dt><dd>before 0.5.0 </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="example_8c-example.html#a3">example.c</a>.</dd>
+</dl><div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span> base64.c_str();</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div></div><!-- fragment -->
+</div>
+</div>
 <a id="a4462d23411d8910225b030a925f3da1f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4462d23411d8910225b030a925f3da1f">&#9670;&nbsp;</a></span>identiconpp_generate()</h2>
 
@@ -154,7 +174,8 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Length of the generated base64-string, or 0 on error. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Length of the generated base64-string, or 0 on error.</dd></dl>
+<dl class="section since"><dt>Since</dt><dd>before 0.5.0 </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="example_8c-example.html#a2">example.c</a>.</dd>
 </dl><div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">try</span></div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        Magick::Image img = identicon-&gt;generate(digest, width);</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        Magick::Blob blob;</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        img.magick(magick);</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        img.write(&amp;blob);</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        base64 = blob.base64();</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> blob.base64().length();</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e)</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        cerr &lt;&lt; e.what() &lt;&lt; endl;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div></div><!-- fragment -->
 </div>
@@ -228,7 +249,8 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>false on error, true otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>false on error, true otherwise.</dd></dl>
+<dl class="section since"><dt>Since</dt><dd>before 0.5.0 </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="example_8c-example.html#a0">example.c</a>.</dd>
 </dl><div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9">Identiconpp::algorithm</a> algo = <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570">Identiconpp::algorithm::ltr_symmetric</a>;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">switch</span> (type)</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="identiconpp__c_8h.html#a9846d0a99fddf0b21eee241c15b4d832a2364149e2343fa3521641c0cd7f1ac79">identiconpp_ltr_symmetric</a>:</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            algo = <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3803de5c180cbcb6285620787a2fd570">Identiconpp::algorithm::ltr_symmetric</a>;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="identiconpp__c_8h.html#a9846d0a99fddf0b21eee241c15b4d832acb9278ec748cecd85c4eff2992c07f7b">identiconpp_ltr_asymmetric</a>:</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            algo = <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9acb50e01673547636f601739748b664b0">Identiconpp::algorithm::ltr_asymmetric</a>;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="identiconpp__c_8h.html#a9846d0a99fddf0b21eee241c15b4d832adeae262829ee11fb003aee261bc4067b">identiconpp_sigil</a>:</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            algo = <a class="code" href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9a3862d335e66bc7111aadbff6ad079bf5">Identiconpp::algorithm::sigil</a>;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">break</span>;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::vector&lt;string&gt; vforeground;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; foreground_len; ++i)</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        vforeground.push_back(foreground[i]);</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">try</span></div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        identicon = std::make_unique&lt;Identiconpp&gt;(</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <a class="code" href="classIdenticonpp.html">Identiconpp</a>(columns, rows, algo, background, vforeground,</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                { padding[0], padding[1] }));</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception &amp;e)</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        cerr &lt;&lt; e.what() &lt;&lt; endl;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div><div class="ttc" id="identiconpp__c_8h_html_a9846d0a99fddf0b21eee241c15b4d832acb9278ec748cecd85c4eff2992c07f7b"><div class="ttname"><a href="identiconpp__c_8h.html#a9846d0a99fddf0b21eee241c15b4d832acb9278ec748cecd85c4eff2992c07f7b">identiconpp_ltr_asymmetric</a></div><div class="ttdoc">Generates asymmetric identicons. </div><div class="ttdef"><b>Definition:</b> identiconpp_c.h:43</div></div>
 <div class="ttc" id="classIdenticonpp_html_a229201bc23b0fabbcca60f2fe0188fa9"><div class="ttname"><a href="classIdenticonpp.html#a229201bc23b0fabbcca60f2fe0188fa9">Identiconpp::algorithm</a></div><div class="ttdeci">algorithm</div><div class="ttdoc">List of identicon algorithms. </div><div class="ttdef"><b>Definition:</b> identiconpp.hpp:49</div></div>

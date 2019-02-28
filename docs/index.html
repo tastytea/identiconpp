@@ -19,7 +19,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">identiconpp
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ $(function() {
 <p>You need to generate hashes yourself, any hexadecimal string will do. Make sure to use a safe hashing algorithm for sensitive data (<b>not MD5</b>). You can select as many columns and rows as you like, but make sure you have enough entropy. If something seems to be wrong, exceptions will be thrown.</p>
 <p>The "sigil" algorithm generates the same results as <a href="https://github.com/cupcake/sigil/">sigil</a> and <a href="https://github.com/azaghal/pydenticon/">pydenticon</a>.</p>
 <h3>Example</h3>
-<div class="fragment"><div class="line">{C++}</div><div class="line">// Compile with g++ $(Magick++-config --cppflags --ldflags) -lidenticonpp</div><div class="line">#include &lt;identiconpp.hpp&gt;</div><div class="line">#include &lt;Magick++/Image.h&gt;</div><div class="line"></div><div class="line">int main()</div><div class="line">{</div><div class="line">    Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_symmetric,</div><div class="line">                          &quot;ffffff80&quot;, { &quot;800000ff&quot; }, { 10, 10 });</div><div class="line">    Magick::Image img;</div><div class="line">    img = identicon.generate(&quot;55502f40dc8b7c769880b10874abc9d0&quot;, 200);</div><div class="line">    img.write(&quot;identicon.png&quot;);</div><div class="line">}</div></div><!-- fragment --><h3>C interface</h3>
+<div class="fragment"><div class="line">{C++}</div><div class="line">// Compile with g++ $(Magick++-config --cppflags --ldflags) -lidenticonpp</div><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;identiconpp.hpp&gt;</div><div class="line">#include &lt;Magick++/Image.h&gt;</div><div class="line"></div><div class="line">int main()</div><div class="line">{</div><div class="line">    Identiconpp identicon(5, 5, Identiconpp::algorithm::ltr_symmetric,</div><div class="line">                          &quot;ffffff80&quot;, { &quot;800000ff&quot; }, { 10, 10 });</div><div class="line">    Magick::Image img;</div><div class="line">    img = identicon.generate(&quot;55502f40dc8b7c769880b10874abc9d0&quot;, 200);</div><div class="line">    img.write(&quot;identicon.png&quot;);</div><div class="line"></div><div class="line">    std::cout &lt;&lt; identicon.generate_base64(&quot;png&quot;, &quot;5550&quot;, 200) &lt;&lt; std::endl;</div><div class="line">}</div></div><!-- fragment --><h3>C interface</h3>
 <p>This is somewhat experimental. Have a look at <a href="https://schlomp.space/tastytea/identiconpp/src/branch/master/example.c">example.c</a> and <a href="https://doc.schlomp.space/identiconpp/identiconpp__c_8h.html">identiconpp_c.h</a>.</p>
 <p>It seems to be impossible to use <code>Magick++</code> and <code>MagickWand</code> in the same library, so the images are returned as base64-encoded strings.</p>
 <h2>Install</h2>
