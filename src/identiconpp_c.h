@@ -61,7 +61,7 @@ extern "C"
      *  @param  padding         Padding in pixels { left & right, top & down }
      *
      *  @return false on error, true otherwise.
-     *  
+     *
      *  @since  before 0.5.0
      */
     bool identiconpp_setup(const uint8_t columns, const uint8_t rows,
@@ -79,7 +79,7 @@ extern "C"
      *  @param  width   The width of the identicon
      *
      *  @return Length of the generated base64-string, or 0 on error.
-     *  
+     *
      *  @since  before 0.5.0
      */
     uint64_t identiconpp_generate(const char magick[],

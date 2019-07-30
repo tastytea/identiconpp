@@ -145,7 +145,7 @@ Magick::Color Identiconpp::get_color(const uint16_t firstbit,
     // std::stringstream does not support writing into uint16_t
     unsigned short bits;
     ss >> bits;
-    
+
     // Shift an one $colorbits times to the left, substract 1. This leaves us
     //  with $colorbits ones. Then AND bits and our ones to keep only as many
     //  bits as we need.

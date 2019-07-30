@@ -73,7 +73,7 @@ public:
      *  @param  background  Background color, hexadecimal, rrggbbaa
      *  @param  foreground  vector of foreground colors
      *  @param  padding     Padding in pixels { left & right, top & down }
-     *  
+     *
      *  @since  before 0.5.0
      */
     explicit Identiconpp(const uint8_t columns, const uint8_t rows,
@@ -126,7 +126,7 @@ private:
      *  @param  digest  The pre-computed digest
      *
      *  @return The image
-     *  
+     *
      *  @since  before 0.5.0
      */
     Magick::Image generate_ltr_symmetric(const string &digest);
@@ -141,7 +141,7 @@ private:
      *  @param  digest  The pre-computed digest
      *
      *  @return The image
-     *  
+     *
      *  @since  before 0.5.0
      */
     Magick::Image generate_ltr_asymmetric(const string &digest);
@@ -156,7 +156,7 @@ private:
      *  @param  digest  The pre-computed digest
      *
      *  @return The image
-     *  
+     *
      *  @since  before 0.5.0
      */
     Magick::Image generate_sigil(const string &digest);
@@ -168,7 +168,7 @@ private:
      *
      *  @param  digest  The pre-computed digest
      *  @param  type    The type of identicon
-     *  
+     *
      *  @since  before 0.5.0
      */
     void check_entropy(const string &digest, algorithm type);
@@ -180,7 +180,7 @@ private:
      *  @param  digest  The digest
      *
      *  @return The bit.
-     *  
+     *
      *  @since  before 0.5.0
      */
     bool get_bit(const uint16_t bit, const string &digest);
@@ -194,7 +194,7 @@ private:
      *  @param  digest    The digest
      *
      *  @return A foreground color.
-     *  
+     *
      *  @since  before 0.5.0
      */
     Magick::Color get_color(const uint16_t firstbit, const string &digest);
@@ -205,7 +205,7 @@ private:
      *  @param  c       Character to check
      *
      *  @return true if not hex.
-     *  
+     *
      *  @since  before 0.5.0
      */
     static bool not_hex(const char c);
@@ -214,7 +214,7 @@ private:
      *  @brief  Performs checks on a color definition in a string.
      *
      *  @param  color   The color as string
-     *  
+     *
      *  @since  before 0.5.0
      */
     void check_color(const string &color);
