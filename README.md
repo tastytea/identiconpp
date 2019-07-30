@@ -24,8 +24,8 @@ The example images above are generated using [example.cpp]
 
 ## Usage
 
-The HTML reference can be generated with build_doc.sh, if doxygen is installed.
-It is also available at [doc.schlomp.space/identiconpp/]
+The HTML reference can be generated with `build_doc.sh`, if doxygen is
+installed. It is also available at [doc.schlomp.space/identiconpp/]
 (https://doc.schlomp.space/identiconpp/classIdenticonpp.html).
 
 You need to generate hashes yourself, any hexadecimal string will do. Make sure
@@ -39,7 +39,7 @@ The "sigil" algorithm generates the same results as
 
 ### Example
 
-```C++
+``` c++
 // Compile with g++ $(pkg-config --libs --cflags identiconpp)
 #include <iostream>
 #include <identiconpp.hpp>
@@ -76,15 +76,9 @@ Gentoo ebuilds are available via my
 ### Automatically generated packages
 
 Binary packages are generated automatically for each
-[release](https://schlomp.space/tastytea/identiconpp/releases) in the
-formats:
-
-* deb
-* rpm
-* tar.gz
-
-They are generated on Debian Stretch 64 bit and signed with my
-[automatic signing key](https://tastytea.de/tastytea_autosign.asc).
+[release](https://schlomp.space/tastytea/identiconpp/releases) in the formats
+`deb` and `rpm`. They are signed with my [automatic signing
+key](https://tastytea.de/tastytea_autosign.asc).
 
 ### From source
 
@@ -102,7 +96,7 @@ On a Debian system, install the packages:
 
 #### Compile
 
-```SH
+``` shell
 mkdir build
 cd build
 cmake ..
@@ -133,7 +127,7 @@ See https://tastytea.de/
 
 ## License & Copyright
 
-```PLAIN
+``` text
 Copyright © 2018 tastytea <tastytea@tastytea.de>.
 License GPLv3: GNU GPL version 3 <https://www.gnu.org/licenses/gpl-3.0.html>.
 This program comes with ABSOLUTELY NO WARRANTY. This is free software,
@@ -173,7 +167,7 @@ Implemented in [ltr_symmetric.cpp]
 * Pixels are drawn from left to right, top to bottom.
 * Use bits from digest to determine if a pixel is painted(1) or not(0).
 * Use the following bits to pick the foreground color.
-  * * You need `floor(log2(n_colors)) + 1` bits.
+  * You need `floor(log2(n_colors)) + 1` bits.
 * Scale image proportionally to requested width.
 
 ```PLAIN
