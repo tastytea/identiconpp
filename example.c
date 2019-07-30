@@ -1,8 +1,8 @@
 /*  This file is part of identiconpp.
  *  Public Domain / CC-0
  *
- *   Compile with gcc --std=c99 $(pkg-config --cflags --libs MagickWand) \
- *   $(pkg-config --cflags --libs openssl) -lidenticonpp
+ *   Compile with gcc --std=c99 \
+ *   $(pkg-config --cflags --libs identiconpp_c.pc MagickWand openssl)
  */
 
 #include <stdint.h>

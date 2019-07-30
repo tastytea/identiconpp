@@ -40,7 +40,7 @@ The "sigil" algorithm generates the same results as
 ### Example
 
 ```C++
-// Compile with g++ $(Magick++-config --cppflags --ldflags) -lidenticonpp
+// Compile with g++ $(pkg-config --libs --cflags identiconpp)
 #include <iostream>
 #include <identiconpp.hpp>
 #include <Magick++/Image.h>

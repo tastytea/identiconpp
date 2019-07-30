@@ -1,7 +1,7 @@
 /*  This file is part of identiconpp.
  *  Public Domain / CC-0
  *
- *   Compile with g++ $(Magick++-config --cppflags --ldflags) -lidenticonpp
+ *   Compile with g++ $(pkg-config --libs --cflags identiconpp)
  */
 
 #include <string>

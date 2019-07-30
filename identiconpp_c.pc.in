@@ -1,0 +1,11 @@
+name=@PROJECT_NAME@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+
+Name: ${name}
+Description: Library to generate identicons for C++ and C.
+Version: @PROJECT_VERSION@
+Libs: -L${libdir} -l${name}
+Cflags: -I${includedir}
