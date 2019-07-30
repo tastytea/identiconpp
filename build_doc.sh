@@ -1,8 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ -f Doxyfile ]; then
+if [[ -f Doxyfile ]]; then
     mkdir -p doc
-    (cat Doxyfile && echo -n "PROJECT_NUMBER = " &&
-       grep -Eo '[0-9]+.[0-9]+.[0-9]+$' CMakeLists.txt) \
-       | doxygen -
+    (doxygen -s -g - && cat Doxyfile && echo -n "PROJECT_NUMBER = " &&
+         grep -Eo '[0-9]+.[0-9]+.[0-9]+$' CMakeLists.txt) | doxygen -
 fi
