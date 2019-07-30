@@ -1,187 +1,171 @@
-pipeline:
-  gcc5:
-    image: debian:stretch-slim
-    pull: true
-    when:
-      event: [push, pull_request]
-    environment:
-      - LANG=C.utf8
-      - CXX=g++-5
-      - CXXFLAGS=-pipe -O2
-    commands:
-      - rm /etc/apt/apt.conf.d/docker-clean
-      - apt-get update -q
-      - echo "APT::Default-Release \"stretch\";" >> /etc/apt/apt.conf.d/00default_release
-      - echo "deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu xenial main" >> /etc/apt/sources.list.d/ubuntu-toolchain-r.list
-      - apt-get install -qy gnupg
-      - gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x60c317803a41ba51845e371a1e9377a2ba9ef27f
-      - gpg --armor --export 0x60c317803a41ba51845e371a1e9377a2ba9ef27f | apt-key add -
-      - apt-get update -q
-      - apt-get install -qy -t xenial g++-5
-      - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libmagick++-dev
-      - rm -rf build && mkdir -p build && cd build
-      - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-      - make VERBOSE=1
-    volumes:
-      - /var/cache/debian-package-cache:/var/cache/apt/archives
+# -*- fill-column: 1000 -*-
+kind: pipeline
+name: build x86_64
 
-  gcc6:
-    image: debian:stretch-slim
-    pull: true
-    environment:
-      - LANG=C.utf8
-      - CXX=g++-6
-      - CXXFLAGS=-pipe -O2
-    commands:
-      - rm /etc/apt/apt.conf.d/docker-clean
-      - apt-get update -q
-      - apt-get install -qy g++-6 cmake pkg-config
-      - apt-get install -qy libmagick++-dev catch
-      - apt-get install -qy dpkg-dev d-shlibs rpm file wget
-      - gpg --no-tty --import /var/autosign_gpg.key
-      - rm -rf build && mkdir -p build && cd build
-      - cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_TESTS=1 ..
-      - make VERBOSE=1
-      - ctest ..
-      - make install DESTDIR=install
-      - make package
-      - cmake -DWITH_DEB=ON ..
-      - make package
-      - cmake -DWITH_DEB=OFF -DWITH_RPM=ON ..
-      - make package
-      - gpg --verbose --detach-sign *.tar.gz
-      - gpg --verbose --detach-sign *.deb
-      - gpg --verbose --detach-sign *.rpm
-    volumes:
-      - /var/cache/debian-package-cache:/var/cache/apt/archives
-      - /home/tastytea/misc/autosign_gpg.key:/var/autosign_gpg.key
+volumes:
+- name: debian-package-cache
+  host:
+    path: /var/cache/debian-package-cache
 
-  gcc7:
-    image: debian:stretch-slim
-    pull: true
-    when:
-      event: [push, pull_request]
-    environment:
-      - LANG=C.utf8
-      - CXX=g++-7
-      - CXXFLAGS=-pipe -O2
-    commands:
-      - rm /etc/apt/apt.conf.d/docker-clean
-      - apt-get update -q
-      - echo "APT::Default-Release \"stretch\";" >> /etc/apt/apt.conf.d/00default_release
-      - echo "deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu xenial main" >> /etc/apt/sources.list.d/ubuntu-toolchain-r.list
-      - apt-get install -qy gnupg
-      - gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x60c317803a41ba51845e371a1e9377a2ba9ef27f
-      - gpg --armor --export 0x60c317803a41ba51845e371a1e9377a2ba9ef27f | apt-key add -
-      - apt-get update -q
-      - apt-get install -qy -t xenial g++-7
-      - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libmagick++-dev
-      - rm -rf build && mkdir -p build && cd build
-      - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-      - make VERBOSE=1
-    volumes:
-      - /var/cache/debian-package-cache:/var/cache/apt/archives
+trigger:
+  event:
+    exclude:
+    - tag
 
-  gcc8:
-    image: debian:stretch-slim
-    pull: true
-    when:
-      event: [push, pull_request]
-    environment:
-      - LANG=C.utf8
-      - CXX=g++-8
-      - CXXFLAGS=-pipe -O2
-    commands:
-      - rm /etc/apt/apt.conf.d/docker-clean
-      - apt-get update -q
-      - echo "APT::Default-Release \"stretch\";" >> /etc/apt/apt.conf.d/00default_release
-      - echo "deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu xenial main" >> /etc/apt/sources.list.d/ubuntu-toolchain-r.list
-      - apt-get install -qy gnupg
-      - gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x60c317803a41ba51845e371a1e9377a2ba9ef27f
-      - gpg --armor --export 0x60c317803a41ba51845e371a1e9377a2ba9ef27f | apt-key add -
-      - apt-get update -q
-      - apt-get install -qy -t xenial g++-8
-      - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libmagick++-dev
-      - rm -rf build && mkdir -p build && cd build
-      - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-      - make VERBOSE=1
-    volumes:
-      - /var/cache/debian-package-cache:/var/cache/apt/archives
+steps:
+- name: gcc6
+  image: debian:stretch-slim
+  pull: always
+  environment:
+    CXX: g++-6
+    CXXFLAGS: -pipe -O2
+    LANG: en_US.utf-8
+  commands:
+  - rm /etc/apt/apt.conf.d/docker-clean
+  - alias apt-get='rm -f /var/cache/apt/archives/lock && apt-get'
+  - apt-get update -q
+  - apt-get install -qy g++-6 cmake pkg-config libmagick++-dev catch
+  - rm -rf build && mkdir -p build && cd build
+  - cmake -DWITH_TESTS=YES ..
+  - cmake --build .
+  - make install DESTDIR=install
+  - cd tests && ctest -V
+  volumes:
+  - name: debian-package-cache
+    path: /var/cache/apt/archives
 
-  clang5:
-    image: debian:stretch-slim
-    pull: true
-    when:
-      event: [push, pull_request]
-    environment:
-      - LANG=C.utf8
-      - CXX=clang++-5.0
-      - CXXFLAGS=-pipe -O2
-    commands:
-      - rm /etc/apt/apt.conf.d/docker-clean
-      - echo "APT::Default-Release \"stretch\";" >> /etc/apt/apt.conf.d/00default_release
-      - echo "deb http://deb.debian.org/debian stretch-backports main" >> /etc/apt/sources.list.d/stretch.list
-      - apt-get update -q
-      - apt-get install -qy -t stretch-backports clang-5.0
-      - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libmagick++-dev
-      - rm -rf build && mkdir -p build && cd build
-      - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-      - make VERBOSE=1
-    volumes:
-      - /var/cache/debian-package-cache:/var/cache/apt/archives
+- name: gcc9
+  image: debian:stretch-slim
+  pull: always
+  environment:
+    CXX: g++-9
+    CXXFLAGS: -pipe -O2
+    LANG: en_US.utf-8
+  commands:
+  - rm /etc/apt/apt.conf.d/docker-clean
+  - alias apt-get='rm -f /var/cache/apt/archives/lock && apt-get'
+  - apt-get update -q
+  - echo "APT::Default-Release \"stretch\";" >> /etc/apt/apt.conf.d/00default_release
+  - echo "deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu xenial main" >> /etc/apt/sources.list.d/ubuntu-toolchain-r.list
+  - apt-get install -qy gnupg
+  - gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 0x60c317803a41ba51845e371a1e9377a2ba9ef27f
+  - gpg --armor --export 0x60c317803a41ba51845e371a1e9377a2ba9ef27f | apt-key add -
+  - apt-get update -q
+  - apt-get install -qy -t xenial g++-9
+  - apt-get install -qy cmake pkg-config libmagick++-dev
+  - rm -rf build && mkdir -p build && cd build
+  - cmake ..
+  - cmake --build .
+  volumes:
+  - name: debian-package-cache
+    path: /var/cache/apt/archives
 
-  clang6:
-    image: debian:stretch-slim
-    pull: true
-    when:
-      event: [push, pull_request]
-    environment:
-      - LANG=C.utf8
-      - CXX=clang++-6.0
-      - CXXFLAGS=-pipe -O2
-    commands:
-      - rm /etc/apt/apt.conf.d/docker-clean
-      - echo "APT::Default-Release \"stretch\";" >> /etc/apt/apt.conf.d/00default_release
-      - echo "deb http://deb.debian.org/debian stretch-backports main" >> /etc/apt/sources.list.d/stretch.list
-      - apt-get update -q
-      - apt-get install -qy -t stretch-backports clang-6.0
-      - apt-get install -qy cmake pkg-config
-      - apt-get install -qy libmagick++-dev
-      - rm -rf build && mkdir -p build && cd build
-      - cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-      - make VERBOSE=1
-    volumes:
-      - /var/cache/debian-package-cache:/var/cache/apt/archives
+- name: clang6
+  image: debian:stretch-slim
+  pull: always
+  environment:
+    CXX: clang++-6.0
+    CXXFLAGS: -pipe -O2
+    LANG: en_US.utf-8
+  commands:
+  - rm /etc/apt/apt.conf.d/docker-clean
+  - alias apt-get='rm -f /var/cache/apt/archives/lock && apt-get'
+  - echo "APT::Default-Release \"stretch\";" >> /etc/apt/apt.conf.d/00default_release
+  - echo "deb http://deb.debian.org/debian stretch-backports main" >> /etc/apt/sources.list.d/stretch.list
+  - apt-get update -q
+  - apt-get install -qy -t stretch-backports clang-6.0
+  - apt-get install -qy cmake pkg-config libmagick++-dev
+  - rm -rf build && mkdir -p build && cd build
+  - cmake ..
+  - cmake --build .
+  volumes:
+  - name: debian-package-cache
+    path: /var/cache/apt/archives
 
-  prepare_release:
-    image: debian:stretch-slim
-    pull: true
-    when:
-      event: tag
-    commands:
-      - cp -v build/identiconpp-${DRONE_TAG}_x86_64.tar.gz .
-      - cp -v build/identiconpp-${DRONE_TAG}_x86_64.tar.gz.sig .
-      - cp -v build/identiconpp_${DRONE_TAG}-0_amd64.deb .
-      - cp -v build/identiconpp_${DRONE_TAG}-0_amd64.deb.sig .
-      - cp -v build/identiconpp-${DRONE_TAG}-0.x86_64.rpm .
-      - cp -v build/identiconpp-${DRONE_TAG}-0.x86_64.rpm.sig .
+---
+kind: pipeline
+name: packages x86_64
 
-  gitea_release:
-    image: plugins/gitea-release
-    pull: true
-    when:
-      event: tag
+volumes:
+- name: debian-package-cache
+  host:
+    path: /var/cache/debian-package-cache
+- name: centos-package-cache
+  host:
+    path: /var/cache/centos-package-cache
+- name: gpg-key
+  host:
+    path: /home/tastytea/misc/autosign_gpg.key
+
+trigger:
+  event:
+    - tag
+
+steps:
+- name: deb
+  image: debian:stretch-slim
+  pull: always
+  environment:
+    CXX: g++-6
+    CXXFLAGS: -pipe -O2
+    LANG: en_US.utf-8
+  commands:
+  - rm /etc/apt/apt.conf.d/docker-clean
+  - alias apt-get='rm -f /var/cache/apt/archives/lock && apt-get'
+  - apt-get update -q
+  - apt-get install -qy g++-6 cmake pkg-config libmagick++-dev gnupg
+  - rm -rf build && mkdir -p build && cd build
+  - cmake -DWITH_DEB=YES ..
+  - make package
+  - gpg --import /var/autosign_gpg.key
+  - gpg --verbose --detach-sign *.deb
+  - cp -v identiconpp_${DRONE_TAG}-0_amd64.deb ..
+  - cp -v identiconpp_${DRONE_TAG}-0_amd64.deb.sig ..
+  volumes:
+  - name: debian-package-cache
+    path: /var/cache/apt/archives
+  - name: gpg-key
+    path: /var/autosign_gpg.key
+
+- name: rpm
+  image: centos:7
+  pull: always
+  environment:
+    CXX: g++-6
+    CXXFLAGS: -pipe -O2
+    LANG: en_US.utf-8
+  commands:
+  - sed -i 's/keepcache=0/keepcache=1/' /etc/yum.conf
+  - curl -s -o /var/cache/yum/epel-release-latest-7.noarch.rpm http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  - rpm -i /var/cache/yum/epel-release-latest-7.noarch.rpm
+  - yum install -qy centos-release-scl
+  - yum install -qy devtoolset-6
+  - scl enable devtoolset-6 bash
+  - yum install -qy rpm-build ImageMagick-devel gnupg
+  - yum --enablerepo=epel install -qy cmake3
+  - rm -rf build && mkdir -p build && cd build
+  - cmake3 -DWITH_RPM=YES ..
+  - make package
+  - gpg --import /var/autosign_gpg.key
+  - gpg --verbose --detach-sign *.deb
+  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.rpm ..
+  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.sig ..
+  volumes:
+  - name: centos-package-cache
+    path: /var/cache/yum
+  - name: gpg-key
+    path: /var/autosign_gpg.key
+
+- name: release
+  image: plugins/gitea-release
+  pull: always
+  settings:
     base_url: https://schlomp.space
-    secrets: [ gitea_token ]
+    api_key:
+      from_secret: gitea_token
     title: ${DRONE_TAG}
     prerelease: true
     files:
-      - identiconpp-${DRONE_TAG}_x86_64.tar.gz
-      - identiconpp-${DRONE_TAG}_x86_64.tar.gz.sig
       - identiconpp_${DRONE_TAG}-0_amd64.deb
       - identiconpp_${DRONE_TAG}-0_amd64.deb.sig
       - identiconpp-${DRONE_TAG}-0.x86_64.rpm
@@ -189,11 +173,15 @@ pipeline:
     checksum:
       - sha512
 
-  notify:
-    image: drillster/drone-email
-    pull: true
+- name: notify
+  image: drillster/drone-email
+  pull: always
+  settings:
     host: cryptoparty-celle.de
-    secrets: [ email_username, email_password ]
     from: drone@tzend.de
-    when:
-      status: [ changed, failure ]
+    username:
+      from_secret: email_username
+    password:
+      from_secret: email_password
+  when:
+    status: [ changed, failure ]

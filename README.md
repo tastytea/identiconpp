@@ -90,8 +90,8 @@ They are generated on Debian Stretch 64 bit and signed with my
 
 #### Dependencies
 
-* C++ compiler (tested: [gcc](https://gcc.gnu.org/) 5/6/7/8,
-  [clang](https://llvm.org/) 5/6)
+* C++ compiler (tested: [gcc](https://gcc.gnu.org/) 6/8/9,
+  [clang](https://llvm.org/) 6)
 * [cmake](https://cmake.org/) (at least 3.2)
 * [imagemagick](https://www.imagemagick.org/) (tested: 7.0 / 6.7)
 * Optional:
