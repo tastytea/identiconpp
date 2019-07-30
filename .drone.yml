@@ -131,7 +131,7 @@ steps:
   image: centos:7
   pull: always
   environment:
-    CXX: g++-6
+    CXX: /opt/rh/devtoolset-6/root/usr/bin/g++
     CXXFLAGS: -pipe -O2
     LANG: en_US.utf-8
   commands:
@@ -141,15 +141,15 @@ steps:
   - yum install -qy centos-release-scl
   - yum install -qy devtoolset-6
   - scl enable devtoolset-6 bash
-  - yum install -qy rpm-build ImageMagick-devel gnupg
+  - yum install -qy rpm-build ImageMagick-c++-devel gnupg
   - yum --enablerepo=epel install -qy cmake3
   - rm -rf build && mkdir -p build && cd build
   - cmake3 -DWITH_RPM=YES ..
   - make package
   - gpg --import /var/autosign_gpg.key
-  - gpg --verbose --detach-sign *.deb
+  - gpg --verbose --detach-sign *.rpm
   - cp -v identiconpp-${DRONE_TAG}-0.x86_64.rpm ..
-  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.sig ..
+  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.rpm.sig ..
   volumes:
   - name: centos-package-cache
     path: /var/cache/yum
