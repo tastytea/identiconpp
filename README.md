@@ -13,7 +13,7 @@ modifications.
 "6x4 identicon, ltr_symmetric, 10px padding")
 
 The example images above are generated using [example.cpp]
-(https://schlomp.space/tastytea/identiconpp/src/branch/master/example.cpp).
+(https://schlomp.space/tastytea/identiconpp/src/branch/master/examples/example.cpp).
 
 ## Features
 
@@ -77,7 +77,7 @@ key](https://tastytea.de/tastytea_autosign.asc).
 
 * C++ compiler (tested: [gcc](https://gcc.gnu.org/) 6/8/9,
   [clang](https://llvm.org/) 6)
-* [cmake](https://cmake.org/) (at least 3.2)
+* [cmake](https://cmake.org/) (at least 3.6)
 * [imagemagick](https://www.imagemagick.org/) (tested: 7.0 / 6.7)
 * Optional:
   * Tests: [Catch](https://github.com/catchorg/Catch2) (tested: 2.3 / 1.2)
