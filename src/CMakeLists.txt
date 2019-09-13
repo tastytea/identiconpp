@@ -1,18 +1,25 @@
+include(GNUInstallDirs)
+
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(MAGICPP REQUIRED Magick++)
-
-include_directories(${MAGICPP_INCLUDE_DIRS})
-
-link_directories(${MAGICPP_LIBRARY_DIRS})
+pkg_check_modules(Magick++ REQUIRED IMPORTED_TARGET Magick++)
 
 file(GLOB sources *.cpp)
-add_library(${PROJECT_NAME} SHARED ${sources})
-target_link_libraries(${PROJECT_NAME} ${MAGICPP_LIBRARIES})
-target_compile_options(${PROJECT_NAME} PUBLIC ${MAGICPP_CFLAGS})
+
+add_library(${PROJECT_NAME}
+  ${sources} ${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}.hpp)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES
   VERSION ${PROJECT_VERSION}
   SOVERSION ${${PROJECT_NAME}_VERSION_MAJOR})
 
-install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_LIBDIR})
-install(FILES ${CMAKE_PROJECT_NAME}.hpp
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+target_include_directories(${PROJECT_NAME}
+  PUBLIC
+  "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
+  "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
+
+target_link_libraries(${PROJECT_NAME} PUBLIC PkgConfig::Magick++)
+
+install(TARGETS ${PROJECT_NAME}
+  EXPORT "${PROJECT_NAME}Targets"
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
