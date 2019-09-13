@@ -19,9 +19,6 @@ endif()
 
 include(GNUInstallDirs)
 
-include_directories(${PROJECT_SOURCE_DIR}/src)
-include_directories(${PROJECT_BINARY_DIR})
-
 install(FILES README.md DESTINATION ${CMAKE_INSTALL_DOCDIR})
 
 add_subdirectory(src)
