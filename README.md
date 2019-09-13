@@ -76,7 +76,7 @@ key](https://tastytea.de/tastytea_autosign.asc).
 #### Dependencies
 
 * C++ compiler (tested: [gcc](https://gcc.gnu.org/) 6/8/9,
-  [clang](https://llvm.org/) 6)
+  [clang](https://llvm.org/) 7)
 * [cmake](https://cmake.org/) (at least 3.6)
 * [imagemagick](https://www.imagemagick.org/) (tested: 7.0 / 6.7)
 * Optional:
