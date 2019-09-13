@@ -60,7 +60,7 @@ steps:
   - name: debian-package-cache
     path: /var/cache/apt/archives
 
-- name: clang6
+- name: clang7
   image: debian:buster-slim
   pull: always
   environment:
