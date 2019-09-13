@@ -119,7 +119,7 @@ See https://tastytea.de/
 ## License & Copyright
 
 ``` text
-Copyright © 2018 tastytea <tastytea@tastytea.de>.
+Copyright © 2018, 2019 tastytea <tastytea@tastytea.de>.
 License GPLv3: GNU GPL version 3 <https://www.gnu.org/licenses/gpl-3.0.html>.
 This program comes with ABSOLUTELY NO WARRANTY. This is free software,
 and you are welcome to redistribute it under certain conditions.
