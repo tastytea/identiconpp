@@ -28,12 +28,9 @@ add_subdirectory(src)
 
 configure_file("${PROJECT_SOURCE_DIR}/${PROJECT_NAME}.pc.in"
   "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc" @ONLY)
-configure_file("${PROJECT_SOURCE_DIR}/${PROJECT_NAME}_c.pc.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_c.pc" @ONLY)
 
 install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc"
-  "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_c.pc"
   DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
 
 if(WITH_TESTS)
