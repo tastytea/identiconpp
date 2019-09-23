@@ -1,4 +1,4 @@
 include(GNUInstallDirs)
 
-install("identiconpp.hpp"
+install(FILES "identiconpp.hpp"
   DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
