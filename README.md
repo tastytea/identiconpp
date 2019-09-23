@@ -107,10 +107,7 @@ To generate a binary package, execute `make package`
 
 ## Contributing
 
-Contributions are always welcome. You can submit them as pull requests on
-schlomp.space or via email to `tastytea`@`tastytea.de` (ideally using
-`git format-patch` or `git send-email`). Please do not submit them via GitHub,
-it is just a mirror.
+See [CONTRIBUTING.adoc](https://schlomp.space/tastytea/identiconpp/src/branch/master/CONTRIBUTING.adoc)
 
 ## Contact
 
