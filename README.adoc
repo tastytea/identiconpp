@@ -1,45 +1,63 @@
-**identiconpp** is a library to generate identicons for C++.
+= identiconpp
+:toc: preamble
+
+:project: identiconpp
+:uri-base: https://schlomp.space/tastytea/{project}
+:uri-branch-master: {uri-base}/src/branch/master
+:uri-reference-base: https://doc.schlomp.space/{project}
+:uri-images-base: {uri-reference-base}
+:uri-sigil: https://github.com/cupcake/sigil/
+:uri-pydenticon: https://github.com/azaghal/pydenticon/
+:uri-overlay: https://schlomp.space/tastytea/overlay
+:uri-pgpkey: https://tastytea.de/tastytea_autosign.asc
+:uri-gcc: https://gcc.gnu.org/
+:uri-clang: https://clang.llvm.org/
+:uri-cmake: https://cmake.org/
+:uri-imagemagick: https://www.imagemagick.org/
+:uri-asciidoc: http://asciidoc.org/
+:uri-catch: https://github.com/catchorg/Catch2
+
+*identiconpp* is a library to generate identicons for C++.
 
 You get the images as `Magick::Image`. This allows you to make all kinds of
 modifications.
 
-![](https://doc.schlomp.space/identiconpp/identicon1.png
-"4x4 identicon, ltr_symmetric, 20px padding")
-![](https://doc.schlomp.space/identiconpp/identicon2.png
-"5x5 identicon, sigil")
-![](https://doc.schlomp.space/identiconpp/identicon3.png
-"5x5 identicon, ltr_asymmetric")
-![](https://doc.schlomp.space/identiconpp/identicon4.png
-"6x4 identicon, ltr_symmetric, 10px padding")
+.Used algorithms, left to right: 4x4 ltr_symmetric, 20px padding; 5x5 sigil; 5x5 ltr_asymmetric; 6x4 ltr_symmetric, 10px padding
+====
+image:{uri-images-base}/identicon1.png[]
+image:{uri-images-base}/identicon2.png[]
+image:{uri-images-base}/identicon3.png[]
+image:{uri-images-base}/identicon4.png[]
 
-The example images above are generated using [example.cpp]
-(https://schlomp.space/tastytea/identiconpp/src/branch/master/examples/example.cpp).
+The example images above are generated using
+link:{uri-branch-master}/examples/example.cpp[example.cpp].
+====
 
-## Features
+== Features
 
 * [x] Symmetric identicons
 * [x] sigil identicons
 * [x] Asymmetric identicons
 * [x] Padding
 
-## Usage
+== Usage
 
 The HTML reference can be generated with `build_doc.sh`, if doxygen is
-installed. It is also available at [doc.schlomp.space/identiconpp/]
-(https://doc.schlomp.space/identiconpp/classIdenticonpp.html).
+installed. It is also available at
+link:{uri-reference-base}/classIdenticonpp.html[doc.schlomp.space/identiconpp/].
 
 You need to generate hashes yourself, any hexadecimal string will do. Make sure
-to use a safe hashing algorithm for sensitive data (**not MD5**). You can select
+to use a safe hashing algorithm for sensitive data (*not MD5*). You can select
 as many columns and rows as you like, but make sure you have enough entropy.
 If something seems to be wrong, exceptions will be thrown.
 
-The "sigil" algorithm generates the same results as
-[sigil](https://github.com/cupcake/sigil/) and
-[pydenticon](https://github.com/azaghal/pydenticon/).
+The "sigil" algorithm generates the same results as link:{uri-sigil}[sigil] and
+link:{uri-pydenticon}[pydenticon].
 
-### Example
+=== Example
 
-``` c++
+[source,c++]
+----
 // Compile with g++ $(pkg-config --libs --cflags identiconpp)
 #include <iostream>
 #include <identiconpp.hpp>
@@ -55,140 +73,131 @@ int main()
 
     std::cout << identicon.generate_base64("png", "5550", 200) << std::endl;
 }
-```
+----
 
-## Install
+== Install
 
-### Gentoo
+=== Gentoo
 
-Gentoo ebuilds are available via my
-[repository](https://schlomp.space/tastytea/overlay).
+Gentoo ebuilds are available via my link:{uri-overlay}[repository].
 
-### Automatically generated packages
+=== Automatically generated packages
 
 Binary packages are generated automatically for each
-[release](https://schlomp.space/tastytea/identiconpp/releases) in the formats
-`deb` and `rpm`. They are signed with my [automatic signing
-key](https://tastytea.de/tastytea_autosign.asc).
+link:{uri-base}/releases[release] in the formats `deb` and `rpm`. They are
+signed with my link:{uri-pgpkey}[automatic signing key].
 
-### From source
+=== From source
 
-#### Dependencies
+==== Dependencies
 
-* C++ compiler (tested: [gcc](https://gcc.gnu.org/) 6/8/9,
-  [clang](https://llvm.org/) 7)
-* [cmake](https://cmake.org/) (at least 3.6)
-* [imagemagick](https://www.imagemagick.org/) (tested: 7.0 / 6.7)
+* C++ compiler (tested: link:{uri-gcc}[gcc] 6/8/9, link:{uri-clang}[clang] 7)
+* {uri-cmake}[cmake] (at least 3.6)
+* link:{uri-imagemagick}[imagemagick] (tested: 7.0 / 6.7)
 * Optional:
-  * Tests: [Catch](https://github.com/catchorg/Catch2) (tested: 2.3 / 1.2)
+** Manpage: {uri-asciidoc}[asciidoc] (tested: 8.6)
+** Tests: {uri-catch}[catch] (tested: 2.5 / 1.2)
 
 On a Debian system, install the packages:
 `build-essential cmake libmagick++-dev`.
 
-#### Compile
+==== Compile
 
-``` shell
+[source,shell]
+----
 mkdir build
 cd build
 cmake ..
-make
+cmake --build .
 make install
-```
+----
 
-##### cmake options
-
+.cmake options:
 * `-DCMAKE_BUILD_TYPE=Debug` for a debug build
 * `-DWITH_TESTS=YES` to build tests
 * One of:
-    * `-DWITH_DEB=YES` to generate a deb-package
-    * `-DWITH_RPM=YES` to generate an rpm-package
+** `-DWITH_DEB=YES` to generate a deb-package
+** `-DWITH_RPM=YES` to generate an rpm-package
 
-To generate a binary package, execute `make package`
+To generate a binary package, run `make package`.
 
-## Contributing
+include::{uri-base}/raw/branch/master/CONTRIBUTING.adoc[]
 
-See [CONTRIBUTING.adoc](https://schlomp.space/tastytea/identiconpp/src/branch/master/CONTRIBUTING.adoc)
+== License & Copyright
 
-## Contact
-
-See https://tastytea.de/
-
-## License & Copyright
-
-``` text
+----
 Copyright © 2018, 2019 tastytea <tastytea@tastytea.de>.
 License GPLv3: GNU GPL version 3 <https://www.gnu.org/licenses/gpl-3.0.html>.
 This program comes with ABSOLUTELY NO WARRANTY. This is free software,
 and you are welcome to redistribute it under certain conditions.
-```
+----
 
-## Algorithms
+== Algorithms
 
-### ltr_symmetric
+=== ltr_symmetric
 
 * Create image with width=columns, height=rows.
 * Set background color.
 * Select half of the columns, or half of the columns + 1 if uneven.
-  * `columns / 2 + columns % 2`
+** `columns / 2 + columns % 2`
 * Pixels are drawn from left to right, top to bottom.
 * Use bits from digest to determine if a pixel is painted(1) or not(0).
 * Mirror the pixels vertically.
 * Use the following bits to pick the foreground color.
-  * You need `floor(log2(n_colors)) + 1` bits.
+** You need `floor(log2(n_colors)) + 1` bits.
 * Scale image proportionally to requested width.
 
-```PLAIN
+----
  0111 0011 1101 1100 […] 1111 0111 0101 0111
 ^                            ^
 +----------------------------+-------------->
              |                      |
         pixel matrix        foreground color
-```
+----
 
-Implemented in [ltr_symmetric.cpp]
-(https://schlomp.space/tastytea/identiconpp/src/branch/master/src/ltr_symmetric.cpp)
+Implemented in
+link:{uri-branch-master}/src/ltr_symmetric.cpp[ltr_symmetric.cpp].
 
-### ltr_asymmetric
+=== ltr_asymmetric
 
 * Create image with width=columns, height=rows.
 * Set background color.
 * Pixels are drawn from left to right, top to bottom.
 * Use bits from digest to determine if a pixel is painted(1) or not(0).
 * Use the following bits to pick the foreground color.
-  * You need `floor(log2(n_colors)) + 1` bits.
+** You need `floor(log2(n_colors)) + 1` bits.
 * Scale image proportionally to requested width.
 
-```PLAIN
+----
  0111 0011 1101 1100 […] 1111 0111 0101 0111
 ^                            ^
 +----------------------------+-------------->
              |                      |
         pixel matrix        foreground color
-```
+----
 
-Implemented in [ltr_asymmetric.cpp]
-(https://schlomp.space/tastytea/identiconpp/src/branch/master/src/ltr_asymmetric.cpp)
+Implemented in
+link:{uri-branch-master}/src/ltr_asymmetric.cpp[ltr_asymmetric.cpp].
 
-### sigil
+=== sigil
 
 * Create image with width=columns, height=rows.
 * Set background color.
 * Select half of the columns, or half of the columns + 1 if uneven.
-  * `columns / 2 + columns % 2`
+** `columns / 2 + columns % 2`
 * Pixels are drawn from top to bottom, left to right.
 * Use the first 8 bits to pick the foreground color.
 * Use the following bits to determine if a pixel is painted(1) or not(0).
 * Mirror the pixels vertically.
 * Scale image proportionally to requested width.
 
-```PLAIN
+----
  0111 0011 1101 1100
 ^         ^
 +---------+--------->
      |            |
 foreground color  |
              pixel matrix
-```
+----
 
-Implemented in [sigil.cpp]
-(https://schlomp.space/tastytea/identiconpp/src/branch/master/src/sigil.cpp)
+Implemented in link:{uri-branch-master}/src/sigil.cpp[sigil.cpp].

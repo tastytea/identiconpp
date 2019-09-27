@@ -8,7 +8,7 @@ set(CPACK_PACKAGE_DESCRIPTION_SUMMARY
   "Library to generate identicons for C++ and C.")
 set(CPACK_PACKAGE_CONTACT "tastytea <tastytea@tastytea.de>")
 set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE")
-set(CPACK_RESOURCE_FILE_README "${PROJECT_SOURCE_DIR}/README.md")
+set(CPACK_RESOURCE_FILE_README "${PROJECT_SOURCE_DIR}/README.adoc")
 list(APPEND CPACK_SOURCE_IGNORE_FILES "/\\\\.git"
   "/.gitignore"
   "/build/"
@@ -40,7 +40,7 @@ if (WITH_RPM)
   set(CPACK_RPM_PACKAGE_LICENSE "GPL-3")
   set(CPACK_RPM_PACKAGE_URL
     "https://schlomp.space/tastytea/${CMAKE_PROJECT_NAME}")
-  set(CPACK_RPM_PACKAGE_REQUIRES "libMagick++, libxdg-basedir >= 1.2.0")
+  set(CPACK_RPM_PACKAGE_REQUIRES "libMagick++")
   set(CPACK_PACKAGE_FILE_NAME
     "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-0.${CPACK_PACKAGE_ARCHITECTURE}")
 endif()
