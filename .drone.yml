@@ -116,8 +116,8 @@ steps:
   - make package
   - gpg --import /var/autosign_gpg.key
   - gpg --verbose --detach-sign *.deb
-  - cp -v identiconpp_${DRONE_TAG}-0_amd64.deb ..
-  - cp -v identiconpp_${DRONE_TAG}-0_amd64.deb.sig ..
+  - cp -v identiconpp_${DRONE_TAG}-0_amd64_stretch.deb ..
+  - cp -v identiconpp_${DRONE_TAG}-0_amd64_stretch.deb.sig ..
   volumes:
   - name: debian-package-cache
     path: /var/cache/apt/archives
@@ -145,8 +145,8 @@ steps:
   - make package
   - gpg --import /var/autosign_gpg.key
   - gpg --verbose --detach-sign *.rpm
-  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.rpm ..
-  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.rpm.sig ..
+  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm ..
+  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm.sig ..
   volumes:
   - name: centos-package-cache
     path: /var/cache/yum
@@ -163,10 +163,10 @@ steps:
     title: ${DRONE_TAG}
     prerelease: true
     files:
-      - identiconpp_${DRONE_TAG}-0_amd64.deb
-      - identiconpp_${DRONE_TAG}-0_amd64.deb.sig
-      - identiconpp-${DRONE_TAG}-0.x86_64.rpm
-      - identiconpp-${DRONE_TAG}-0.x86_64.rpm.sig
+      - identiconpp_${DRONE_TAG}-0_amd64_stretch.deb
+      - identiconpp_${DRONE_TAG}-0_amd64_stretch.deb.sig
+      - identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm
+      - identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm.sig
     checksum:
       - sha512
 
