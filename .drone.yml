@@ -99,7 +99,7 @@ trigger:
     - tag
 
 steps:
-- name: deb
+- name: Debian stretch
   image: debian:stretch-slim
   pull: always
   environment:
@@ -124,7 +124,32 @@ steps:
   - name: gpg-key
     path: /var/autosign_gpg.key
 
-# - name: rpm
+- name: Debian buster
+  image: debian:buster-slim
+  pull: always
+  environment:
+    CXX: g++-8
+    CXXFLAGS: -pipe -O2
+    LANG: en_US.utf-8
+  commands:
+  - rm /etc/apt/apt.conf.d/docker-clean
+  - alias apt-get='rm -f /var/cache/apt/archives/lock && apt-get'
+  - apt-get update -q
+  - apt-get install -qy build-essential cmake pkg-config libmagick++-dev gnupg dpkg-dev d-shlibs lsb-release
+  - rm -rf build && mkdir -p build && cd build
+  - cmake -DWITH_DEB=YES ..
+  - make package
+  - gpg --import /var/autosign_gpg.key
+  - gpg --verbose --detach-sign *.deb
+  - cp -v identiconpp_${DRONE_TAG}-0_amd64_buster.deb ..
+  - cp -v identiconpp_${DRONE_TAG}-0_amd64_buster.deb.sig ..
+  volumes:
+  - name: debian-package-cache
+    path: /var/cache/apt/archives
+  - name: gpg-key
+    path: /var/autosign_gpg.key
+
+# - name: CentOS 7
 #   image: centos:7
 #   pull: always
 #   environment:
@@ -165,6 +190,8 @@ steps:
     files:
       - identiconpp_${DRONE_TAG}-0_amd64_stretch.deb
       - identiconpp_${DRONE_TAG}-0_amd64_stretch.deb.sig
+      - identiconpp_${DRONE_TAG}-0_amd64_buster.deb
+      - identiconpp_${DRONE_TAG}-0_amd64_buster.deb.sig
       # - identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm
       # - identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm.sig
     checksum:
