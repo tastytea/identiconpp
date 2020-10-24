@@ -124,34 +124,34 @@ steps:
   - name: gpg-key
     path: /var/autosign_gpg.key
 
-- name: rpm
-  image: centos:7
-  pull: always
-  environment:
-    CXX: /opt/rh/devtoolset-6/root/usr/bin/g++
-    CXXFLAGS: -pipe -O2
-    LANG: en_US.utf-8
-  commands:
-  - sed -i 's/keepcache=0/keepcache=1/' /etc/yum.conf
-  - curl -s -o /var/cache/yum/epel-release-latest-7.noarch.rpm http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-  - rpm -i /var/cache/yum/epel-release-latest-7.noarch.rpm
-  - yum install -qy centos-release-scl
-  - yum install -qy devtoolset-6
-  - scl enable devtoolset-6 bash
-  - yum install -qy rpm-build ImageMagick-c++-devel gnupg redhat-lsb-core
-  - yum --enablerepo=epel install -qy cmake3
-  - rm -rf build && mkdir -p build && cd build
-  - cmake3 -DWITH_RPM=YES ..
-  - make package
-  - gpg --import /var/autosign_gpg.key
-  - gpg --verbose --detach-sign *.rpm
-  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm ..
-  - cp -v identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm.sig ..
-  volumes:
-  - name: centos-package-cache
-    path: /var/cache/yum
-  - name: gpg-key
-    path: /var/autosign_gpg.key
+# - name: rpm
+#   image: centos:7
+#   pull: always
+#   environment:
+#     CXX: /opt/rh/devtoolset-6/root/usr/bin/g++
+#     CXXFLAGS: -pipe -O2
+#     LANG: en_US.utf-8
+#   commands:
+#   - sed -i 's/keepcache=0/keepcache=1/' /etc/yum.conf
+#   - curl -s -o /var/cache/yum/epel-release-latest-7.noarch.rpm http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+#   - rpm -i /var/cache/yum/epel-release-latest-7.noarch.rpm
+#   - yum install -qy centos-release-scl
+#   - yum install -qy devtoolset-6
+#   - scl enable devtoolset-6 bash
+#   - yum install -qy rpm-build ImageMagick-c++-devel gnupg redhat-lsb-core
+#   - yum --enablerepo=epel install -qy cmake3
+#   - rm -rf build && mkdir -p build && cd build
+#   - cmake3 -DWITH_RPM=YES ..
+#   - make package
+#   - gpg --import /var/autosign_gpg.key
+#   - gpg --verbose --detach-sign *.rpm
+#   - cp -v identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm ..
+#   - cp -v identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm.sig ..
+#   volumes:
+#   - name: centos-package-cache
+#     path: /var/cache/yum
+#   - name: gpg-key
+#     path: /var/autosign_gpg.key
 
 - name: release
   image: plugins/gitea-release
@@ -165,8 +165,8 @@ steps:
     files:
       - identiconpp_${DRONE_TAG}-0_amd64_stretch.deb
       - identiconpp_${DRONE_TAG}-0_amd64_stretch.deb.sig
-      - identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm
-      - identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm.sig
+      # - identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm
+      # - identiconpp-${DRONE_TAG}-0.x86_64.centos7.rpm.sig
     checksum:
       - sha512
 
