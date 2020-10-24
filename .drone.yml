@@ -110,7 +110,7 @@ steps:
   - rm /etc/apt/apt.conf.d/docker-clean
   - alias apt-get='rm -f /var/cache/apt/archives/lock && apt-get'
   - apt-get update -q
-  - apt-get install -qy g++-6 cmake pkg-config libmagick++-dev gnupg
+  - apt-get install -qy g++-6 cmake pkg-config libmagick++-dev gnupg dpkg-dev d-shlibs lsb-release
   - rm -rf build && mkdir -p build && cd build
   - cmake -DWITH_DEB=YES ..
   - make package
@@ -138,7 +138,7 @@ steps:
   - yum install -qy centos-release-scl
   - yum install -qy devtoolset-6
   - scl enable devtoolset-6 bash
-  - yum install -qy rpm-build ImageMagick-c++-devel gnupg
+  - yum install -qy rpm-build ImageMagick-c++-devel gnupg redhat-lsb-core
   - yum --enablerepo=epel install -qy cmake3
   - rm -rf build && mkdir -p build && cd build
   - cmake3 -DWITH_RPM=YES ..
