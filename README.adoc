@@ -84,7 +84,7 @@ Gentoo ebuilds are available via my link:{uri-overlay}[repository].
 === Automatically generated packages
 
 Binary packages are generated automatically for each
-link:{uri-base}/releases[release] in the formats `deb` and `rpm`. They are
+link:{uri-base}/releases[release] for Debian stretch and CentOS 7. They are
 signed with my link:{uri-pgpkey}[automatic signing key].
 
 === From source
