@@ -123,15 +123,6 @@ To generate a binary package, run `make package`.
 
 include::{uri-base}/raw/branch/master/CONTRIBUTING.adoc[]
 
-== License & Copyright
-
-----
-Copyright © 2018, 2019 tastytea <tastytea@tastytea.de>.
-License GPLv3: GNU GPL version 3 <https://www.gnu.org/licenses/gpl-3.0.html>.
-This program comes with ABSOLUTELY NO WARRANTY. This is free software,
-and you are welcome to redistribute it under certain conditions.
-----
-
 == Algorithms
 
 === ltr_symmetric
